@@ -1,0 +1,20 @@
+C:\Users\John\source\repos\Power Status\Power Status\obj\Debug\Power Status.csprojAssemblyReference.cache
+C:\Users\John\source\repos\Power Status\Power Status\obj\Debug\Power_Status.Form1.resources
+C:\Users\John\source\repos\Power Status\Power Status\obj\Debug\Power_Status.Properties.Resources.resources
+C:\Users\John\source\repos\Power Status\Power Status\obj\Debug\Power Status.csproj.GenerateResource.cache
+C:\Users\John\source\repos\Power Status\Power Status\obj\Debug\Power Status.csproj.CoreCompileInputs.cache
+C:\Users\John\source\repos\Power Status\Power Status\bin\Debug\Power Status.exe.config
+C:\Users\John\source\repos\Power Status\Power Status\bin\Debug\Power Status.exe
+C:\Users\John\source\repos\Power Status\Power Status\bin\Debug\Power Status.pdb
+C:\Users\John\source\repos\Power Status\Power Status\obj\Debug\Power Status.exe
+C:\Users\John\source\repos\Power Status\Power Status\obj\Debug\Power Status.pdb
+D:\Visual Studio\Power Status\Power Status\bin\Debug\Power Status.exe.config
+D:\Visual Studio\Power Status\Power Status\bin\Debug\Power Status.exe
+D:\Visual Studio\Power Status\Power Status\bin\Debug\Power Status.pdb
+D:\Visual Studio\Power Status\Power Status\obj\Debug\Power Status.csprojAssemblyReference.cache
+D:\Visual Studio\Power Status\Power Status\obj\Debug\Power_Status.Form1.resources
+D:\Visual Studio\Power Status\Power Status\obj\Debug\Power_Status.Properties.Resources.resources
+D:\Visual Studio\Power Status\Power Status\obj\Debug\Power Status.csproj.GenerateResource.cache
+D:\Visual Studio\Power Status\Power Status\obj\Debug\Power Status.csproj.CoreCompileInputs.cache
+D:\Visual Studio\Power Status\Power Status\obj\Debug\Power Status.exe
+D:\Visual Studio\Power Status\Power Status\obj\Debug\Power Status.pdb
