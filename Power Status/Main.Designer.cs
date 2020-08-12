@@ -41,7 +41,7 @@
             // 
             // BatteryIndicator
             // 
-            this.BatteryIndicator.Location = new System.Drawing.Point(49, 72);
+            this.BatteryIndicator.Location = new System.Drawing.Point(48, 70);
             this.BatteryIndicator.Name = "BatteryIndicator";
             this.BatteryIndicator.Size = new System.Drawing.Size(355, 30);
             this.BatteryIndicator.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
@@ -51,7 +51,7 @@
             // 
             this.BatteryLife.AutoSize = true;
             this.BatteryLife.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BatteryLife.Location = new System.Drawing.Point(46, 115);
+            this.BatteryLife.Location = new System.Drawing.Point(45, 113);
             this.BatteryLife.Name = "BatteryLife";
             this.BatteryLife.Size = new System.Drawing.Size(163, 17);
             this.BatteryLife.TabIndex = 4;
@@ -61,7 +61,7 @@
             // 
             this.BatteryTime.AutoSize = true;
             this.BatteryTime.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BatteryTime.Location = new System.Drawing.Point(46, 140);
+            this.BatteryTime.Location = new System.Drawing.Point(45, 138);
             this.BatteryTime.Name = "BatteryTime";
             this.BatteryTime.Size = new System.Drawing.Size(151, 17);
             this.BatteryTime.TabIndex = 5;
@@ -76,7 +76,7 @@
             // 
             this.PowerStatus.AutoSize = true;
             this.PowerStatus.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PowerStatus.Location = new System.Drawing.Point(46, 46);
+            this.PowerStatus.Location = new System.Drawing.Point(45, 44);
             this.PowerStatus.Name = "PowerStatus";
             this.PowerStatus.Size = new System.Drawing.Size(73, 17);
             this.PowerStatus.TabIndex = 6;
@@ -87,7 +87,7 @@
             this.Warning.AutoSize = true;
             this.Warning.Font = new System.Drawing.Font("Palatino Linotype", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Warning.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(107)))), ((int)(((byte)(34)))));
-            this.Warning.Location = new System.Drawing.Point(7, 36);
+            this.Warning.Location = new System.Drawing.Point(7, 33);
             this.Warning.Name = "Warning";
             this.Warning.Size = new System.Drawing.Size(440, 27);
             this.Warning.TabIndex = 7;

@@ -17,3 +17,4 @@ D:\Visual Studio\Power Status\Power Status\obj\Debug\Power Status.csproj.CoreCom
 D:\Visual Studio\Power Status\Power Status\obj\Debug\Power Status.exe
 D:\Visual Studio\Power Status\Power Status\obj\Debug\Power Status.pdb
 D:\Visual Studio\Power Status\Power Status\obj\Debug\Power_Status.Main.resources
+D:\Visual Studio\Power Status\Power Status\obj\Debug\Power Status.csprojAssemblyReference.cache

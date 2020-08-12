@@ -20,7 +20,7 @@ namespace Power_Status {
 
     public partial class Main : Form {
         PowerStatus power = SystemInformation.PowerStatus;
-        int percentNumber;
+        int percentNumber, timeLeft;
         int mov;
         int movX;
         int movY;
@@ -41,11 +41,15 @@ namespace Power_Status {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 18, 18));
+            BatteryIndicator.ForeColor = Color.FromArgb(255, 0, 0);
+            BatteryIndicator.BackColor = Color.FromArgb(150, 0, 0);
         }
 
         private void Form1_Load(object sender, EventArgs e) {
             RefreshStatus();
             RefreshTimer.Enabled = true;
+            ForLow.Enabled = true;
+            ForHigh.Enabled = true;
         }
 
         private void RefreshTimer_Tick(object sender, EventArgs e) {
@@ -98,15 +102,50 @@ namespace Power_Status {
         private void RefreshStatus() {
             BatteryState();
             VisualBatteryHealth();
+            HighMedLow();
 
             //Battery Percent
-            BatteryLife.Text = "Charge Remaining:   " + power.BatteryLifePercent.ToString("P0");
+            if (percentNumber == 100) {
+                BatteryLife.Text = "Full Charged:   " + power.BatteryLifePercent.ToString("P0");
+            }
 
-            ChargedState();
+            else {
+                BatteryLife.Text = "Charge Remaining:   " + power.BatteryLifePercent.ToString("P0");
+            }
 
-            //Percent Number
-            percentNumber = (int)(power.BatteryLifePercent * 100);
-            BatteryTime.Text = percentNumber.ToString();
+
+            //Battery Life
+            timeLeft = power.BatteryLifeRemaining;
+            if (timeLeft > 0) {
+                BatteryTime.Text = string.Format("{0} remaining", Time(timeLeft));
+            }
+
+            else {
+                BatteryTime.Text = "Wait while still charging...";
+            }
+        }
+
+        private string Time(int seconds) {
+            const int secondsPerMinute = 60;
+            const int secondsPerHour = 3600;
+
+            if (seconds < 0) {
+                return "indeterminate";
+            }
+
+            else {
+                int hours = seconds / secondsPerHour;
+                seconds -= hours * secondsPerHour;
+                int minutes = seconds / secondsPerMinute;
+                seconds -= minutes * secondsPerHour;
+
+                if (hours == 0) {
+                    return string.Format("{0} minutes", minutes);
+                }
+                else {
+                    return string.Format("{0} hours {1} minutes", hours, minutes);
+                }
+            }
         }
 
         private void BatteryState() {
@@ -129,35 +168,27 @@ namespace Power_Status {
             }
         }
 
-        private void ChargedState() {
+        //Change Color According to State
+        private void HighMedLow() {
             try {
                 //Low Power State
-                if (percentNumber <= 25 && power.PowerLineStatus == PowerLineStatus.Offline) {
-                    ShowMain();
-                    Warning.Visible = true;
+                if (percentNumber <= 25) {
                     ////////////////
                     //Add sound here
                     ////////////////
                 }
 
-                //98% state
-                else if (percentNumber >= 98 && power.PowerLineStatus == PowerLineStatus.Online) {
-                    ShowMain();
+                //High Power State
+                else if (percentNumber >= 80) {
                     ////////////////
                     //Add sound here
-                    ////////////////
+                    ////////////////          
                 }
 
-                //100% State
-                else if (percentNumber == 100) {
-                    BatteryLife.Text = "Full Charged:   " + power.BatteryLifePercent.ToString("P0");
-                }
-
+                //Med State
                 else {
-                    //BatteryIndicator.SetState(1); //Green
-                    //BatteryIndicator.SetState(2); //Red
-                    //BatteryIndicator.SetState(3); //Yellow
-
+                    //BatteryIndicator.ForeColor = Color.FromArgb(0, 0, 192);
+                    BatteryIndicator.ForeColor = Color.Red;
                 }
             }
 
@@ -170,6 +201,8 @@ namespace Power_Status {
         private void CheckpercentNumberLow() {
             try {
                 if (percentNumber <= 25 && power.PowerLineStatus == PowerLineStatus.Offline) {
+                    ShowMain();
+                    Warning.BringToFront();
                     Warning.Visible = true;
                     ForLow.Stop();
                     ForHigh.Start();
@@ -187,7 +220,10 @@ namespace Power_Status {
 
         private void CheckpercentNumberFull() {
             try {
-                if (percentNumber >= 92 && power.PowerLineStatus == PowerLineStatus.Online) {
+                if (percentNumber >= 76 && power.PowerLineStatus == PowerLineStatus.Online) {
+                    ShowMain();
+                    Warning.SendToBack();
+                    Warning.Visible = false;
                     ForHigh.Stop();
                     ForLow.Start();
                     ////////////////
@@ -217,37 +253,6 @@ namespace Power_Status {
 //percentNumber = (int)(power.BatteryLifePercent * 100);
 
 
-
-//Implement this, change code above, and add 2 timers, pag base ra sa github
-/*         private void CheckpercentNumberLow() {
-            try {
-                if (percentNumber <= 25 && power.PowerLineStatus == PowerLineStatus.Offline) {
-                    ShowMain();
-                    Warning.Visible = true;
-                    ////////////////
-                    //Add sound here
-                    ////////////////
-                }
-            }
-
-            catch (Exception ex) {
-                MessageBox.Show(ex.Message);
-                Application.Exit();
-            }
-        }
-
-        private void CheckpercentNumberFull() {
-            try {
-                if (percentNumber >= 98 && power.PowerLineStatus == PowerLineStatus.Online) {
-                    ShowMain();
-                    ////////////////
-                    //Add sound here
-                    ////////////////
-                }
-            }
-
-            catch (Exception ex) {
-                MessageBox.Show(ex.Message);
-                Application.Exit();
-            }
-        }*/
+//Percent Number
+//percentNumber = (int)(power.BatteryLifePercent * 100);
+//BatteryTime.Text = percentNumber.ToString();
