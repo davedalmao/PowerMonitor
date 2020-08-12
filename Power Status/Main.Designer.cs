@@ -25,27 +25,25 @@
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            this.BatteryIndicator = new System.Windows.Forms.ProgressBar();
             this.BatteryLife = new System.Windows.Forms.Label();
             this.BatteryTime = new System.Windows.Forms.Label();
             this.RefreshTimer = new System.Windows.Forms.Timer(this.components);
             this.PowerStatus = new System.Windows.Forms.Label();
             this.Warning = new System.Windows.Forms.Label();
-            this.CloseIcon = new System.Windows.Forms.PictureBox();
             this.MinimizeIcon = new System.Windows.Forms.PictureBox();
+            this.InfoIcon = new System.Windows.Forms.PictureBox();
             this.ForLow = new System.Windows.Forms.Timer(this.components);
             this.ForHigh = new System.Windows.Forms.Timer(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.CloseIcon)).BeginInit();
+            this.test = new System.Windows.Forms.Label();
+            this.InfoPanel = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.AppName = new System.Windows.Forms.Label();
+            this.BatteryIndicator = new Power_Status.CustomProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.MinimizeIcon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.InfoIcon)).BeginInit();
+            this.InfoPanel.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // BatteryIndicator
-            // 
-            this.BatteryIndicator.Location = new System.Drawing.Point(48, 70);
-            this.BatteryIndicator.Name = "BatteryIndicator";
-            this.BatteryIndicator.Size = new System.Drawing.Size(355, 30);
-            this.BatteryIndicator.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
-            this.BatteryIndicator.TabIndex = 3;
             // 
             // BatteryLife
             // 
@@ -94,28 +92,29 @@
             this.Warning.Text = "BATTERY LOW, PLUG IN YOUR CHARGER!";
             this.Warning.Visible = false;
             // 
-            // CloseIcon
-            // 
-            this.CloseIcon.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CloseIcon.Image = global::Power_Status.Properties.Resources.Minus_UI;
-            this.CloseIcon.Location = new System.Drawing.Point(406, 9);
-            this.CloseIcon.Name = "CloseIcon";
-            this.CloseIcon.Size = new System.Drawing.Size(20, 19);
-            this.CloseIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.CloseIcon.TabIndex = 10;
-            this.CloseIcon.TabStop = false;
-            this.CloseIcon.Click += new System.EventHandler(this.CloseIcon_Click);
-            // 
             // MinimizeIcon
             // 
             this.MinimizeIcon.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MinimizeIcon.Image = ((System.Drawing.Image)(resources.GetObject("MinimizeIcon.Image")));
-            this.MinimizeIcon.Location = new System.Drawing.Point(380, 9);
+            this.MinimizeIcon.Image = global::Power_Status.Properties.Resources.Minus_UI;
+            this.MinimizeIcon.Location = new System.Drawing.Point(406, 9);
             this.MinimizeIcon.Name = "MinimizeIcon";
             this.MinimizeIcon.Size = new System.Drawing.Size(20, 19);
             this.MinimizeIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.MinimizeIcon.TabIndex = 9;
+            this.MinimizeIcon.TabIndex = 10;
             this.MinimizeIcon.TabStop = false;
+            this.MinimizeIcon.Click += new System.EventHandler(this.CloseIcon_Click);
+            // 
+            // InfoIcon
+            // 
+            this.InfoIcon.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.InfoIcon.Image = ((System.Drawing.Image)(resources.GetObject("InfoIcon.Image")));
+            this.InfoIcon.Location = new System.Drawing.Point(380, 9);
+            this.InfoIcon.Name = "InfoIcon";
+            this.InfoIcon.Size = new System.Drawing.Size(20, 19);
+            this.InfoIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.InfoIcon.TabIndex = 9;
+            this.InfoIcon.TabStop = false;
+            this.InfoIcon.Click += new System.EventHandler(this.InfoIcon_Click);
             // 
             // ForLow
             // 
@@ -127,14 +126,76 @@
             this.ForHigh.Interval = 1000;
             this.ForHigh.Tick += new System.EventHandler(this.ForHigh_Tick);
             // 
+            // test
+            // 
+            this.test.AutoSize = true;
+            this.test.Font = new System.Drawing.Font("Rockwell", 11.25F);
+            this.test.Location = new System.Drawing.Point(361, 138);
+            this.test.Name = "test";
+            this.test.Size = new System.Drawing.Size(42, 17);
+            this.test.TabIndex = 11;
+            this.test.Text = "state";
+            // 
+            // InfoPanel
+            // 
+            this.InfoPanel.Controls.Add(this.label3);
+            this.InfoPanel.Controls.Add(this.label2);
+            this.InfoPanel.Controls.Add(this.AppName);
+            this.InfoPanel.Location = new System.Drawing.Point(8, 30);
+            this.InfoPanel.Name = "InfoPanel";
+            this.InfoPanel.Size = new System.Drawing.Size(439, 133);
+            this.InfoPanel.TabIndex = 12;
+            this.InfoPanel.Visible = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Rockwell", 11.25F);
+            this.label3.Location = new System.Drawing.Point(94, 83);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(102, 17);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "08 / 12 / 2020";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Rockwell", 11.25F);
+            this.label2.Location = new System.Drawing.Point(94, 53);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(221, 17);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Developer: John Dave Dalmao";
+            // 
+            // AppName
+            // 
+            this.AppName.AutoSize = true;
+            this.AppName.Font = new System.Drawing.Font("Cooper Black", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AppName.ForeColor = System.Drawing.Color.CadetBlue;
+            this.AppName.Location = new System.Drawing.Point(93, 10);
+            this.AppName.Name = "AppName";
+            this.AppName.Size = new System.Drawing.Size(256, 23);
+            this.AppName.TabIndex = 0;
+            this.AppName.Text = "P O W E R  M O N I T O R";
+            // 
+            // BatteryIndicator
+            // 
+            this.BatteryIndicator.Location = new System.Drawing.Point(48, 70);
+            this.BatteryIndicator.Name = "BatteryIndicator";
+            this.BatteryIndicator.Size = new System.Drawing.Size(355, 30);
+            this.BatteryIndicator.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.BatteryIndicator.TabIndex = 13;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(35)))), ((int)(((byte)(61)))));
             this.ClientSize = new System.Drawing.Size(455, 175);
-            this.Controls.Add(this.CloseIcon);
+            this.Controls.Add(this.InfoPanel);
+            this.Controls.Add(this.test);
             this.Controls.Add(this.MinimizeIcon);
+            this.Controls.Add(this.InfoIcon);
             this.Controls.Add(this.Warning);
             this.Controls.Add(this.PowerStatus);
             this.Controls.Add(this.BatteryTime);
@@ -152,24 +213,31 @@
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Main_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Main_MouseUp);
             this.Resize += new System.EventHandler(this.Main_Resize);
-            ((System.ComponentModel.ISupportInitialize)(this.CloseIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MinimizeIcon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.InfoIcon)).EndInit();
+            this.InfoPanel.ResumeLayout(false);
+            this.InfoPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.ProgressBar BatteryIndicator;
         private System.Windows.Forms.Label BatteryLife;
         private System.Windows.Forms.Label BatteryTime;
         private System.Windows.Forms.Timer RefreshTimer;
         private System.Windows.Forms.Label PowerStatus;
         private System.Windows.Forms.Label Warning;
+        private System.Windows.Forms.PictureBox InfoIcon;
         private System.Windows.Forms.PictureBox MinimizeIcon;
-        private System.Windows.Forms.PictureBox CloseIcon;
         private System.Windows.Forms.Timer ForLow;
         private System.Windows.Forms.Timer ForHigh;
+        private System.Windows.Forms.Label test;
+        private System.Windows.Forms.Panel InfoPanel;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label AppName;
+        private CustomProgressBar BatteryIndicator;
     }
 }
 

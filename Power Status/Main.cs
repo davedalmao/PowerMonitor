@@ -21,6 +21,8 @@ namespace Power_Status {
     public partial class Main : Form {
         PowerStatus power = SystemInformation.PowerStatus;
         int percentNumber, timeLeft;
+        int low = 25;
+        int high = 98;
         int mov;
         int movX;
         int movY;
@@ -41,8 +43,10 @@ namespace Power_Status {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 18, 18));
-            BatteryIndicator.ForeColor = Color.FromArgb(255, 0, 0);
-            BatteryIndicator.BackColor = Color.FromArgb(150, 0, 0);
+
+            BatteryIndicator.ForeColor = Color.FromArgb(120, 0, 0);
+            BatteryIndicator.BackColor = Color.FromArgb(172, 0, 0);
+
         }
 
         private void Form1_Load(object sender, EventArgs e) {
@@ -176,6 +180,7 @@ namespace Power_Status {
                     ////////////////
                     //Add sound here
                     ////////////////
+                    test.Text = "Low";
                 }
 
                 //High Power State
@@ -183,12 +188,14 @@ namespace Power_Status {
                     ////////////////
                     //Add sound here
                     ////////////////          
+                    test.Text = "High";
                 }
 
                 //Med State
                 else {
                     //BatteryIndicator.ForeColor = Color.FromArgb(0, 0, 192);
                     BatteryIndicator.ForeColor = Color.Red;
+                    test.Text = "Med";
                 }
             }
 
@@ -200,7 +207,7 @@ namespace Power_Status {
 
         private void CheckpercentNumberLow() {
             try {
-                if (percentNumber <= 25 && power.PowerLineStatus == PowerLineStatus.Offline) {
+                if (percentNumber <= low && power.PowerLineStatus == PowerLineStatus.Offline) {
                     ShowMain();
                     Warning.BringToFront();
                     Warning.Visible = true;
@@ -220,7 +227,7 @@ namespace Power_Status {
 
         private void CheckpercentNumberFull() {
             try {
-                if (percentNumber >= 76 && power.PowerLineStatus == PowerLineStatus.Online) {
+                if (percentNumber >= high && power.PowerLineStatus == PowerLineStatus.Online) {
                     ShowMain();
                     Warning.SendToBack();
                     Warning.Visible = false;
@@ -242,16 +249,26 @@ namespace Power_Status {
             this.Show();
             this.WindowState = FormWindowState.Normal;
         }
+
+        ////////////////////////INFO///////////////////////
+        private void InfoIcon_Click(object sender, EventArgs e) {
+            if (InfoPanel.Visible == true) {
+                InfoPanel.Visible = false;
+            }
+
+            else {
+                InfoPanel.Visible = true;
+            }
+        }
+        ///////////////////////////////////////////////////
     }
 }
 
 //ADD
 //modify time interval update in the ui
 
-
 //Check Battery Percentage
 //percentNumber = (int)(power.BatteryLifePercent * 100);
-
 
 //Percent Number
 //percentNumber = (int)(power.BatteryLifePercent * 100);
