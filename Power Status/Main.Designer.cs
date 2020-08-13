@@ -34,22 +34,35 @@
             this.InfoIcon = new System.Windows.Forms.PictureBox();
             this.ForLow = new System.Windows.Forms.Timer(this.components);
             this.ForHigh = new System.Windows.Forms.Timer(this.components);
-            this.test = new System.Windows.Forms.Label();
+            this.BatteryHealth = new System.Windows.Forms.Label();
             this.InfoPanel = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.AppName = new System.Windows.Forms.Label();
+            this.SettingsPanel = new System.Windows.Forms.Panel();
+            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.SettingsIcon = new System.Windows.Forms.PictureBox();
             this.BatteryIndicator = new Power_Status.CustomProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.MinimizeIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.InfoIcon)).BeginInit();
             this.InfoPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.SettingsPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SettingsIcon)).BeginInit();
             this.SuspendLayout();
             // 
             // BatteryLife
             // 
             this.BatteryLife.AutoSize = true;
             this.BatteryLife.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BatteryLife.Location = new System.Drawing.Point(45, 113);
+            this.BatteryLife.Location = new System.Drawing.Point(46, 111);
             this.BatteryLife.Name = "BatteryLife";
             this.BatteryLife.Size = new System.Drawing.Size(163, 17);
             this.BatteryLife.TabIndex = 4;
@@ -59,7 +72,7 @@
             // 
             this.BatteryTime.AutoSize = true;
             this.BatteryTime.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BatteryTime.Location = new System.Drawing.Point(45, 138);
+            this.BatteryTime.Location = new System.Drawing.Point(46, 136);
             this.BatteryTime.Name = "BatteryTime";
             this.BatteryTime.Size = new System.Drawing.Size(151, 17);
             this.BatteryTime.TabIndex = 5;
@@ -74,7 +87,7 @@
             // 
             this.PowerStatus.AutoSize = true;
             this.PowerStatus.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PowerStatus.Location = new System.Drawing.Point(45, 44);
+            this.PowerStatus.Location = new System.Drawing.Point(46, 42);
             this.PowerStatus.Name = "PowerStatus";
             this.PowerStatus.Size = new System.Drawing.Size(73, 17);
             this.PowerStatus.TabIndex = 6;
@@ -85,7 +98,7 @@
             this.Warning.AutoSize = true;
             this.Warning.Font = new System.Drawing.Font("Palatino Linotype", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Warning.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(107)))), ((int)(((byte)(34)))));
-            this.Warning.Location = new System.Drawing.Point(7, 33);
+            this.Warning.Location = new System.Drawing.Point(7, 35);
             this.Warning.Name = "Warning";
             this.Warning.Size = new System.Drawing.Size(440, 27);
             this.Warning.TabIndex = 7;
@@ -96,19 +109,19 @@
             // 
             this.MinimizeIcon.Cursor = System.Windows.Forms.Cursors.Hand;
             this.MinimizeIcon.Image = global::Power_Status.Properties.Resources.Minus_UI;
-            this.MinimizeIcon.Location = new System.Drawing.Point(406, 9);
+            this.MinimizeIcon.Location = new System.Drawing.Point(384, 14);
             this.MinimizeIcon.Name = "MinimizeIcon";
             this.MinimizeIcon.Size = new System.Drawing.Size(20, 19);
             this.MinimizeIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.MinimizeIcon.TabIndex = 10;
             this.MinimizeIcon.TabStop = false;
-            this.MinimizeIcon.Click += new System.EventHandler(this.CloseIcon_Click);
+            this.MinimizeIcon.Click += new System.EventHandler(this.MinimizeIcon_Click);
             // 
             // InfoIcon
             // 
             this.InfoIcon.Cursor = System.Windows.Forms.Cursors.Hand;
             this.InfoIcon.Image = ((System.Drawing.Image)(resources.GetObject("InfoIcon.Image")));
-            this.InfoIcon.Location = new System.Drawing.Point(380, 9);
+            this.InfoIcon.Location = new System.Drawing.Point(332, 14);
             this.InfoIcon.Name = "InfoIcon";
             this.InfoIcon.Size = new System.Drawing.Size(20, 19);
             this.InfoIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -126,32 +139,43 @@
             this.ForHigh.Interval = 1000;
             this.ForHigh.Tick += new System.EventHandler(this.ForHigh_Tick);
             // 
-            // test
+            // BatteryHealth
             // 
-            this.test.AutoSize = true;
-            this.test.Font = new System.Drawing.Font("Rockwell", 11.25F);
-            this.test.Location = new System.Drawing.Point(361, 138);
-            this.test.Name = "test";
-            this.test.Size = new System.Drawing.Size(42, 17);
-            this.test.TabIndex = 11;
-            this.test.Text = "state";
+            this.BatteryHealth.AutoSize = true;
+            this.BatteryHealth.Font = new System.Drawing.Font("Rockwell", 11.25F);
+            this.BatteryHealth.Location = new System.Drawing.Point(362, 136);
+            this.BatteryHealth.Name = "BatteryHealth";
+            this.BatteryHealth.Size = new System.Drawing.Size(42, 17);
+            this.BatteryHealth.TabIndex = 11;
+            this.BatteryHealth.Text = "state";
             // 
             // InfoPanel
             // 
+            this.InfoPanel.Controls.Add(this.pictureBox1);
             this.InfoPanel.Controls.Add(this.label3);
             this.InfoPanel.Controls.Add(this.label2);
             this.InfoPanel.Controls.Add(this.AppName);
-            this.InfoPanel.Location = new System.Drawing.Point(8, 30);
+            this.InfoPanel.Location = new System.Drawing.Point(12, 68);
             this.InfoPanel.Name = "InfoPanel";
-            this.InfoPanel.Size = new System.Drawing.Size(439, 133);
+            this.InfoPanel.Size = new System.Drawing.Size(30, 30);
             this.InfoPanel.TabIndex = 12;
             this.InfoPanel.Visible = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Power_Status.Properties.Resources.Battery_blue;
+            this.pictureBox1.Location = new System.Drawing.Point(315, 60);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(31, 43);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Rockwell", 11.25F);
-            this.label3.Location = new System.Drawing.Point(94, 83);
+            this.label3.Location = new System.Drawing.Point(86, 86);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(102, 17);
             this.label3.TabIndex = 2;
@@ -161,26 +185,126 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Rockwell", 11.25F);
-            this.label2.Location = new System.Drawing.Point(94, 53);
+            this.label2.Location = new System.Drawing.Point(86, 56);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(221, 17);
+            this.label2.Size = new System.Drawing.Size(225, 17);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Developer: John Dave Dalmao";
+            this.label2.Text = "Developer:  John Dave Dalmao";
             // 
             // AppName
             // 
             this.AppName.AutoSize = true;
             this.AppName.Font = new System.Drawing.Font("Cooper Black", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AppName.ForeColor = System.Drawing.Color.CadetBlue;
-            this.AppName.Location = new System.Drawing.Point(93, 10);
+            this.AppName.Location = new System.Drawing.Point(85, 13);
             this.AppName.Name = "AppName";
-            this.AppName.Size = new System.Drawing.Size(256, 23);
+            this.AppName.Size = new System.Drawing.Size(261, 23);
             this.AppName.TabIndex = 0;
-            this.AppName.Text = "P O W E R  M O N I T O R";
+            this.AppName.Text = "P O W E R   M O N I T O R";
+            // 
+            // SettingsPanel
+            // 
+            this.SettingsPanel.Controls.Add(this.numericUpDown2);
+            this.SettingsPanel.Controls.Add(this.numericUpDown1);
+            this.SettingsPanel.Controls.Add(this.label1);
+            this.SettingsPanel.Controls.Add(this.label4);
+            this.SettingsPanel.Controls.Add(this.label5);
+            this.SettingsPanel.Location = new System.Drawing.Point(8, 38);
+            this.SettingsPanel.Name = "SettingsPanel";
+            this.SettingsPanel.Size = new System.Drawing.Size(439, 124);
+            this.SettingsPanel.TabIndex = 13;
+            this.SettingsPanel.Visible = false;
+            // 
+            // numericUpDown2
+            // 
+            this.numericUpDown2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(35)))), ((int)(((byte)(61)))));
+            this.numericUpDown2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.numericUpDown2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.numericUpDown2.Font = new System.Drawing.Font("Rockwell", 11.25F);
+            this.numericUpDown2.ForeColor = System.Drawing.Color.NavajoWhite;
+            this.numericUpDown2.Location = new System.Drawing.Point(275, 82);
+            this.numericUpDown2.Minimum = new decimal(new int[] {
+            80,
+            0,
+            0,
+            0});
+            this.numericUpDown2.Name = "numericUpDown2";
+            this.numericUpDown2.Size = new System.Drawing.Size(49, 25);
+            this.numericUpDown2.TabIndex = 5;
+            this.numericUpDown2.Value = new decimal(new int[] {
+            80,
+            0,
+            0,
+            0});
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(35)))), ((int)(((byte)(61)))));
+            this.numericUpDown1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.numericUpDown1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.numericUpDown1.Font = new System.Drawing.Font("Rockwell", 11.25F);
+            this.numericUpDown1.ForeColor = System.Drawing.Color.NavajoWhite;
+            this.numericUpDown1.Location = new System.Drawing.Point(275, 52);
+            this.numericUpDown1.Minimum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(49, 25);
+            this.numericUpDown1.TabIndex = 4;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Rockwell", 11.25F);
+            this.label1.Location = new System.Drawing.Point(105, 84);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(139, 17);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "High Battery Alert:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Rockwell", 11.25F);
+            this.label4.Location = new System.Drawing.Point(105, 54);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(164, 17);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Low Battery Warning: ";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Cooper Black", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.CadetBlue;
+            this.label5.Location = new System.Drawing.Point(139, 9);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(154, 23);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "S E T T I N G S";
+            // 
+            // SettingsIcon
+            // 
+            this.SettingsIcon.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SettingsIcon.Image = global::Power_Status.Properties.Resources.Gear_UI;
+            this.SettingsIcon.Location = new System.Drawing.Point(358, 14);
+            this.SettingsIcon.Name = "SettingsIcon";
+            this.SettingsIcon.Size = new System.Drawing.Size(20, 20);
+            this.SettingsIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.SettingsIcon.TabIndex = 14;
+            this.SettingsIcon.TabStop = false;
+            this.SettingsIcon.Click += new System.EventHandler(this.SettingsIcon_Click);
             // 
             // BatteryIndicator
             // 
-            this.BatteryIndicator.Location = new System.Drawing.Point(48, 70);
+            this.BatteryIndicator.Location = new System.Drawing.Point(49, 68);
             this.BatteryIndicator.Name = "BatteryIndicator";
             this.BatteryIndicator.Size = new System.Drawing.Size(355, 30);
             this.BatteryIndicator.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
@@ -192,8 +316,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(35)))), ((int)(((byte)(61)))));
             this.ClientSize = new System.Drawing.Size(455, 175);
+            this.Controls.Add(this.SettingsIcon);
+            this.Controls.Add(this.SettingsPanel);
             this.Controls.Add(this.InfoPanel);
-            this.Controls.Add(this.test);
+            this.Controls.Add(this.BatteryHealth);
             this.Controls.Add(this.MinimizeIcon);
             this.Controls.Add(this.InfoIcon);
             this.Controls.Add(this.Warning);
@@ -207,7 +333,7 @@
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.Main_Load);
             this.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.Main_MouseDoubleClick);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Main_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Main_MouseMove);
@@ -217,6 +343,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.InfoIcon)).EndInit();
             this.InfoPanel.ResumeLayout(false);
             this.InfoPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.SettingsPanel.ResumeLayout(false);
+            this.SettingsPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SettingsIcon)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -232,12 +364,20 @@
         private System.Windows.Forms.PictureBox MinimizeIcon;
         private System.Windows.Forms.Timer ForLow;
         private System.Windows.Forms.Timer ForHigh;
-        private System.Windows.Forms.Label test;
+        private System.Windows.Forms.Label BatteryHealth;
         private System.Windows.Forms.Panel InfoPanel;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label AppName;
         private CustomProgressBar BatteryIndicator;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel SettingsPanel;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.PictureBox SettingsIcon;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown numericUpDown2;
     }
 }
 

@@ -108,5 +108,11 @@
   <ItemGroup>
     <None Include="Resources\Minus-UI.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Spanner-UI.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Gear-UI.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

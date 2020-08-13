@@ -73,6 +73,16 @@ namespace Power_Status.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Gear_UI {
+            get {
+                object obj = ResourceManager.GetObject("Gear-UI", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Info_UI {
             get {
                 object obj = ResourceManager.GetObject("Info-UI", resourceCulture);
@@ -86,6 +96,16 @@ namespace Power_Status.Properties {
         internal static System.Drawing.Bitmap Minus_UI {
             get {
                 object obj = ResourceManager.GetObject("Minus-UI", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Spanner_UI {
+            get {
+                object obj = ResourceManager.GetObject("Spanner-UI", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
