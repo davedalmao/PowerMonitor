@@ -30,8 +30,6 @@
             this.RefreshTimer = new System.Windows.Forms.Timer(this.components);
             this.PowerStatus = new System.Windows.Forms.Label();
             this.Warning = new System.Windows.Forms.Label();
-            this.MinimizeIcon = new System.Windows.Forms.PictureBox();
-            this.InfoIcon = new System.Windows.Forms.PictureBox();
             this.ForLow = new System.Windows.Forms.Timer(this.components);
             this.ForHigh = new System.Windows.Forms.Timer(this.components);
             this.BatteryHealth = new System.Windows.Forms.Label();
@@ -40,25 +38,27 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.AppName = new System.Windows.Forms.Label();
-            this.SettingsIcon = new System.Windows.Forms.PictureBox();
-            this.BatteryIndicator = new PowerMonitor.CustomProgressBar();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.LowBatteryStateSelector = new System.Windows.Forms.NumericUpDown();
             this.HighBatteryStateSelector = new System.Windows.Forms.NumericUpDown();
             this.SetBtn = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.SettingsPanel = new System.Windows.Forms.Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.MinimizeIcon)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.InfoIcon)).BeginInit();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.BatteryIndicator = new PowerMonitor.CustomProgressBar();
+            this.SettingsIcon = new System.Windows.Forms.PictureBox();
+            this.MinimizeIcon = new System.Windows.Forms.PictureBox();
+            this.InfoIcon = new System.Windows.Forms.PictureBox();
             this.InfoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SettingsIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LowBatteryStateSelector)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.HighBatteryStateSelector)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SettingsPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SettingsIcon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MinimizeIcon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.InfoIcon)).BeginInit();
             this.SuspendLayout();
             // 
             // BatteryLife
@@ -102,36 +102,12 @@
             this.Warning.AutoSize = true;
             this.Warning.Font = new System.Drawing.Font("Palatino Linotype", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Warning.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(107)))), ((int)(((byte)(34)))));
-            this.Warning.Location = new System.Drawing.Point(7, 35);
+            this.Warning.Location = new System.Drawing.Point(8, 35);
             this.Warning.Name = "Warning";
             this.Warning.Size = new System.Drawing.Size(440, 27);
             this.Warning.TabIndex = 7;
             this.Warning.Text = "BATTERY LOW, PLUG IN YOUR CHARGER!";
             this.Warning.Visible = false;
-            // 
-            // MinimizeIcon
-            // 
-            this.MinimizeIcon.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MinimizeIcon.Image = global::PowerMonitor.Properties.Resources.Minus_UI;
-            this.MinimizeIcon.Location = new System.Drawing.Point(384, 14);
-            this.MinimizeIcon.Name = "MinimizeIcon";
-            this.MinimizeIcon.Size = new System.Drawing.Size(20, 19);
-            this.MinimizeIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.MinimizeIcon.TabIndex = 10;
-            this.MinimizeIcon.TabStop = false;
-            this.MinimizeIcon.Click += new System.EventHandler(this.MinimizeIcon_Click);
-            // 
-            // InfoIcon
-            // 
-            this.InfoIcon.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.InfoIcon.Image = ((System.Drawing.Image)(resources.GetObject("InfoIcon.Image")));
-            this.InfoIcon.Location = new System.Drawing.Point(332, 14);
-            this.InfoIcon.Name = "InfoIcon";
-            this.InfoIcon.Size = new System.Drawing.Size(20, 19);
-            this.InfoIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.InfoIcon.TabIndex = 9;
-            this.InfoIcon.TabStop = false;
-            this.InfoIcon.Click += new System.EventHandler(this.InfoIcon_Click);
             // 
             // ForLow
             // 
@@ -207,26 +183,6 @@
             this.AppName.Size = new System.Drawing.Size(261, 23);
             this.AppName.TabIndex = 0;
             this.AppName.Text = "P O W E R   M O N I T O R";
-            // 
-            // SettingsIcon
-            // 
-            this.SettingsIcon.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.SettingsIcon.Image = global::PowerMonitor.Properties.Resources.Gear_UI;
-            this.SettingsIcon.Location = new System.Drawing.Point(358, 14);
-            this.SettingsIcon.Name = "SettingsIcon";
-            this.SettingsIcon.Size = new System.Drawing.Size(20, 20);
-            this.SettingsIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.SettingsIcon.TabIndex = 14;
-            this.SettingsIcon.TabStop = false;
-            this.SettingsIcon.Click += new System.EventHandler(this.SettingsIcon_Click);
-            // 
-            // BatteryIndicator
-            // 
-            this.BatteryIndicator.Location = new System.Drawing.Point(49, 68);
-            this.BatteryIndicator.Name = "BatteryIndicator";
-            this.BatteryIndicator.Size = new System.Drawing.Size(355, 30);
-            this.BatteryIndicator.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
-            this.BatteryIndicator.TabIndex = 13;
             // 
             // label5
             // 
@@ -320,6 +276,21 @@
             this.SetBtn.UseVisualStyleBackColor = false;
             this.SetBtn.Click += new System.EventHandler(this.SetBtn_Click);
             // 
+            // SettingsPanel
+            // 
+            this.SettingsPanel.Controls.Add(this.pictureBox2);
+            this.SettingsPanel.Controls.Add(this.SetBtn);
+            this.SettingsPanel.Controls.Add(this.HighBatteryStateSelector);
+            this.SettingsPanel.Controls.Add(this.LowBatteryStateSelector);
+            this.SettingsPanel.Controls.Add(this.label1);
+            this.SettingsPanel.Controls.Add(this.label4);
+            this.SettingsPanel.Controls.Add(this.label5);
+            this.SettingsPanel.Location = new System.Drawing.Point(410, 68);
+            this.SettingsPanel.Name = "SettingsPanel";
+            this.SettingsPanel.Size = new System.Drawing.Size(30, 30);
+            this.SettingsPanel.TabIndex = 13;
+            this.SettingsPanel.Visible = false;
+            // 
             // pictureBox2
             // 
             this.pictureBox2.Image = global::PowerMonitor.Properties.Resources.Tools;
@@ -330,20 +301,49 @@
             this.pictureBox2.TabIndex = 7;
             this.pictureBox2.TabStop = false;
             // 
-            // SettingsPanel
+            // BatteryIndicator
             // 
-            this.SettingsPanel.Controls.Add(this.pictureBox2);
-            this.SettingsPanel.Controls.Add(this.SetBtn);
-            this.SettingsPanel.Controls.Add(this.HighBatteryStateSelector);
-            this.SettingsPanel.Controls.Add(this.LowBatteryStateSelector);
-            this.SettingsPanel.Controls.Add(this.label1);
-            this.SettingsPanel.Controls.Add(this.label4);
-            this.SettingsPanel.Controls.Add(this.label5);
-            this.SettingsPanel.Location = new System.Drawing.Point(8, 38);
-            this.SettingsPanel.Name = "SettingsPanel";
-            this.SettingsPanel.Size = new System.Drawing.Size(439, 124);
-            this.SettingsPanel.TabIndex = 13;
-            this.SettingsPanel.Visible = false;
+            this.BatteryIndicator.Location = new System.Drawing.Point(49, 68);
+            this.BatteryIndicator.Name = "BatteryIndicator";
+            this.BatteryIndicator.Size = new System.Drawing.Size(355, 30);
+            this.BatteryIndicator.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.BatteryIndicator.TabIndex = 13;
+            // 
+            // SettingsIcon
+            // 
+            this.SettingsIcon.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SettingsIcon.Image = global::PowerMonitor.Properties.Resources.Gear_UI;
+            this.SettingsIcon.Location = new System.Drawing.Point(358, 14);
+            this.SettingsIcon.Name = "SettingsIcon";
+            this.SettingsIcon.Size = new System.Drawing.Size(20, 20);
+            this.SettingsIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.SettingsIcon.TabIndex = 14;
+            this.SettingsIcon.TabStop = false;
+            this.SettingsIcon.Click += new System.EventHandler(this.SettingsIcon_Click);
+            // 
+            // MinimizeIcon
+            // 
+            this.MinimizeIcon.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MinimizeIcon.Image = global::PowerMonitor.Properties.Resources.Minus_UI;
+            this.MinimizeIcon.Location = new System.Drawing.Point(384, 14);
+            this.MinimizeIcon.Name = "MinimizeIcon";
+            this.MinimizeIcon.Size = new System.Drawing.Size(20, 19);
+            this.MinimizeIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.MinimizeIcon.TabIndex = 10;
+            this.MinimizeIcon.TabStop = false;
+            this.MinimizeIcon.Click += new System.EventHandler(this.MinimizeIcon_Click);
+            // 
+            // InfoIcon
+            // 
+            this.InfoIcon.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.InfoIcon.Image = ((System.Drawing.Image)(resources.GetObject("InfoIcon.Image")));
+            this.InfoIcon.Location = new System.Drawing.Point(332, 14);
+            this.InfoIcon.Name = "InfoIcon";
+            this.InfoIcon.Size = new System.Drawing.Size(20, 19);
+            this.InfoIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.InfoIcon.TabIndex = 9;
+            this.InfoIcon.TabStop = false;
+            this.InfoIcon.Click += new System.EventHandler(this.InfoIcon_Click);
             // 
             // Main
             // 
@@ -374,17 +374,17 @@
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Main_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Main_MouseUp);
             this.Resize += new System.EventHandler(this.Main_Resize);
-            ((System.ComponentModel.ISupportInitialize)(this.MinimizeIcon)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.InfoIcon)).EndInit();
             this.InfoPanel.ResumeLayout(false);
             this.InfoPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SettingsIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LowBatteryStateSelector)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.HighBatteryStateSelector)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.SettingsPanel.ResumeLayout(false);
             this.SettingsPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SettingsIcon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MinimizeIcon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.InfoIcon)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -411,11 +411,11 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.NumericUpDown LowBatteryStateSelector;
-        private System.Windows.Forms.NumericUpDown HighBatteryStateSelector;
         private System.Windows.Forms.Button SetBtn;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Panel SettingsPanel;
+        public System.Windows.Forms.NumericUpDown LowBatteryStateSelector;
+        public System.Windows.Forms.NumericUpDown HighBatteryStateSelector;
     }
 }
 

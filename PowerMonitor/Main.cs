@@ -9,17 +9,15 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Drawing.Drawing2D;
+using System.Media;
 
 namespace PowerMonitor {
     public partial class Main : Form {
         PowerStatus power = SystemInformation.PowerStatus;
         int percentNumber, timeLeft;
-        //int low = 51; //para settings
-        //int high = 98; //para settings
         int mov;
         int movX;
         int movY;
-
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn
         (
@@ -31,6 +29,13 @@ namespace PowerMonitor {
             int nHeightEllipse // width of ellipse
         );
 
+        /*public const int WM_NCLBUTTONDOWN = 0xA1;
+        public const int HT_CAPTION = 0x2;
+
+        [DllImportAttribute("user32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+        [DllImportAttribute("user32.dll")]
+        public static extern bool ReleaseCapture();*/
 
         public Main() {
             InitializeComponent();
@@ -50,6 +55,10 @@ namespace PowerMonitor {
             HighBatteryStateSelector.Value = Properties.Settings.Default.HighBatteryValue;
         }
 
+        protected override void OnPaint(PaintEventArgs e) {
+            ControlPaint.DrawBorder(e.Graphics, ClientRectangle, Color.NavajoWhite, ButtonBorderStyle.Solid);
+        }
+
         private void RefreshTimer_Tick(object sender, EventArgs e) {
             RefreshStatus();
         }
@@ -67,21 +76,9 @@ namespace PowerMonitor {
                 this.ShowInTaskbar = false;
                 this.Hide();
             }
-
-            if (this.WindowState == FormWindowState.Normal) {
-                SetWindowRegion();
-            }
-            else {
-                this.Region = null;
-            }
         }
 
         private void MinimizeIcon_Click(object sender, EventArgs e) {
-            /*  Properties.Settings.Default.LowBatteryValue = (int)LowBatteryStateSelector.Value;
-              Properties.Settings.Default.HighBatteryValue = (int)HighBatteryStateSelector.Value;
-
-              Properties.Settings.Default.Save();*/
-
             this.CenterToScreen();
             this.WindowState = FormWindowState.Minimized;
         }
@@ -91,7 +88,10 @@ namespace PowerMonitor {
         }
 
         private void SetBtn_Click(object sender, EventArgs e) {
-            var confirmResult = MessageBox.Show("Are you sure to UPDATE settings?", "UPDATE", MessageBoxButtons.YesNo);
+            MessageBoxes mb = new MessageBoxes((int)LowBatteryStateSelector.Value, (int)HighBatteryStateSelector.Value);
+            mb.Show();
+
+            /*var confirmResult = MessageBox.Show("Are you sure to UPDATE settings?", "UPDATE", MessageBoxButtons.YesNo);
 
             if (confirmResult == DialogResult.Yes) {
                 Properties.Settings.Default.LowBatteryValue = (int)LowBatteryStateSelector.Value;
@@ -108,8 +108,8 @@ namespace PowerMonitor {
             }
 
             else {
-                // If 'No', do something here.
-            }
+                // If 'No', do something here. In this case nothing ;P
+            }*/
         }
 
         private void Main_MouseDown(object sender, MouseEventArgs e) {
@@ -138,8 +138,6 @@ namespace PowerMonitor {
             HighMedLow();
             BatteryPercent();
             CurrentBatteryLife();
-
-
         }
 
         private void BatteryState() {
@@ -177,6 +175,7 @@ namespace PowerMonitor {
                 //Low Power State
                 if (percentNumber <= LowBatteryStateSelector.Value) {
                     BatteryHealth.Text = "Low";
+
                     //Red
                     BatteryIndicator.ForeColor = Color.FromArgb(120, 0, 0);
                     BatteryIndicator.BackColor = Color.FromArgb(172, 0, 0);
@@ -185,6 +184,7 @@ namespace PowerMonitor {
                 //High Power State
                 else if (percentNumber >= 80) {
                     BatteryHealth.Text = "High";
+
                     //Green
                     BatteryIndicator.ForeColor = Color.FromArgb(0, 120, 0);
                     BatteryIndicator.BackColor = Color.FromArgb(0, 172, 0);
@@ -196,6 +196,7 @@ namespace PowerMonitor {
                 //Med State
                 else {
                     BatteryHealth.Text = "Med";
+
                     //Blue
                     BatteryIndicator.ForeColor = Color.FromArgb(0, 0, 120);
                     BatteryIndicator.BackColor = Color.FromArgb(0, 0, 172);
@@ -237,8 +238,8 @@ namespace PowerMonitor {
             try {
                 percentNumber = (int)(power.BatteryLifePercent * 100);
                 if (percentNumber <= LowBatteryStateSelector.Value && power.PowerLineStatus == PowerLineStatus.Offline) {
-                    //if (percentNumber <= LowBatteryStateSelector.Value && power.PowerLineStatus == PowerLineStatus.Offline)
                     this.CenterToScreen();
+
                     ShowMain();
                     Warning.BringToFront();
                     Warning.Visible = true;
@@ -253,9 +254,10 @@ namespace PowerMonitor {
 
                     ForLow.Stop();
                     ForHigh.Start();
-                    ////////////////
-                    //Add sound here
-                    ////////////////
+
+                    //Sound Alert When Form Pops Up
+                    SoundPlayer sp = new SoundPlayer("Low.wav");
+                    sp.Play();
                 }
             }
 
@@ -269,7 +271,6 @@ namespace PowerMonitor {
             try {
                 percentNumber = (int)(power.BatteryLifePercent * 100);
                 if (percentNumber >= HighBatteryStateSelector.Value && power.PowerLineStatus == PowerLineStatus.Online) {
-                    //(percentNumber >= HighBatteryStateSelector.Value && power.PowerLineStatus == PowerLineStatus.Online)
                     this.CenterToScreen();
                     ShowMain();
                     Warning.SendToBack();
@@ -285,9 +286,10 @@ namespace PowerMonitor {
 
                     ForHigh.Stop();
                     ForLow.Start();
-                    ////////////////
-                    //Add sound here
-                    ////////////////
+
+                    //Sound Alert When Form Pops Up
+                    SoundPlayer sp = new SoundPlayer("High.wav");
+                    sp.Play();
                 }
             }
 
@@ -299,7 +301,12 @@ namespace PowerMonitor {
 
         private void ShowMain() {
             this.Show();
+            this.CenterToScreen();
             this.WindowState = FormWindowState.Normal;
+
+            if (WindowState == FormWindowState.Normal) {
+                ReallyCenterToScreen();
+            }
         }
 
         private string Time(int seconds) {
@@ -325,6 +332,16 @@ namespace PowerMonitor {
             }
         }
 
+        protected void ReallyCenterToScreen() {
+            Screen screen = Screen.FromControl(this);
+
+            Rectangle workingArea = screen.WorkingArea;
+            this.Location = new Point() {
+                X = Math.Max(workingArea.X, workingArea.X + (workingArea.Width - this.Width) / 2),
+                Y = Math.Max(workingArea.Y, workingArea.Y + (workingArea.Height - this.Height) / 2)
+            };
+        }
+
         ////////////////////////INFO and SETTINGS///////////////////////
         private void InfoIcon_Click(object sender, EventArgs e) {
             if (InfoPanel.Visible == true) {
@@ -338,6 +355,7 @@ namespace PowerMonitor {
 
             else {
                 InfoPanel.Visible = true;
+                InfoPanel.BringToFront();
                 InfoPanel.Location = new Point(8, 38);
                 InfoPanel.Size = new Size(439, 124);
 
@@ -362,6 +380,7 @@ namespace PowerMonitor {
 
             else {
                 SettingsPanel.Visible = true;
+                SettingsPanel.BringToFront();
                 SettingsPanel.Location = new Point(8, 38);
                 SettingsPanel.Size = new Size(439, 124);
 
@@ -373,71 +392,9 @@ namespace PowerMonitor {
                 PowerStatus.SendToBack();
             }
         }
-        ///////////////////////////////////////////////////
-
-        ////////Rounded Form Borders with Border Color////////
-        public void SetWindowRegion() {
-            System.Drawing.Drawing2D.GraphicsPath FormPath;
-            FormPath = new System.Drawing.Drawing2D.GraphicsPath();
-            Rectangle rect = new Rectangle(0, 0, this.Width, this.Height);
-            FormPath = GetRoundedRectPath(rect, 30);// 30 represents the size of the fillet angle
-            this.Region = new Region(FormPath);
-        }
-
-        private GraphicsPath GetRoundedRectPath(Rectangle rect, int radius) {
-            int diameter = radius;
-            Rectangle arcRect = new Rectangle(rect.Location, new Size(diameter, diameter));
-            GraphicsPath path = new GraphicsPath();
-
-            path.AddArc(arcRect, 180, 90);// top left
-
-            arcRect.X = rect.Right - diameter;//top right
-            path.AddArc(arcRect, 270, 90);
-
-            arcRect.Y = rect.Bottom - diameter;// buttom right
-            path.AddArc(arcRect, 0, 90);
-
-            arcRect.X = rect.Left;// button left
-            path.AddArc(arcRect, 90, 90);
-            path.CloseFigure();
-            return path;
-        }
-
-        private static GraphicsPath GetRoundRectangle(Rectangle rectangle, int r) {
-            int l = 2 * r;
-            // Divide the rounded rectangle into a combination of straight lines and arcs, and add them to the path in turn
-            GraphicsPath gp = new GraphicsPath();
-            gp.AddLine(new Point(rectangle.X + r, rectangle.Y), new Point(rectangle.Right - r, rectangle.Y));
-            gp.AddArc(new Rectangle(rectangle.Right - l, rectangle.Y, l, l), 270F, 90F);
-
-            gp.AddLine(new Point(rectangle.Right, rectangle.Y + r), new Point(rectangle.Right, rectangle.Bottom - r));
-            gp.AddArc(new Rectangle(rectangle.Right - l, rectangle.Bottom - l, l, l), 0F, 90F);
-
-            gp.AddLine(new Point(rectangle.Right - r, rectangle.Bottom), new Point(rectangle.X + r, rectangle.Bottom));
-            gp.AddArc(new Rectangle(rectangle.X, rectangle.Bottom - l, l, l), 90F, 90F);
-
-            gp.AddLine(new Point(rectangle.X, rectangle.Bottom - r), new Point(rectangle.X, rectangle.Y + r));
-            gp.AddArc(new Rectangle(rectangle.X, rectangle.Y, l, l), 180F, 90F);
-            return gp;
-        }
-
-        public void FillRoundRectangle(Graphics g, Rectangle rectangle, Pen pen, int r) {
-            rectangle = new Rectangle(rectangle.X, rectangle.Y, rectangle.Width, rectangle.Height);
-            g.DrawPath(pen, GetRoundRectangle(rectangle, r));
-        }
-
-        protected override void OnPaint(PaintEventArgs e) {
-            Pen pen = new Pen(Color.NavajoWhite, 1);
-            pen.DashStyle = DashStyle.Solid;
-            Rectangle rectangle = new Rectangle(1, 1, this.Width - 2, this.Height - 2);
-            FillRoundRectangle(e.Graphics, rectangle, pen, 14);
-        }
-        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////        
     }
 }
-
-//ADD
-//modify time interval update in the ui
 
 //Check Battery Percentage
 //percentNumber = (int)(power.BatteryLifePercent * 100);
