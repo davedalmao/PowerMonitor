@@ -128,11 +128,11 @@
             // 
             this.BatteryHealth.AutoSize = true;
             this.BatteryHealth.Font = new System.Drawing.Font("Rockwell", 11.25F);
-            this.BatteryHealth.Location = new System.Drawing.Point(362, 136);
+            this.BatteryHealth.Location = new System.Drawing.Point(365, 136);
             this.BatteryHealth.Name = "BatteryHealth";
-            this.BatteryHealth.Size = new System.Drawing.Size(43, 17);
+            this.BatteryHealth.Size = new System.Drawing.Size(42, 17);
             this.BatteryHealth.TabIndex = 11;
-            this.BatteryHealth.Text = "State";
+            this.BatteryHealth.Text = "High";
             // 
             // InfoPanel
             // 
@@ -164,7 +164,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(102, 17);
             this.label3.TabIndex = 2;
-            this.label3.Text = "08 / 12 / 2020";
+            this.label3.Text = "08 / 15 / 2020";
             // 
             // label2
             // 
@@ -356,7 +356,7 @@
             this.HighPowerAlertCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.HighPowerAlertCheckBox.Font = new System.Drawing.Font("Cooper Black", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.HighPowerAlertCheckBox.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.HighPowerAlertCheckBox.Location = new System.Drawing.Point(197, 81);
+            this.HighPowerAlertCheckBox.Location = new System.Drawing.Point(196, 81);
             this.HighPowerAlertCheckBox.Name = "HighPowerAlertCheckBox";
             this.HighPowerAlertCheckBox.Size = new System.Drawing.Size(30, 30);
             this.HighPowerAlertCheckBox.TabIndex = 8;
@@ -369,7 +369,7 @@
             this.PopUpLabel1.AutoSize = true;
             this.PopUpLabel1.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PopUpLabel1.ForeColor = System.Drawing.Color.BurlyWood;
-            this.PopUpLabel1.Location = new System.Drawing.Point(229, 79);
+            this.PopUpLabel1.Location = new System.Drawing.Point(228, 79);
             this.PopUpLabel1.Name = "PopUpLabel1";
             this.PopUpLabel1.Size = new System.Drawing.Size(82, 16);
             this.PopUpLabel1.TabIndex = 9;
@@ -380,7 +380,7 @@
             this.PopUpLabel2.AutoSize = true;
             this.PopUpLabel2.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PopUpLabel2.ForeColor = System.Drawing.Color.BurlyWood;
-            this.PopUpLabel2.Location = new System.Drawing.Point(229, 96);
+            this.PopUpLabel2.Location = new System.Drawing.Point(228, 96);
             this.PopUpLabel2.Name = "PopUpLabel2";
             this.PopUpLabel2.Size = new System.Drawing.Size(90, 16);
             this.PopUpLabel2.TabIndex = 10;
@@ -400,9 +400,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(35)))), ((int)(((byte)(61)))));
             this.ClientSize = new System.Drawing.Size(455, 175);
+            this.Controls.Add(this.InfoPanel);
             this.Controls.Add(this.SettingsIcon);
             this.Controls.Add(this.SettingsPanel);
-            this.Controls.Add(this.InfoPanel);
             this.Controls.Add(this.BatteryHealth);
             this.Controls.Add(this.MinimizeIcon);
             this.Controls.Add(this.InfoIcon);

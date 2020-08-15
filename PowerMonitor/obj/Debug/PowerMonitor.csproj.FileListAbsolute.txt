@@ -8,3 +8,4 @@ D:\Visual Studio\PowerMonitor\PowerMonitor\obj\Debug\PowerMonitor.csproj.CoreCom
 D:\Visual Studio\PowerMonitor\PowerMonitor\obj\Debug\PowerMonitor.exe
 D:\Visual Studio\PowerMonitor\PowerMonitor\obj\Debug\PowerMonitor.pdb
 D:\Visual Studio\PowerMonitor\PowerMonitor\obj\Debug\PowerMonitor.MessageBoxes.resources
+D:\Visual Studio\PowerMonitor\PowerMonitor\obj\Debug\PowerMonitor.csprojAssemblyReference.cache

@@ -8,8 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
-using System.Drawing.Drawing2D;
 using System.Media;
+using Microsoft.Win32;
 
 namespace PowerMonitor {
     public partial class Main : Form {
@@ -29,25 +29,11 @@ namespace PowerMonitor {
             int nHeightEllipse // width of ellipse
         );
 
-        /*public const int WM_NCLBUTTONDOWN = 0xA1;
-        public const int HT_CAPTION = 0x2;
-
-        [DllImportAttribute("user32.dll")]
-        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
-        [DllImportAttribute("user32.dll")]
-        public static extern bool ReleaseCapture();*/
-
         public Main() {
             InitializeComponent();
+            RegistryKey reg = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+            reg.SetValue("Power Monitor", Application.ExecutablePath.ToString());
             this.FormBorderStyle = FormBorderStyle.None;
-
-            /*HighPowerAlertCheckBox.Appearance = Appearance.Button;
-            HighPowerAlertCheckBox.Size = new Size(30, 30);
-            HighPowerAlertCheckBox.AutoSize = false;
-            HighPowerAlertCheckBox.Size = new Size(30, 30);
-            HighPowerAlertCheckBox.Font = new Font("Rockwell", 10);*/
-
-
         }
 
         private void Main_Load(object sender, EventArgs e) {
@@ -55,9 +41,6 @@ namespace PowerMonitor {
             RefreshTimer.Enabled = true;
             ForLow.Enabled = true;
             ForHigh.Enabled = true;
-
-            //Properties.Settings.Default.LowBatteryValue = (int)LowBatteryStateSelector.Value;
-            //Properties.Settings.Default.HighBatteryValue = (int)HighBatteryStateSelector.Value;
 
             LowBatteryStateSelector.Value = Properties.Settings.Default.LowBatteryValue;
             HighBatteryStateSelector.Value = Properties.Settings.Default.HighBatteryValue;
@@ -78,7 +61,7 @@ namespace PowerMonitor {
         }
 
         private void ForHigh_Tick(object sender, EventArgs e) {
-            CheckPercentNumberFull();
+            CheckPercentNumberHigh();
         }
 
         private void Main_Resize(object sender, EventArgs e) {
@@ -98,7 +81,7 @@ namespace PowerMonitor {
         }
 
         private void SetBtn_Click(object sender, EventArgs e) {
-            MessageBoxes mb = new MessageBoxes((int)LowBatteryStateSelector.Value, (int)HighBatteryStateSelector.Value, HighPowerAlertCheckBox.Checked);//, ForHigh.Enabled
+            MessageBoxes mb = new MessageBoxes((int)LowBatteryStateSelector.Value, (int)HighBatteryStateSelector.Value, HighPowerAlertCheckBox.Checked);
             mb.Owner = this;
             mb.Show();
 
@@ -109,26 +92,6 @@ namespace PowerMonitor {
             LowBatteryStateSelector.Enabled = false;
             HighBatteryStateSelector.Enabled = false;
             HighPowerAlertCheckBox.Enabled = false;
-
-            /*var confirmResult = MessageBox.Show("Are you sure to UPDATE settings?", "UPDATE", MessageBoxButtons.YesNo);
-
-            if (confirmResult == DialogResult.Yes) {
-                Properties.Settings.Default.LowBatteryValue = (int)LowBatteryStateSelector.Value;
-                Properties.Settings.Default.HighBatteryValue = (int)HighBatteryStateSelector.Value;
-
-                Properties.Settings.Default.Save();
-
-                var okay = MessageBox.Show("Update Success!, Restarting App", "UPDATE", MessageBoxButtons.OK);
-                if (okay == DialogResult.OK) {
-                    //Application.Restart();
-                    //Environment.Exit(0);
-                }
-
-            }
-
-            else {
-                // If 'No', do something here. In this case nothing ;P
-            }*/
         }
 
         private void Main_MouseDown(object sender, MouseEventArgs e) {
@@ -266,7 +229,7 @@ namespace PowerMonitor {
             }
 
             else {
-                BatteryTime.Text = "Wait while still charging...";
+                BatteryTime.Text = "Wait while still charging / calculating...";
             }
         }
 
@@ -303,7 +266,7 @@ namespace PowerMonitor {
             }
         }
 
-        private void CheckPercentNumberFull() {
+        private void CheckPercentNumberHigh() {
             try {
                 percentNumber = (int)(power.BatteryLifePercent * 100);
                 if (percentNumber >= HighBatteryStateSelector.Value && power.PowerLineStatus == PowerLineStatus.Online) {
@@ -337,6 +300,7 @@ namespace PowerMonitor {
 
         private void ShowMain() {
             this.Show();
+            this.BringToFront();
             this.CenterToScreen();
             this.WindowState = FormWindowState.Normal;
 
@@ -431,6 +395,8 @@ namespace PowerMonitor {
         ///////////////////////////////////////////////////        
     }
 }
+
+
 
 //Check Battery Percentage
 //percentNumber = (int)(power.BatteryLifePercent * 100);

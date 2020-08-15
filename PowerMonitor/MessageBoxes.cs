@@ -14,12 +14,11 @@ namespace PowerMonitor {
         int movX;
         int movY;
 
-        public MessageBoxes(int lowpower, int highpower, bool check) {//, bool timer
+        public MessageBoxes(int lowpower, int highpower, bool check) {
             InitializeComponent();
             LowStorage.Value = lowpower;
             HighStorage.Value = highpower;
             CheckStorage.Checked = check;
-            //TimerStorage.Enabled = timer;
         }
 
         private void YesBtn_Click(object sender, EventArgs e) {
@@ -54,8 +53,8 @@ namespace PowerMonitor {
             (this.Owner as Main).LowBatteryStateSelector.Enabled = true;
             (this.Owner as Main).HighBatteryStateSelector.Enabled = true;
             (this.Owner as Main).HighPowerAlertCheckBox.Enabled = true;
-            //Application.Restart();
-            //Environment.Exit(0);
+            Application.Restart();
+            Environment.Exit(0);
             Close();
         }
 
@@ -77,10 +76,6 @@ namespace PowerMonitor {
 
         protected override void OnPaint(PaintEventArgs e) {
             ControlPaint.DrawBorder(e.Graphics, ClientRectangle, Color.NavajoWhite, ButtonBorderStyle.Solid);
-        }
-
-        private void MessageBoxes_Load(object sender, EventArgs e) {
-
         }
     }
 }

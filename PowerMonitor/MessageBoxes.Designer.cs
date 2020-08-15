@@ -145,7 +145,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Rockwell", 11.25F);
-            this.label3.Location = new System.Drawing.Point(30, 37);
+            this.label3.Location = new System.Drawing.Point(35, 37);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(124, 17);
             this.label3.TabIndex = 0;
@@ -235,7 +235,6 @@
             this.Name = "MessageBoxes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MessageBoxes";
-            this.Load += new System.EventHandler(this.MessageBoxes_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MessageBoxes_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MessageBoxes_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.MessageBoxes_MouseUp);
