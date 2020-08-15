@@ -45,13 +45,13 @@
             this.HighBatteryStateSelector = new System.Windows.Forms.NumericUpDown();
             this.SetBtn = new System.Windows.Forms.Button();
             this.SettingsPanel = new System.Windows.Forms.Panel();
+            this.PopUpLabel2 = new System.Windows.Forms.Label();
+            this.PopUpLabel1 = new System.Windows.Forms.Label();
+            this.HighPowerAlertCheckBox = new System.Windows.Forms.CheckBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.SettingsIcon = new System.Windows.Forms.PictureBox();
             this.MinimizeIcon = new System.Windows.Forms.PictureBox();
             this.InfoIcon = new System.Windows.Forms.PictureBox();
-            this.HighPowerAlertCheckBox = new System.Windows.Forms.CheckBox();
-            this.PopUpLabel1 = new System.Windows.Forms.Label();
-            this.PopUpLabel2 = new System.Windows.Forms.Label();
             this.BatteryIndicator = new PowerMonitor.CustomProgressBar();
             this.InfoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -297,6 +297,49 @@
             this.SettingsPanel.TabIndex = 13;
             this.SettingsPanel.Visible = false;
             // 
+            // PopUpLabel2
+            // 
+            this.PopUpLabel2.AutoSize = true;
+            this.PopUpLabel2.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PopUpLabel2.ForeColor = System.Drawing.Color.BurlyWood;
+            this.PopUpLabel2.Location = new System.Drawing.Point(228, 96);
+            this.PopUpLabel2.Name = "PopUpLabel2";
+            this.PopUpLabel2.Size = new System.Drawing.Size(90, 16);
+            this.PopUpLabel2.TabIndex = 10;
+            this.PopUpLabel2.Text = "battery is high";
+            // 
+            // PopUpLabel1
+            // 
+            this.PopUpLabel1.AutoSize = true;
+            this.PopUpLabel1.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PopUpLabel1.ForeColor = System.Drawing.Color.BurlyWood;
+            this.PopUpLabel1.Location = new System.Drawing.Point(228, 79);
+            this.PopUpLabel1.Name = "PopUpLabel1";
+            this.PopUpLabel1.Size = new System.Drawing.Size(82, 16);
+            this.PopUpLabel1.TabIndex = 9;
+            this.PopUpLabel1.Text = "Pop up when";
+            // 
+            // HighPowerAlertCheckBox
+            // 
+            this.HighPowerAlertCheckBox.Appearance = System.Windows.Forms.Appearance.Button;
+            this.HighPowerAlertCheckBox.BackColor = System.Drawing.Color.Teal;
+            this.HighPowerAlertCheckBox.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.HighPowerAlertCheckBox.Checked = true;
+            this.HighPowerAlertCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.HighPowerAlertCheckBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.HighPowerAlertCheckBox.FlatAppearance.BorderColor = System.Drawing.Color.NavajoWhite;
+            this.HighPowerAlertCheckBox.FlatAppearance.CheckedBackColor = System.Drawing.Color.MediumSpringGreen;
+            this.HighPowerAlertCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.HighPowerAlertCheckBox.Font = new System.Drawing.Font("Cooper Black", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HighPowerAlertCheckBox.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.HighPowerAlertCheckBox.Location = new System.Drawing.Point(196, 81);
+            this.HighPowerAlertCheckBox.Name = "HighPowerAlertCheckBox";
+            this.HighPowerAlertCheckBox.Size = new System.Drawing.Size(30, 30);
+            this.HighPowerAlertCheckBox.TabIndex = 8;
+            this.HighPowerAlertCheckBox.Text = "✔";
+            this.HighPowerAlertCheckBox.UseVisualStyleBackColor = false;
+            this.HighPowerAlertCheckBox.CheckedChanged += new System.EventHandler(this.HighPowerAlertCheckBox_CheckedChanged);
+            // 
             // pictureBox2
             // 
             this.pictureBox2.Image = global::PowerMonitor.Properties.Resources.Tools;
@@ -343,49 +386,6 @@
             this.InfoIcon.TabStop = false;
             this.InfoIcon.Click += new System.EventHandler(this.InfoIcon_Click);
             // 
-            // HighPowerAlertCheckBox
-            // 
-            this.HighPowerAlertCheckBox.Appearance = System.Windows.Forms.Appearance.Button;
-            this.HighPowerAlertCheckBox.BackColor = System.Drawing.Color.Teal;
-            this.HighPowerAlertCheckBox.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.HighPowerAlertCheckBox.Checked = true;
-            this.HighPowerAlertCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.HighPowerAlertCheckBox.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.HighPowerAlertCheckBox.FlatAppearance.BorderColor = System.Drawing.Color.NavajoWhite;
-            this.HighPowerAlertCheckBox.FlatAppearance.CheckedBackColor = System.Drawing.Color.MediumSpringGreen;
-            this.HighPowerAlertCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.HighPowerAlertCheckBox.Font = new System.Drawing.Font("Cooper Black", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.HighPowerAlertCheckBox.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.HighPowerAlertCheckBox.Location = new System.Drawing.Point(196, 81);
-            this.HighPowerAlertCheckBox.Name = "HighPowerAlertCheckBox";
-            this.HighPowerAlertCheckBox.Size = new System.Drawing.Size(30, 30);
-            this.HighPowerAlertCheckBox.TabIndex = 8;
-            this.HighPowerAlertCheckBox.Text = "✔";
-            this.HighPowerAlertCheckBox.UseVisualStyleBackColor = false;
-            this.HighPowerAlertCheckBox.CheckedChanged += new System.EventHandler(this.HighPowerAlertCheckBox_CheckedChanged);
-            // 
-            // PopUpLabel1
-            // 
-            this.PopUpLabel1.AutoSize = true;
-            this.PopUpLabel1.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PopUpLabel1.ForeColor = System.Drawing.Color.BurlyWood;
-            this.PopUpLabel1.Location = new System.Drawing.Point(228, 79);
-            this.PopUpLabel1.Name = "PopUpLabel1";
-            this.PopUpLabel1.Size = new System.Drawing.Size(82, 16);
-            this.PopUpLabel1.TabIndex = 9;
-            this.PopUpLabel1.Text = "Pop up when";
-            // 
-            // PopUpLabel2
-            // 
-            this.PopUpLabel2.AutoSize = true;
-            this.PopUpLabel2.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PopUpLabel2.ForeColor = System.Drawing.Color.BurlyWood;
-            this.PopUpLabel2.Location = new System.Drawing.Point(228, 96);
-            this.PopUpLabel2.Name = "PopUpLabel2";
-            this.PopUpLabel2.Size = new System.Drawing.Size(90, 16);
-            this.PopUpLabel2.TabIndex = 10;
-            this.PopUpLabel2.Text = "battery is high";
-            // 
             // BatteryIndicator
             // 
             this.BatteryIndicator.Location = new System.Drawing.Point(49, 68);
@@ -417,7 +417,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Power Monitor";
             this.Load += new System.EventHandler(this.Main_Load);
             this.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.Main_MouseDoubleClick);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Main_MouseDown);

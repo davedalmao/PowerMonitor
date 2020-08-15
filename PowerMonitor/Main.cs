@@ -66,7 +66,7 @@ namespace PowerMonitor {
 
         private void Main_Resize(object sender, EventArgs e) {
             if (this.WindowState == FormWindowState.Minimized) {
-                this.ShowInTaskbar = false;
+                //this.ShowInTaskbar = false;
                 this.Hide();
             }
         }
