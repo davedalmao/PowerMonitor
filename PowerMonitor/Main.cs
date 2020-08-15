@@ -40,6 +40,14 @@ namespace PowerMonitor {
         public Main() {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
+
+            /*HighPowerAlertCheckBox.Appearance = Appearance.Button;
+            HighPowerAlertCheckBox.Size = new Size(30, 30);
+            HighPowerAlertCheckBox.AutoSize = false;
+            HighPowerAlertCheckBox.Size = new Size(30, 30);
+            HighPowerAlertCheckBox.Font = new Font("Rockwell", 10);*/
+
+
         }
 
         private void Main_Load(object sender, EventArgs e) {
@@ -53,6 +61,8 @@ namespace PowerMonitor {
 
             LowBatteryStateSelector.Value = Properties.Settings.Default.LowBatteryValue;
             HighBatteryStateSelector.Value = Properties.Settings.Default.HighBatteryValue;
+            HighPowerAlertCheckBox.Checked = Properties.Settings.Default.CheckBoxValue;
+            ForHigh.Enabled = Properties.Settings.Default.TimerValue;
         }
 
         protected override void OnPaint(PaintEventArgs e) {
@@ -88,8 +98,17 @@ namespace PowerMonitor {
         }
 
         private void SetBtn_Click(object sender, EventArgs e) {
-            MessageBoxes mb = new MessageBoxes((int)LowBatteryStateSelector.Value, (int)HighBatteryStateSelector.Value);
+            MessageBoxes mb = new MessageBoxes((int)LowBatteryStateSelector.Value, (int)HighBatteryStateSelector.Value, HighPowerAlertCheckBox.Checked);//, ForHigh.Enabled
+            mb.Owner = this;
             mb.Show();
+
+            InfoIcon.Enabled = false;
+            SettingsIcon.Enabled = false;
+            MinimizeIcon.Enabled = false;
+            SetBtn.Enabled = false;
+            LowBatteryStateSelector.Enabled = false;
+            HighBatteryStateSelector.Enabled = false;
+            HighPowerAlertCheckBox.Enabled = false;
 
             /*var confirmResult = MessageBox.Show("Are you sure to UPDATE settings?", "UPDATE", MessageBoxButtons.YesNo);
 
@@ -128,6 +147,23 @@ namespace PowerMonitor {
             mov = 0;
         }
 
+        private void HighPowerAlertCheckBox_CheckedChanged(object sender, EventArgs e) {
+            if (HighPowerAlertCheckBox.Checked) {
+                HighPowerAlertCheckBox.Text = "✔";
+                ForHigh.Enabled = true;
+                PopUpLabel1.ForeColor = Color.NavajoWhite;
+                PopUpLabel2.ForeColor = Color.NavajoWhite;
+                ForHigh.Start();
+            }
+
+            else {
+                HighPowerAlertCheckBox.Text = "";
+                ForHigh.Enabled = false;
+                PopUpLabel1.ForeColor = Color.BurlyWood;
+                PopUpLabel2.ForeColor = Color.BurlyWood;
+                ForHigh.Stop();
+            }
+        }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

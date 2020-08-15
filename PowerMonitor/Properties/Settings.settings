@@ -1,5 +1,5 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Power_Status.Properties" GeneratedClassName="Settings">
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="PowerMonitor.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
     <Setting Name="LowBatteryValue" Type="System.Int32" Scope="User">
@@ -7,6 +7,12 @@
     </Setting>
     <Setting Name="HighBatteryValue" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">80</Value>
+    </Setting>
+    <Setting Name="CheckBoxValue" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="TimerValue" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
     </Setting>
   </Settings>
 </SettingsFile>

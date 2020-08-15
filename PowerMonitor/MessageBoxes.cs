@@ -14,15 +14,19 @@ namespace PowerMonitor {
         int movX;
         int movY;
 
-        public MessageBoxes(int lowpower, int highpower) {
+        public MessageBoxes(int lowpower, int highpower, bool check) {//, bool timer
             InitializeComponent();
             LowStorage.Value = lowpower;
             HighStorage.Value = highpower;
+            CheckStorage.Checked = check;
+            //TimerStorage.Enabled = timer;
         }
 
         private void YesBtn_Click(object sender, EventArgs e) {
             Properties.Settings.Default.LowBatteryValue = (int)LowStorage.Value;
             Properties.Settings.Default.HighBatteryValue = (int)HighStorage.Value;
+            Properties.Settings.Default.CheckBoxValue = CheckStorage.Checked;
+            Properties.Settings.Default.TimerValue = CheckStorage.Checked;
 
             Properties.Settings.Default.Save();
 
@@ -32,10 +36,24 @@ namespace PowerMonitor {
         }
 
         private void NoBtn_Click(object sender, EventArgs e) {
+            (this.Owner as Main).InfoIcon.Enabled = true;
+            (this.Owner as Main).SettingsIcon.Enabled = true;
+            (this.Owner as Main).MinimizeIcon.Enabled = true;
+            (this.Owner as Main).SetBtn.Enabled = true;
+            (this.Owner as Main).LowBatteryStateSelector.Enabled = true;
+            (this.Owner as Main).HighBatteryStateSelector.Enabled = true;
+            (this.Owner as Main).HighPowerAlertCheckBox.Enabled = true;
             Close();
         }
 
         private void OkayBtn_Click(object sender, EventArgs e) {
+            (this.Owner as Main).InfoIcon.Enabled = true;
+            (this.Owner as Main).SettingsIcon.Enabled = true;
+            (this.Owner as Main).MinimizeIcon.Enabled = true;
+            (this.Owner as Main).SetBtn.Enabled = true;
+            (this.Owner as Main).LowBatteryStateSelector.Enabled = true;
+            (this.Owner as Main).HighBatteryStateSelector.Enabled = true;
+            (this.Owner as Main).HighPowerAlertCheckBox.Enabled = true;
             //Application.Restart();
             //Environment.Exit(0);
             Close();
@@ -59,6 +77,10 @@ namespace PowerMonitor {
 
         protected override void OnPaint(PaintEventArgs e) {
             ControlPaint.DrawBorder(e.Graphics, ClientRectangle, Color.NavajoWhite, ButtonBorderStyle.Solid);
+        }
+
+        private void MessageBoxes_Load(object sender, EventArgs e) {
+
         }
     }
 }

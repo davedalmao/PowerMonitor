@@ -23,6 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            this.components = new System.ComponentModel.Container();
             this.NoBtn = new System.Windows.Forms.Button();
             this.YesBtn = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
@@ -35,6 +36,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.HighStorage = new System.Windows.Forms.NumericUpDown();
             this.LowStorage = new System.Windows.Forms.NumericUpDown();
+            this.CheckStorage = new System.Windows.Forms.CheckBox();
+            this.TimerStorage = new System.Windows.Forms.Timer(this.components);
             this.OkayPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.HighStorage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LowStorage)).BeginInit();
@@ -196,6 +199,20 @@
             0});
             this.LowStorage.Visible = false;
             // 
+            // CheckStorage
+            // 
+            this.CheckStorage.AutoSize = true;
+            this.CheckStorage.Location = new System.Drawing.Point(129, 24);
+            this.CheckStorage.Name = "CheckStorage";
+            this.CheckStorage.Size = new System.Drawing.Size(15, 14);
+            this.CheckStorage.TabIndex = 19;
+            this.CheckStorage.UseVisualStyleBackColor = true;
+            this.CheckStorage.Visible = false;
+            // 
+            // TimerStorage
+            // 
+            this.TimerStorage.Enabled = true;
+            // 
             // MessageBoxes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 17F);
@@ -210,13 +227,15 @@
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
+            this.Controls.Add(this.CheckStorage);
             this.Font = new System.Drawing.Font("Rockwell", 11.25F);
             this.ForeColor = System.Drawing.Color.NavajoWhite;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MessageBoxes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MessageBoxes";
+            this.Load += new System.EventHandler(this.MessageBoxes_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MessageBoxes_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MessageBoxes_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.MessageBoxes_MouseUp);
@@ -243,5 +262,7 @@
         private System.Windows.Forms.Label label3;
         public System.Windows.Forms.NumericUpDown HighStorage;
         public System.Windows.Forms.NumericUpDown LowStorage;
+        private System.Windows.Forms.CheckBox CheckStorage;
+        private System.Windows.Forms.Timer TimerStorage;
     }
 }

@@ -46,10 +46,13 @@
             this.SetBtn = new System.Windows.Forms.Button();
             this.SettingsPanel = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.BatteryIndicator = new PowerMonitor.CustomProgressBar();
             this.SettingsIcon = new System.Windows.Forms.PictureBox();
             this.MinimizeIcon = new System.Windows.Forms.PictureBox();
             this.InfoIcon = new System.Windows.Forms.PictureBox();
+            this.HighPowerAlertCheckBox = new System.Windows.Forms.CheckBox();
+            this.PopUpLabel1 = new System.Windows.Forms.Label();
+            this.PopUpLabel2 = new System.Windows.Forms.Label();
+            this.BatteryIndicator = new PowerMonitor.CustomProgressBar();
             this.InfoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LowBatteryStateSelector)).BeginInit();
@@ -127,9 +130,9 @@
             this.BatteryHealth.Font = new System.Drawing.Font("Rockwell", 11.25F);
             this.BatteryHealth.Location = new System.Drawing.Point(362, 136);
             this.BatteryHealth.Name = "BatteryHealth";
-            this.BatteryHealth.Size = new System.Drawing.Size(42, 17);
+            this.BatteryHealth.Size = new System.Drawing.Size(43, 17);
             this.BatteryHealth.TabIndex = 11;
-            this.BatteryHealth.Text = "state";
+            this.BatteryHealth.Text = "State";
             // 
             // InfoPanel
             // 
@@ -268,9 +271,9 @@
             this.SetBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SetBtn.Font = new System.Drawing.Font("Cooper Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SetBtn.ForeColor = System.Drawing.Color.NavajoWhite;
-            this.SetBtn.Location = new System.Drawing.Point(266, 82);
+            this.SetBtn.Location = new System.Drawing.Point(339, 80);
             this.SetBtn.Name = "SetBtn";
-            this.SetBtn.Size = new System.Drawing.Size(85, 29);
+            this.SetBtn.Size = new System.Drawing.Size(71, 30);
             this.SetBtn.TabIndex = 6;
             this.SetBtn.Text = "S E T";
             this.SetBtn.UseVisualStyleBackColor = false;
@@ -278,6 +281,9 @@
             // 
             // SettingsPanel
             // 
+            this.SettingsPanel.Controls.Add(this.PopUpLabel2);
+            this.SettingsPanel.Controls.Add(this.PopUpLabel1);
+            this.SettingsPanel.Controls.Add(this.HighPowerAlertCheckBox);
             this.SettingsPanel.Controls.Add(this.pictureBox2);
             this.SettingsPanel.Controls.Add(this.SetBtn);
             this.SettingsPanel.Controls.Add(this.HighBatteryStateSelector);
@@ -300,14 +306,6 @@
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 7;
             this.pictureBox2.TabStop = false;
-            // 
-            // BatteryIndicator
-            // 
-            this.BatteryIndicator.Location = new System.Drawing.Point(49, 68);
-            this.BatteryIndicator.Name = "BatteryIndicator";
-            this.BatteryIndicator.Size = new System.Drawing.Size(355, 30);
-            this.BatteryIndicator.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
-            this.BatteryIndicator.TabIndex = 13;
             // 
             // SettingsIcon
             // 
@@ -345,6 +343,57 @@
             this.InfoIcon.TabStop = false;
             this.InfoIcon.Click += new System.EventHandler(this.InfoIcon_Click);
             // 
+            // HighPowerAlertCheckBox
+            // 
+            this.HighPowerAlertCheckBox.Appearance = System.Windows.Forms.Appearance.Button;
+            this.HighPowerAlertCheckBox.BackColor = System.Drawing.Color.Teal;
+            this.HighPowerAlertCheckBox.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.HighPowerAlertCheckBox.Checked = true;
+            this.HighPowerAlertCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.HighPowerAlertCheckBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.HighPowerAlertCheckBox.FlatAppearance.BorderColor = System.Drawing.Color.NavajoWhite;
+            this.HighPowerAlertCheckBox.FlatAppearance.CheckedBackColor = System.Drawing.Color.MediumSpringGreen;
+            this.HighPowerAlertCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.HighPowerAlertCheckBox.Font = new System.Drawing.Font("Cooper Black", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HighPowerAlertCheckBox.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.HighPowerAlertCheckBox.Location = new System.Drawing.Point(197, 81);
+            this.HighPowerAlertCheckBox.Name = "HighPowerAlertCheckBox";
+            this.HighPowerAlertCheckBox.Size = new System.Drawing.Size(30, 30);
+            this.HighPowerAlertCheckBox.TabIndex = 8;
+            this.HighPowerAlertCheckBox.Text = "✔";
+            this.HighPowerAlertCheckBox.UseVisualStyleBackColor = false;
+            this.HighPowerAlertCheckBox.CheckedChanged += new System.EventHandler(this.HighPowerAlertCheckBox_CheckedChanged);
+            // 
+            // PopUpLabel1
+            // 
+            this.PopUpLabel1.AutoSize = true;
+            this.PopUpLabel1.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PopUpLabel1.ForeColor = System.Drawing.Color.BurlyWood;
+            this.PopUpLabel1.Location = new System.Drawing.Point(229, 79);
+            this.PopUpLabel1.Name = "PopUpLabel1";
+            this.PopUpLabel1.Size = new System.Drawing.Size(82, 16);
+            this.PopUpLabel1.TabIndex = 9;
+            this.PopUpLabel1.Text = "Pop up when";
+            // 
+            // PopUpLabel2
+            // 
+            this.PopUpLabel2.AutoSize = true;
+            this.PopUpLabel2.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PopUpLabel2.ForeColor = System.Drawing.Color.BurlyWood;
+            this.PopUpLabel2.Location = new System.Drawing.Point(229, 96);
+            this.PopUpLabel2.Name = "PopUpLabel2";
+            this.PopUpLabel2.Size = new System.Drawing.Size(90, 16);
+            this.PopUpLabel2.TabIndex = 10;
+            this.PopUpLabel2.Text = "battery is high";
+            // 
+            // BatteryIndicator
+            // 
+            this.BatteryIndicator.Location = new System.Drawing.Point(49, 68);
+            this.BatteryIndicator.Name = "BatteryIndicator";
+            this.BatteryIndicator.Size = new System.Drawing.Size(355, 30);
+            this.BatteryIndicator.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.BatteryIndicator.TabIndex = 13;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -365,6 +414,7 @@
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.ForeColor = System.Drawing.Color.NavajoWhite;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
@@ -396,8 +446,6 @@
         private System.Windows.Forms.Timer RefreshTimer;
         private System.Windows.Forms.Label PowerStatus;
         private System.Windows.Forms.Label Warning;
-        private System.Windows.Forms.PictureBox InfoIcon;
-        private System.Windows.Forms.PictureBox MinimizeIcon;
         private System.Windows.Forms.Timer ForLow;
         private System.Windows.Forms.Timer ForHigh;
         private System.Windows.Forms.Label BatteryHealth;
@@ -407,15 +455,20 @@
         private System.Windows.Forms.Label AppName;
         private CustomProgressBar BatteryIndicator;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox SettingsIcon;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button SetBtn;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Panel SettingsPanel;
         public System.Windows.Forms.NumericUpDown LowBatteryStateSelector;
         public System.Windows.Forms.NumericUpDown HighBatteryStateSelector;
+        public System.Windows.Forms.PictureBox InfoIcon;
+        public System.Windows.Forms.PictureBox MinimizeIcon;
+        public System.Windows.Forms.PictureBox SettingsIcon;
+        public System.Windows.Forms.Button SetBtn;
+        private System.Windows.Forms.Label PopUpLabel1;
+        private System.Windows.Forms.Label PopUpLabel2;
+        public System.Windows.Forms.CheckBox HighPowerAlertCheckBox;
     }
 }
 

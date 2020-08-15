@@ -46,5 +46,29 @@ namespace PowerMonitor.Properties {
                 this["HighBatteryValue"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool CheckBoxValue {
+            get {
+                return ((bool)(this["CheckBoxValue"]));
+            }
+            set {
+                this["CheckBoxValue"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool TimerValue {
+            get {
+                return ((bool)(this["TimerValue"]));
+            }
+            set {
+                this["TimerValue"] = value;
+            }
+        }
     }
 }
