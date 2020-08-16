@@ -1,0 +1,11 @@
+D:\Visual Studio\PowerMonitor\PowerMonitor\bin\Release\PowerMonitor.exe.config
+D:\Visual Studio\PowerMonitor\PowerMonitor\bin\Release\PowerMonitor.exe
+D:\Visual Studio\PowerMonitor\PowerMonitor\bin\Release\PowerMonitor.pdb
+D:\Visual Studio\PowerMonitor\PowerMonitor\obj\Release\PowerMonitor.Main.resources
+D:\Visual Studio\PowerMonitor\PowerMonitor\obj\Release\PowerMonitor.MessageBoxes.resources
+D:\Visual Studio\PowerMonitor\PowerMonitor\obj\Release\PowerMonitor.Properties.Resources.resources
+D:\Visual Studio\PowerMonitor\PowerMonitor\obj\Release\PowerMonitor.csproj.GenerateResource.cache
+D:\Visual Studio\PowerMonitor\PowerMonitor\obj\Release\PowerMonitor.csproj.CoreCompileInputs.cache
+D:\Visual Studio\PowerMonitor\PowerMonitor\obj\Release\PowerMonitor.exe
+D:\Visual Studio\PowerMonitor\PowerMonitor\obj\Release\PowerMonitor.pdb
+D:\Visual Studio\PowerMonitor\PowerMonitor\obj\Release\PowerMonitor.csprojAssemblyReference.cache

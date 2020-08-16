@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Media;
 using Microsoft.Win32;
+using System.Diagnostics;
 
 namespace PowerMonitor {
     public partial class Main : Form {
@@ -46,6 +47,9 @@ namespace PowerMonitor {
             HighBatteryStateSelector.Value = Properties.Settings.Default.HighBatteryValue;
             HighPowerAlertCheckBox.Checked = Properties.Settings.Default.CheckBoxValue;
             ForHigh.Enabled = Properties.Settings.Default.TimerValue;
+
+            //this.ShowInTaskbar = false;
+            //this.Hide();
         }
 
         protected override void OnPaint(PaintEventArgs e) {
@@ -66,9 +70,13 @@ namespace PowerMonitor {
 
         private void Main_Resize(object sender, EventArgs e) {
             if (this.WindowState == FormWindowState.Minimized) {
-                //this.ShowInTaskbar = false;
+                NotifyIcon.Icon = SystemIcons.Application;
+                this.ShowInTaskbar = false;
                 this.Hide();
             }
+        }
+        private void NotifyIcon_MouseDoubleClick(object sender, MouseEventArgs e) {
+            ShowMain();
         }
 
         private void MinimizeIcon_Click(object sender, EventArgs e) {

@@ -1,4 +1,6 @@
-﻿namespace PowerMonitor {
+﻿using System.Drawing;
+
+namespace PowerMonitor {
     partial class Main {
         /// <summary>
         /// Required designer variable.
@@ -52,6 +54,7 @@
             this.SettingsIcon = new System.Windows.Forms.PictureBox();
             this.MinimizeIcon = new System.Windows.Forms.PictureBox();
             this.InfoIcon = new System.Windows.Forms.PictureBox();
+            this.NotifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.BatteryIndicator = new PowerMonitor.CustomProgressBar();
             this.InfoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -386,6 +389,13 @@
             this.InfoIcon.TabStop = false;
             this.InfoIcon.Click += new System.EventHandler(this.InfoIcon_Click);
             // 
+            // NotifyIcon
+            // 
+            this.NotifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("NotifyIcon.Icon")));
+            this.NotifyIcon.Text = "Power Monitor";
+            this.NotifyIcon.Visible = true;
+            this.NotifyIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.NotifyIcon_MouseDoubleClick);
+            // 
             // BatteryIndicator
             // 
             this.BatteryIndicator.Location = new System.Drawing.Point(49, 68);
@@ -469,6 +479,7 @@
         private System.Windows.Forms.Label PopUpLabel1;
         private System.Windows.Forms.Label PopUpLabel2;
         public System.Windows.Forms.CheckBox HighPowerAlertCheckBox;
+        private System.Windows.Forms.NotifyIcon NotifyIcon;
     }
 }
 
