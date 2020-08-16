@@ -3,10 +3,10 @@
   <Profiles />
   <Settings>
     <Setting Name="LowBatteryValue" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">20</Value>
+      <Value Profile="(Default)">25</Value>
     </Setting>
     <Setting Name="HighBatteryValue" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">80</Value>
+      <Value Profile="(Default)">98</Value>
     </Setting>
     <Setting Name="CheckBoxValue" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>

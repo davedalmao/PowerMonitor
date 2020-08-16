@@ -48,8 +48,8 @@ namespace PowerMonitor {
             HighPowerAlertCheckBox.Checked = Properties.Settings.Default.CheckBoxValue;
             ForHigh.Enabled = Properties.Settings.Default.TimerValue;
 
-            //this.ShowInTaskbar = false;
-            //this.Hide();
+            this.ShowInTaskbar = false;
+            this.Hide();
         }
 
         protected override void OnPaint(PaintEventArgs e) {
@@ -80,6 +80,7 @@ namespace PowerMonitor {
 
         private void exitApplicationToolStripMenuItem_Click(object sender, EventArgs e) {
             Application.Exit();
+            //Environment.Exit(0);
         }
 
         private void MinimizeIcon_Click(object sender, EventArgs e) {
@@ -217,7 +218,7 @@ namespace PowerMonitor {
             }
 
             catch (Exception ex) {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Error Message: " + ex.Message);
                 Application.Exit();
             }
         }
@@ -266,13 +267,13 @@ namespace PowerMonitor {
                     ForHigh.Start();
 
                     //Sound Alert When Form Pops Up
-                    SoundPlayer sp = new SoundPlayer("Low.wav");
+                    SoundPlayer sp = new SoundPlayer(Properties.Resources.Low);
                     sp.Play();
                 }
             }
 
             catch (Exception ex) {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Error Message: " + ex.Message);
                 Application.Exit();
             }
         }
@@ -298,13 +299,13 @@ namespace PowerMonitor {
                     ForLow.Start();
 
                     //Sound Alert When Form Pops Up
-                    SoundPlayer sp = new SoundPlayer("High.wav");
+                    SoundPlayer sp = new SoundPlayer(Properties.Resources.High);
                     sp.Play();
                 }
             }
 
             catch (Exception ex) {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Error Message: " + ex.Message);
                 Application.Exit();
             }
         }
