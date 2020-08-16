@@ -56,6 +56,8 @@ namespace PowerMonitor {
             this.InfoIcon = new System.Windows.Forms.PictureBox();
             this.NotifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.BatteryIndicator = new PowerMonitor.CustomProgressBar();
+            this.ExitMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.exitApplicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.InfoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LowBatteryStateSelector)).BeginInit();
@@ -65,6 +67,7 @@ namespace PowerMonitor {
             ((System.ComponentModel.ISupportInitialize)(this.SettingsIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MinimizeIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.InfoIcon)).BeginInit();
+            this.ExitMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // BatteryLife
@@ -151,7 +154,7 @@ namespace PowerMonitor {
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::PowerMonitor.Properties.Resources.Battery_blue;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(315, 60);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(31, 43);
@@ -391,6 +394,7 @@ namespace PowerMonitor {
             // 
             // NotifyIcon
             // 
+            this.NotifyIcon.ContextMenuStrip = this.ExitMenuStrip;
             this.NotifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("NotifyIcon.Icon")));
             this.NotifyIcon.Text = "Power Monitor";
             this.NotifyIcon.Visible = true;
@@ -403,6 +407,20 @@ namespace PowerMonitor {
             this.BatteryIndicator.Size = new System.Drawing.Size(355, 30);
             this.BatteryIndicator.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.BatteryIndicator.TabIndex = 13;
+            // 
+            // ExitMenuStrip
+            // 
+            this.ExitMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exitApplicationToolStripMenuItem});
+            this.ExitMenuStrip.Name = "ExitMenuStrip";
+            this.ExitMenuStrip.Size = new System.Drawing.Size(176, 26);
+            // 
+            // exitApplicationToolStripMenuItem
+            // 
+            this.exitApplicationToolStripMenuItem.Name = "exitApplicationToolStripMenuItem";
+            this.exitApplicationToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitApplicationToolStripMenuItem.Text = "Exit Power Monitor";
+            this.exitApplicationToolStripMenuItem.Click += new System.EventHandler(this.exitApplicationToolStripMenuItem_Click);
             // 
             // Main
             // 
@@ -445,6 +463,7 @@ namespace PowerMonitor {
             ((System.ComponentModel.ISupportInitialize)(this.SettingsIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MinimizeIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.InfoIcon)).EndInit();
+            this.ExitMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -480,6 +499,8 @@ namespace PowerMonitor {
         private System.Windows.Forms.Label PopUpLabel2;
         public System.Windows.Forms.CheckBox HighPowerAlertCheckBox;
         private System.Windows.Forms.NotifyIcon NotifyIcon;
+        private System.Windows.Forms.ContextMenuStrip ExitMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem exitApplicationToolStripMenuItem;
     }
 }
 

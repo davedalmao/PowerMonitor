@@ -70,13 +70,16 @@ namespace PowerMonitor {
 
         private void Main_Resize(object sender, EventArgs e) {
             if (this.WindowState == FormWindowState.Minimized) {
-                NotifyIcon.Icon = SystemIcons.Application;
                 this.ShowInTaskbar = false;
                 this.Hide();
             }
         }
         private void NotifyIcon_MouseDoubleClick(object sender, MouseEventArgs e) {
             ShowMain();
+        }
+
+        private void exitApplicationToolStripMenuItem_Click(object sender, EventArgs e) {
+            Application.Exit();
         }
 
         private void MinimizeIcon_Click(object sender, EventArgs e) {

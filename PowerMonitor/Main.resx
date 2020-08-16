@@ -127,6 +127,27 @@
     <value>227, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAOKSURBVFhHzZb9S1NhFMcHQUKwyOoqovZCSbCytwlJCfaD
+        YFFUUNkPhVQ/CNUvQf6+vyCiH+YqS3MWvqRJ+bJ8vZoSmKZJRbDp3l/arNzW5qabns5z9xSp2+6zWNgH
+        Ds57z3PO955znnsfSaIUvbRKi1ut3Ml2G3e6w8ad0djxr507gf8fa7VKqVvyweCp2TX6colSq0HjY5hm
+        q1pffqrDnkqXJRGltmFHrQFuDrpAMfw1qpF7xIf40lXJoRjLvlalDVR+coMY9z66YU2FNkCX/j1nNXbp
+        hU47d6nbwWFZj3BVU8Bb/TRNbHjrLBDfsn4nd6XvC1fa4+AudjvYZ+NavzN1T51xaa9VuuGUyikobLXD
+        +V5XxPqml1nkOvFJeagHiWqSl1Tofs/G3npj+a0hF8Ns/Nnrt9jbkW+gGP0OinczoBijNu5G8ywzvDZG
+        DO8TX7KGrMUYzLNxHLcRa68ThWk2dtcZZdwjtl4nColJYtNU0cHey1iHLVEEARibporOvgaTjKvWA2+b
+        pcuSB4lJYtNU0Tn4zCzjHhv+nYAaHMR4yJstMk5tBN4eoMuiMx1cgP28BzZ0zKC5YX37DKRpZkBtnqMe
+        KyExObWJQUCtSVSA2hKETRo3cJ0R24y/L4/5wIXCYiEIwNg0VXTkz60owBxXgGd+EUpGfZDR7YGsnogd
+        feMVqhIPQcATM4MAdIonYMIThvxBL2zp9cB2bEPekBfanPP0bmwiAiwiAlpsKMASV4DKEBSeflufB3IG
+        vFBtmYPQ4iK9GxvegQKeMgmIX4GS0R+Q0eUWBOzs90Lpez9c/+CHsgk/XMXftycDEAyvFCRUQFSASAus
+        swuQigOXhoOXiVUgbSBG5iAdr8mxIp+9Yeq9lEgLxGagmQxh7F0wMB2CQ5jkMM5A3msvZKGIjC5MjhXZ
+        hRVpcYhsQ3EBbO8BAtkN50Z8sBErkoMV6HHFH0RBgOg2bEIBNSiA4U045QtDAVYhHQXcwb6LIQjAh6Op
+        oiNP4FXciVsv+5UbqoxBCC0w7ALyKsbYNFV05I34MSJfQwYBd3UBuDHuY0pOEARUi3wNBQGM5wHeOQe+
+        EFtyAtN54AD5HDMKYH3yXzAJyK1f5RNR7n9xJFtNAXgozVx3XwdtBh9dljw0Jh9IH+jiCxBQaofzm8zQ
+        qPMm1UhMEptmiU1Bs7lQcFRqyYJk2nDRC0shTUORSH4CLK3x5v0rXHkAAAAASUVORK5CYII=
+</value>
+  </data>
   <data name="InfoIcon.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
@@ -144,6 +165,9 @@
   </data>
   <metadata name="NotifyIcon.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>322, 17</value>
+  </metadata>
+  <metadata name="ExitMenuStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>430, 17</value>
   </metadata>
   <data name="NotifyIcon.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
