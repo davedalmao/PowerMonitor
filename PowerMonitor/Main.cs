@@ -83,6 +83,8 @@ namespace PowerMonitor {
             this.CenterToScreen();
             this.WindowState = FormWindowState.Minimized;
             NotifyIcon.Visible = true;
+            SettingsPanel.Visible = false;
+            InfoPanel.Visible = false;
         }
 
         private void Main_MouseDoubleClick(object sender, MouseEventArgs e) {
