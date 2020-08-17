@@ -59,6 +59,7 @@ namespace PowerMonitor {
             this.exitApplicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.BatteryIndicator = new PowerMonitor.CustomProgressBar();
             this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.ChargingTimer = new System.Windows.Forms.Timer(this.components);
             this.InfoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LowBatteryStateSelector)).BeginInit();
@@ -425,6 +426,11 @@ namespace PowerMonitor {
             this.BatteryIndicator.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.BatteryIndicator.TabIndex = 13;
             // 
+            // ChargingTimer
+            // 
+            this.ChargingTimer.Enabled = true;
+            this.ChargingTimer.Tick += new System.EventHandler(this.ChargingTimer_Tick);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -505,6 +511,7 @@ namespace PowerMonitor {
         private System.Windows.Forms.ContextMenuStrip ExitMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem exitApplicationToolStripMenuItem;
         private System.Windows.Forms.ToolTip ToolTip;
+        private System.Windows.Forms.Timer ChargingTimer;
     }
 }
 

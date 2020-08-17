@@ -132,6 +132,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Battery-blue.ico" />
+    <None Include="Resources\Alert.wav" />
     <None Include="Resources\Looow.wav" />
     <None Include="Resources\High.wav" />
     <None Include="Resources\Low.wav" />

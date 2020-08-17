@@ -32,6 +32,7 @@ namespace PowerMonitor {
             RefreshTimer.Enabled = true;
             ForLow.Enabled = true;
             ForHigh.Enabled = true;
+            ChargingTimer.Enabled = true;
 
             LowBatteryStateSelector.Value = Properties.Settings.Default.LowBatteryValue;
             HighBatteryStateSelector.Value = Properties.Settings.Default.HighBatteryValue;
@@ -56,6 +57,10 @@ namespace PowerMonitor {
 
         private void ForHigh_Tick(object sender, EventArgs e) {
             CheckPercentNumberHigh();
+        }
+
+        private void ChargingTimer_Tick(object sender, EventArgs e) {
+            BatteryState();
         }
 
         private void Main_Resize(object sender, EventArgs e) {
@@ -136,31 +141,10 @@ namespace PowerMonitor {
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         private void RefreshStatus() {
-            BatteryState();
             VisualBatteryHealth();
             HighMedLow();
             BatteryPercent();
             CurrentBatteryLife();
-        }
-
-        private void BatteryState() {
-            if (power.PowerLineStatus == PowerLineStatus.Online) {
-                Warning.SendToBack();
-                Warning.Visible = false;
-                PowerStatus.Text = "CHARGING";
-
-                this.CenterToScreen();
-                this.WindowState = FormWindowState.Minimized;
-                NotifyIcon.Visible = true;
-            }
-
-            else if (power.PowerLineStatus == PowerLineStatus.Offline) {
-                PowerStatus.Text = "NOT CHARGING";
-            }
-
-            else {
-                PowerStatus.Text = "UNKNOWN";
-            }
         }
 
         //Progressbar Visuals
@@ -239,6 +223,30 @@ namespace PowerMonitor {
             else {
                 BatteryTime.Text = "Wait while still charging / calculating...";
             }
+        }
+
+        private void BatteryState() {
+            if (power.PowerLineStatus == PowerLineStatus.Online) {
+                Warning.SendToBack();
+                Warning.Visible = false;
+                PowerStatus.Text = "CHARGING";
+
+                this.CenterToScreen();
+                this.WindowState = FormWindowState.Minimized;
+                NotifyIcon.Visible = true;
+
+                ChargingTimer.Stop();
+            }
+
+            else if (power.PowerLineStatus == PowerLineStatus.Offline) {
+                PowerStatus.Text = "NOT CHARGING";
+                ChargingTimer.Start();
+            }
+
+            else {
+                PowerStatus.Text = "UNKNOWN";
+            }
+
         }
 
         private void CheckPercentNumberLow() {
