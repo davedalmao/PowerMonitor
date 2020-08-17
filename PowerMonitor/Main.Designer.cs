@@ -58,6 +58,7 @@ namespace PowerMonitor {
             this.ExitMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.exitApplicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.BatteryIndicator = new PowerMonitor.CustomProgressBar();
+            this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.InfoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LowBatteryStateSelector)).BeginInit();
@@ -366,6 +367,7 @@ namespace PowerMonitor {
             this.SettingsIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.SettingsIcon.TabIndex = 14;
             this.SettingsIcon.TabStop = false;
+            this.ToolTip.SetToolTip(this.SettingsIcon, "Settings");
             this.SettingsIcon.Click += new System.EventHandler(this.SettingsIcon_Click);
             // 
             // MinimizeIcon
@@ -378,6 +380,7 @@ namespace PowerMonitor {
             this.MinimizeIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.MinimizeIcon.TabIndex = 10;
             this.MinimizeIcon.TabStop = false;
+            this.ToolTip.SetToolTip(this.MinimizeIcon, "Minimize to System Tray");
             this.MinimizeIcon.Click += new System.EventHandler(this.MinimizeIcon_Click);
             // 
             // InfoIcon
@@ -390,6 +393,7 @@ namespace PowerMonitor {
             this.InfoIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.InfoIcon.TabIndex = 9;
             this.InfoIcon.TabStop = false;
+            this.ToolTip.SetToolTip(this.InfoIcon, "Info");
             this.InfoIcon.Click += new System.EventHandler(this.InfoIcon_Click);
             // 
             // NotifyIcon
@@ -501,6 +505,7 @@ namespace PowerMonitor {
         private System.Windows.Forms.NotifyIcon NotifyIcon;
         private System.Windows.Forms.ContextMenuStrip ExitMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem exitApplicationToolStripMenuItem;
+        private System.Windows.Forms.ToolTip ToolTip;
     }
 }
 

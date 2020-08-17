@@ -48,8 +48,8 @@ namespace PowerMonitor {
             HighPowerAlertCheckBox.Checked = Properties.Settings.Default.CheckBoxValue;
             ForHigh.Enabled = Properties.Settings.Default.TimerValue;
 
-            this.ShowInTaskbar = false;
-            this.Hide();
+            //this.ShowInTaskbar = false;
+            //this.Hide();
         }
 
         protected override void OnPaint(PaintEventArgs e) {
