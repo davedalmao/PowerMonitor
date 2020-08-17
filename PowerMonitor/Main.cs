@@ -19,16 +19,6 @@ namespace PowerMonitor {
         int mov;
         int movX;
         int movY;
-        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
-        private static extern IntPtr CreateRoundRectRgn
-        (
-            int nLeftRect,     // x-coordinate of upper-left corner
-            int nTopRect,      // y-coordinate of upper-left corner
-            int nRightRect,    // x-coordinate of lower-right corner
-            int nBottomRect,   // y-coordinate of lower-right corner
-            int nWidthEllipse, // height of ellipse
-            int nHeightEllipse // width of ellipse
-        );
 
         public Main() {
             InitializeComponent();
@@ -76,6 +66,7 @@ namespace PowerMonitor {
         }
         private void NotifyIcon_MouseDoubleClick(object sender, MouseEventArgs e) {
             ShowMain();
+            NotifyIcon.Visible = false;
         }
 
         private void exitApplicationToolStripMenuItem_Click(object sender, EventArgs e) {
@@ -86,6 +77,7 @@ namespace PowerMonitor {
         private void MinimizeIcon_Click(object sender, EventArgs e) {
             this.CenterToScreen();
             this.WindowState = FormWindowState.Minimized;
+            NotifyIcon.Visible = true;
         }
 
         private void Main_MouseDoubleClick(object sender, MouseEventArgs e) {
@@ -156,6 +148,10 @@ namespace PowerMonitor {
                 Warning.SendToBack();
                 Warning.Visible = false;
                 PowerStatus.Text = "CHARGING";
+
+                this.CenterToScreen();
+                this.WindowState = FormWindowState.Minimized;
+                NotifyIcon.Visible = true;
             }
 
             else if (power.PowerLineStatus == PowerLineStatus.Offline) {
@@ -267,7 +263,7 @@ namespace PowerMonitor {
                     ForHigh.Start();
 
                     //Sound Alert When Form Pops Up
-                    SoundPlayer sp = new SoundPlayer(Properties.Resources.Low);
+                    SoundPlayer sp = new SoundPlayer(Properties.Resources.Alert);
                     sp.Play();
                 }
             }
@@ -299,7 +295,7 @@ namespace PowerMonitor {
                     ForLow.Start();
 
                     //Sound Alert When Form Pops Up
-                    SoundPlayer sp = new SoundPlayer(Properties.Resources.High);
+                    SoundPlayer sp = new SoundPlayer(Properties.Resources.Alert);
                     sp.Play();
                 }
             }
@@ -426,3 +422,5 @@ namespace PowerMonitor {
         //BatteryStatus.Text = power.BatteryChargeStatus.ToString();
     }
 }*/
+
+//John Dave R. Dalmao

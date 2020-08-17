@@ -401,7 +401,6 @@ namespace PowerMonitor {
             this.NotifyIcon.ContextMenuStrip = this.ExitMenuStrip;
             this.NotifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("NotifyIcon.Icon")));
             this.NotifyIcon.Text = "Power Monitor";
-            this.NotifyIcon.Visible = true;
             this.NotifyIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.NotifyIcon_MouseDoubleClick);
             // 
             // ExitMenuStrip
