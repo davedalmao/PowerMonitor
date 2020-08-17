@@ -55,9 +55,9 @@ namespace PowerMonitor {
             this.MinimizeIcon = new System.Windows.Forms.PictureBox();
             this.InfoIcon = new System.Windows.Forms.PictureBox();
             this.NotifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
-            this.BatteryIndicator = new PowerMonitor.CustomProgressBar();
             this.ExitMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.exitApplicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.BatteryIndicator = new PowerMonitor.CustomProgressBar();
             this.InfoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LowBatteryStateSelector)).BeginInit();
@@ -400,14 +400,6 @@ namespace PowerMonitor {
             this.NotifyIcon.Visible = true;
             this.NotifyIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.NotifyIcon_MouseDoubleClick);
             // 
-            // BatteryIndicator
-            // 
-            this.BatteryIndicator.Location = new System.Drawing.Point(49, 68);
-            this.BatteryIndicator.Name = "BatteryIndicator";
-            this.BatteryIndicator.Size = new System.Drawing.Size(355, 30);
-            this.BatteryIndicator.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
-            this.BatteryIndicator.TabIndex = 13;
-            // 
             // ExitMenuStrip
             // 
             this.ExitMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -418,9 +410,17 @@ namespace PowerMonitor {
             // exitApplicationToolStripMenuItem
             // 
             this.exitApplicationToolStripMenuItem.Name = "exitApplicationToolStripMenuItem";
-            this.exitApplicationToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitApplicationToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
             this.exitApplicationToolStripMenuItem.Text = "Exit Power Monitor";
             this.exitApplicationToolStripMenuItem.Click += new System.EventHandler(this.exitApplicationToolStripMenuItem_Click);
+            // 
+            // BatteryIndicator
+            // 
+            this.BatteryIndicator.Location = new System.Drawing.Point(49, 68);
+            this.BatteryIndicator.Name = "BatteryIndicator";
+            this.BatteryIndicator.Size = new System.Drawing.Size(355, 30);
+            this.BatteryIndicator.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.BatteryIndicator.TabIndex = 13;
             // 
             // Main
             // 
