@@ -186,6 +186,11 @@ namespace PowerMonitor {
                     Warning.Visible = false;
                 }
 
+                else if (percentNumber <= LowBatteryStateSelector.Value && power.PowerLineStatus == PowerLineStatus.Online) {
+                    Warning.SendToBack();
+                    Warning.Visible = false;
+                }
+
                 //Med State
                 else {
                     BatteryHealth.Text = "Med";
@@ -228,6 +233,8 @@ namespace PowerMonitor {
         }
 
         private void BatteryState() {
+            percentNumber = (int)(power.BatteryLifePercent * 100);
+
             if (power.PowerLineStatus == PowerLineStatus.Online) {
                 Warning.SendToBack();
                 Warning.Visible = false;
@@ -245,10 +252,14 @@ namespace PowerMonitor {
                 ChargingTimer.Start();
             }
 
+            else if (power.PowerLineStatus == PowerLineStatus.Offline && percentNumber > 0 && percentNumber <= 100) {
+                PowerStatus.Text = "NOT CHARGING";
+                ChargingTimer.Start();
+            }
+
             else {
                 PowerStatus.Text = "UNKNOWN";
             }
-
         }
 
         private void CheckPercentNumberLow() {
