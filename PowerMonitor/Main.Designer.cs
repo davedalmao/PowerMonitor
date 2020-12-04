@@ -57,9 +57,9 @@ namespace PowerMonitor {
             this.NotifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.ExitMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.exitApplicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.BatteryIndicator = new PowerMonitor.CustomProgressBar();
             this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.ChargingTimer = new System.Windows.Forms.Timer(this.components);
+            this.BatteryIndicator = new PowerMonitor.CustomProgressBar();
             this.InfoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LowBatteryStateSelector)).BeginInit();
@@ -418,6 +418,11 @@ namespace PowerMonitor {
             this.exitApplicationToolStripMenuItem.Text = "Exit Power Monitor";
             this.exitApplicationToolStripMenuItem.Click += new System.EventHandler(this.exitApplicationToolStripMenuItem_Click);
             // 
+            // ChargingTimer
+            // 
+            this.ChargingTimer.Enabled = true;
+            this.ChargingTimer.Tick += new System.EventHandler(this.ChargingTimer_Tick);
+            // 
             // BatteryIndicator
             // 
             this.BatteryIndicator.Location = new System.Drawing.Point(49, 68);
@@ -425,11 +430,6 @@ namespace PowerMonitor {
             this.BatteryIndicator.Size = new System.Drawing.Size(355, 30);
             this.BatteryIndicator.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.BatteryIndicator.TabIndex = 13;
-            // 
-            // ChargingTimer
-            // 
-            this.ChargingTimer.Enabled = true;
-            this.ChargingTimer.Tick += new System.EventHandler(this.ChargingTimer_Tick);
             // 
             // Main
             // 
@@ -455,7 +455,9 @@ namespace PowerMonitor {
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Power Monitor";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_FormClosing);
             this.Load += new System.EventHandler(this.Main_Load);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Main_KeyUp);
             this.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.Main_MouseDoubleClick);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Main_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Main_MouseMove);

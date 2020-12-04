@@ -19,6 +19,7 @@ namespace PowerMonitor {
         int mov;
         int movX;
         int movY;
+        private static int enterCounter = 0;
 
         public Main() {
             InitializeComponent();
@@ -42,6 +43,46 @@ namespace PowerMonitor {
             //this.ShowInTaskbar = false;
             //this.Hide();
         }
+        private void Main_FormClosing(object sender, FormClosingEventArgs e) {
+            e.Cancel = true;
+            minimizeToSystemTray();
+        }
+
+        private void Main_KeyUp(object sender, KeyEventArgs e) {
+            if (e.KeyCode == Keys.Enter) {
+                enterCounter += 1;
+            }
+
+            if (enterCounter >= 2) {
+                minimizeToSystemTray();
+                enterCounter = 0;
+            }
+        }
+        private void Main_Resize(object sender, EventArgs e) {
+            if (this.WindowState == FormWindowState.Minimized) {
+                this.ShowInTaskbar = false;
+                this.Hide();
+            }
+        }
+        private void Main_MouseDoubleClick(object sender, MouseEventArgs e) {
+            this.CenterToScreen();
+        }
+
+        private void Main_MouseDown(object sender, MouseEventArgs e) {
+            mov = 1;
+            movX = e.X;
+            movY = e.Y;
+        }
+
+        private void Main_MouseMove(object sender, MouseEventArgs e) {
+            if (mov == 1) {
+                this.SetDesktopLocation(MousePosition.X - movX, MousePosition.Y - movY);
+            }
+        }
+
+        private void Main_MouseUp(object sender, MouseEventArgs e) {
+            mov = 0;
+        }
 
         protected override void OnPaint(PaintEventArgs e) {
             ControlPaint.DrawBorder(e.Graphics, ClientRectangle, Color.NavajoWhite, ButtonBorderStyle.Solid);
@@ -63,12 +104,7 @@ namespace PowerMonitor {
             BatteryState();
         }
 
-        private void Main_Resize(object sender, EventArgs e) {
-            if (this.WindowState == FormWindowState.Minimized) {
-                this.ShowInTaskbar = false;
-                this.Hide();
-            }
-        }
+
         private void NotifyIcon_MouseDoubleClick(object sender, MouseEventArgs e) {
             ShowMain();
             NotifyIcon.Visible = false;
@@ -80,15 +116,7 @@ namespace PowerMonitor {
         }
 
         private void MinimizeIcon_Click(object sender, EventArgs e) {
-            this.CenterToScreen();
-            this.WindowState = FormWindowState.Minimized;
-            NotifyIcon.Visible = true;
-            SettingsPanel.Visible = false;
-            InfoPanel.Visible = false;
-        }
-
-        private void Main_MouseDoubleClick(object sender, MouseEventArgs e) {
-            this.CenterToScreen();
+            minimizeToSystemTray();
         }
 
         private void SetBtn_Click(object sender, EventArgs e) {
@@ -103,22 +131,6 @@ namespace PowerMonitor {
             LowBatteryStateSelector.Enabled = false;
             HighBatteryStateSelector.Enabled = false;
             HighPowerAlertCheckBox.Enabled = false;
-        }
-
-        private void Main_MouseDown(object sender, MouseEventArgs e) {
-            mov = 1;
-            movX = e.X;
-            movY = e.Y;
-        }
-
-        private void Main_MouseMove(object sender, MouseEventArgs e) {
-            if (mov == 1) {
-                this.SetDesktopLocation(MousePosition.X - movX, MousePosition.Y - movY);
-            }
-        }
-
-        private void Main_MouseUp(object sender, MouseEventArgs e) {
-            mov = 0;
         }
 
         private void HighPowerAlertCheckBox_CheckedChanged(object sender, EventArgs e) {
@@ -138,8 +150,9 @@ namespace PowerMonitor {
                 ForHigh.Stop();
             }
         }
+
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        //////////////////////////////////////////////////////////FUNCTIONS/////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         private void RefreshStatus() {
@@ -239,11 +252,7 @@ namespace PowerMonitor {
                 Warning.SendToBack();
                 Warning.Visible = false;
                 PowerStatus.Text = "CHARGING";
-
-                this.CenterToScreen();
-                this.WindowState = FormWindowState.Minimized;
-                NotifyIcon.Visible = true;
-
+                minimizeToSystemTray();
                 ChargingTimer.Stop();
             }
 
@@ -370,6 +379,17 @@ namespace PowerMonitor {
                 Y = Math.Max(workingArea.Y, workingArea.Y + (workingArea.Height - this.Height) / 2)
             };
         }
+
+        private void minimizeToSystemTray() {
+            this.CenterToScreen();
+            this.WindowState = FormWindowState.Minimized;
+            NotifyIcon.Visible = true;
+            SettingsPanel.Visible = false;
+            InfoPanel.Visible = false;
+        }
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         ////////////////////////INFO and SETTINGS///////////////////////
         private void InfoIcon_Click(object sender, EventArgs e) {
