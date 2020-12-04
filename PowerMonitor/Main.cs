@@ -386,6 +386,7 @@ namespace PowerMonitor {
             NotifyIcon.Visible = true;
             SettingsPanel.Visible = false;
             InfoPanel.Visible = false;
+            EnterTwice.Visible = false;
         }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -393,6 +394,7 @@ namespace PowerMonitor {
 
         ////////////////////////INFO and SETTINGS///////////////////////
         private void InfoIcon_Click(object sender, EventArgs e) {
+            EnterTwice.Visible = false;
             if (InfoPanel.Visible == true) {
                 InfoPanel.Visible = false;
                 InfoPanel.Location = new Point(12, 68);
@@ -417,7 +419,12 @@ namespace PowerMonitor {
             }
         }
 
+        private void SettingsLogo_Click(object sender, EventArgs e) {
+            _ = (EnterTwice.Visible == false) ? EnterTwice.Visible = true : EnterTwice.Visible = false;
+        }
+
         private void SettingsIcon_Click(object sender, EventArgs e) {
+            EnterTwice.Visible = false;
             if (SettingsPanel.Visible == true) {
                 SettingsPanel.Visible = false;
                 SettingsPanel.Location = new Point(410, 68);

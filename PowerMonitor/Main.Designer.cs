@@ -50,7 +50,7 @@ namespace PowerMonitor {
             this.PopUpLabel2 = new System.Windows.Forms.Label();
             this.PopUpLabel1 = new System.Windows.Forms.Label();
             this.HighPowerAlertCheckBox = new System.Windows.Forms.CheckBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.SettingsLogo = new System.Windows.Forms.PictureBox();
             this.SettingsIcon = new System.Windows.Forms.PictureBox();
             this.MinimizeIcon = new System.Windows.Forms.PictureBox();
             this.InfoIcon = new System.Windows.Forms.PictureBox();
@@ -59,13 +59,14 @@ namespace PowerMonitor {
             this.exitApplicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.ChargingTimer = new System.Windows.Forms.Timer(this.components);
+            this.EnterTwice = new System.Windows.Forms.Label();
             this.BatteryIndicator = new PowerMonitor.CustomProgressBar();
             this.InfoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LowBatteryStateSelector)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.HighBatteryStateSelector)).BeginInit();
             this.SettingsPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SettingsLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SettingsIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MinimizeIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.InfoIcon)).BeginInit();
@@ -292,7 +293,7 @@ namespace PowerMonitor {
             this.SettingsPanel.Controls.Add(this.PopUpLabel2);
             this.SettingsPanel.Controls.Add(this.PopUpLabel1);
             this.SettingsPanel.Controls.Add(this.HighPowerAlertCheckBox);
-            this.SettingsPanel.Controls.Add(this.pictureBox2);
+            this.SettingsPanel.Controls.Add(this.SettingsLogo);
             this.SettingsPanel.Controls.Add(this.SetBtn);
             this.SettingsPanel.Controls.Add(this.HighBatteryStateSelector);
             this.SettingsPanel.Controls.Add(this.LowBatteryStateSelector);
@@ -348,15 +349,17 @@ namespace PowerMonitor {
             this.HighPowerAlertCheckBox.UseVisualStyleBackColor = false;
             this.HighPowerAlertCheckBox.CheckedChanged += new System.EventHandler(this.HighPowerAlertCheckBox_CheckedChanged);
             // 
-            // pictureBox2
+            // SettingsLogo
             // 
-            this.pictureBox2.Image = global::PowerMonitor.Properties.Resources.Tools;
-            this.pictureBox2.Location = new System.Drawing.Point(57, 45);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(69, 66);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 7;
-            this.pictureBox2.TabStop = false;
+            this.SettingsLogo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SettingsLogo.Image = global::PowerMonitor.Properties.Resources.Tools;
+            this.SettingsLogo.Location = new System.Drawing.Point(57, 45);
+            this.SettingsLogo.Name = "SettingsLogo";
+            this.SettingsLogo.Size = new System.Drawing.Size(69, 66);
+            this.SettingsLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.SettingsLogo.TabIndex = 7;
+            this.SettingsLogo.TabStop = false;
+            this.SettingsLogo.Click += new System.EventHandler(this.SettingsLogo_Click);
             // 
             // SettingsIcon
             // 
@@ -423,6 +426,18 @@ namespace PowerMonitor {
             this.ChargingTimer.Enabled = true;
             this.ChargingTimer.Tick += new System.EventHandler(this.ChargingTimer_Tick);
             // 
+            // EnterTwice
+            // 
+            this.EnterTwice.AutoSize = true;
+            this.EnterTwice.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EnterTwice.ForeColor = System.Drawing.Color.Chocolate;
+            this.EnterTwice.Location = new System.Drawing.Point(28, 15);
+            this.EnterTwice.Name = "EnterTwice";
+            this.EnterTwice.Size = new System.Drawing.Size(256, 19);
+            this.EnterTwice.TabIndex = 11;
+            this.EnterTwice.Text = "Press  E N T E R  twice to minimize";
+            this.EnterTwice.Visible = false;
+            // 
             // BatteryIndicator
             // 
             this.BatteryIndicator.Location = new System.Drawing.Point(49, 68);
@@ -437,6 +452,7 @@ namespace PowerMonitor {
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(35)))), ((int)(((byte)(61)))));
             this.ClientSize = new System.Drawing.Size(455, 175);
+            this.Controls.Add(this.EnterTwice);
             this.Controls.Add(this.InfoPanel);
             this.Controls.Add(this.SettingsIcon);
             this.Controls.Add(this.SettingsPanel);
@@ -470,7 +486,7 @@ namespace PowerMonitor {
             ((System.ComponentModel.ISupportInitialize)(this.HighBatteryStateSelector)).EndInit();
             this.SettingsPanel.ResumeLayout(false);
             this.SettingsPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SettingsLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SettingsIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MinimizeIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.InfoIcon)).EndInit();
@@ -498,7 +514,7 @@ namespace PowerMonitor {
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox SettingsLogo;
         private System.Windows.Forms.Panel SettingsPanel;
         public System.Windows.Forms.NumericUpDown LowBatteryStateSelector;
         public System.Windows.Forms.NumericUpDown HighBatteryStateSelector;
@@ -514,6 +530,7 @@ namespace PowerMonitor {
         private System.Windows.Forms.ToolStripMenuItem exitApplicationToolStripMenuItem;
         private System.Windows.Forms.ToolTip ToolTip;
         private System.Windows.Forms.Timer ChargingTimer;
+        private System.Windows.Forms.Label EnterTwice;
     }
 }
 
