@@ -41,7 +41,7 @@ namespace PowerMonitor
             ForHigh.Enabled = Properties.Settings.Default.TimerValue;
 
             //Squirrel
-            _updateManager = await UpdateManager.GitHubUpdateManager(@"https://github.com/paraJdox1/Paraject");
+            _updateManager = await UpdateManager.GitHubUpdateManager(@"https://github.com/paraJdox1/PowerMonitor");
             CheckForAppUpdates();
         }
 
