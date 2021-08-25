@@ -7,7 +7,7 @@
 		<MediaTemplate />
 
 		<Feature Id="ProductFeature" Title="PowerMonitor.Installer" Level="1">
-			<!--<ComponentGroupRef Id="ProductComponents" />-->
+			<ComponentGroupRef Id="ProductComponents" />
 		</Feature>
 	</Product>
 </Wix>
