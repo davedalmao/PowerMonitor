@@ -7,14 +7,14 @@
     <framework targetVersion="4.7.2" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="PowerMonitor.exe.manifest" size="3971">
+    <dependentAssembly dependencyType="install" codebase="PowerMonitor.exe.manifest" size="11397">
       <assemblyIdentity name="PowerMonitor.exe" version="1.0.0.0" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>SsvJV01FzFsJFQs9eIL2fbr3NcJOgDavxt1+0aTJc9Q=</dsig:DigestValue>
+        <dsig:DigestValue>3nl469qj6YbEph9xvF2gwghFJVxMen2DGt8xe0mjX0M=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
