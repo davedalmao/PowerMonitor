@@ -116,3 +116,10 @@ File name: 'D:\VisualStudio\PowerMonitor\Deployment\GeneratedNugets\PowerMonitor
 2021-08-25 16:50:15> ReleasePackage: Extracting dependent packages: []
 2021-08-25 16:50:15> ReleasePackage: Removing unnecessary data
 2021-08-25 16:50:16> Program: Building embedded zip file for Setup.exe
+2021-08-25 17:21:27> Program: Starting Squirrel Updater: --releasify D:\VisualStudio\PowerMonitor\Deployment\GeneratedNugets\PowerMonitor.1.0.0.nupkg --releaseDir=D:\VisualStudio\PowerMonitor\Deployment\Releases
+2021-08-25 17:21:27> Program: Bootstrapper EXE found at:D:\VisualStudio\PowerMonitor\packages\squirrel.windows.1.9.0\tools\Setup.exe
+2021-08-25 17:21:27> Program: Creating release package: D:\VisualStudio\PowerMonitor\Deployment\Releases\PowerMonitor.1.0.0.nupkg
+2021-08-25 17:21:27> ReleasePackage: Creating release package: D:\VisualStudio\PowerMonitor\Deployment\Releases\PowerMonitor.1.0.0.nupkg => D:\VisualStudio\PowerMonitor\Deployment\Releases\PowerMonitor-1.0.0-full.nupkg
+2021-08-25 17:21:27> ReleasePackage: Extracting dependent packages: []
+2021-08-25 17:21:27> ReleasePackage: Removing unnecessary data
+2021-08-25 17:21:28> Program: Building embedded zip file for Setup.exe

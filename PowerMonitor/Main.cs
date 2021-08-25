@@ -1,5 +1,4 @@
 ﻿using Microsoft.Win32;
-using Squirrel;
 using System;
 using System.Drawing;
 using System.Media;
@@ -9,9 +8,7 @@ namespace PowerMonitor
 {
     public partial class Main : Form
     {
-        UpdateManager _updateManager;
-
-        readonly PowerStatus power = SystemInformation.PowerStatus;
+        PowerStatus power = SystemInformation.PowerStatus;
         int percentNumber, timeLeft;
         int mov;
         int movX;
@@ -24,10 +21,9 @@ namespace PowerMonitor
             RegistryKey reg = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
             reg.SetValue("Power Monitor", Application.ExecutablePath.ToString());
             this.FormBorderStyle = FormBorderStyle.None;
-
         }
 
-        private async void Main_Load(object sender, EventArgs e)
+        private void Main_Load(object sender, EventArgs e)
         {
             RefreshStatus();
             RefreshTimer.Enabled = true;
@@ -40,11 +36,9 @@ namespace PowerMonitor
             HighPowerAlertCheckBox.Checked = Properties.Settings.Default.CheckBoxValue;
             ForHigh.Enabled = Properties.Settings.Default.TimerValue;
 
-            //Squirrel
-            _updateManager = await UpdateManager.GitHubUpdateManager(@"https://github.com/paraJdox1/PowerMonitor");
-            CheckForAppUpdates();
+            //this.ShowInTaskbar = false;
+            //this.Hide();
         }
-
         private void Main_FormClosing(object sender, FormClosingEventArgs e)
         {
             e.Cancel = true;
@@ -455,26 +449,6 @@ namespace PowerMonitor
 
             this.ShowInTaskbar = false;
             this.Hide();
-        }
-
-        private async void CheckForAppUpdates()
-        {
-            var updateInfo = await _updateManager.CheckForUpdate();
-
-            if (updateInfo.ReleasesToApply.Count > 0)
-            {
-                DialogResult dialogResult = MessageBox.Show("Do you want to update the app now?", "App Update Available", MessageBoxButtons.YesNo);
-                if (dialogResult == DialogResult.Yes)
-                {
-                    UpdateApp();
-                }
-            }
-        }
-
-        private async void UpdateApp()
-        {
-            await _updateManager.UpdateApp();
-            MessageBox.Show("App Updated Successfully! \nThe updates will be applied on the next restart.", "App Update");
         }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
