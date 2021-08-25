@@ -9,24 +9,24 @@ Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "PowerMonitor.Installer", "P
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
 		Debug|x86 = Debug|x86
-		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{AA28EF6A-5D6F-4771-9133-14286AA42953}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AA28EF6A-5D6F-4771-9133-14286AA42953}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA28EF6A-5D6F-4771-9133-14286AA42953}.Debug|x64.ActiveCfg = Debug|x64
+		{AA28EF6A-5D6F-4771-9133-14286AA42953}.Debug|x64.Build.0 = Debug|x64
 		{AA28EF6A-5D6F-4771-9133-14286AA42953}.Debug|x86.ActiveCfg = Debug|Any CPU
 		{AA28EF6A-5D6F-4771-9133-14286AA42953}.Debug|x86.Build.0 = Debug|Any CPU
-		{AA28EF6A-5D6F-4771-9133-14286AA42953}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AA28EF6A-5D6F-4771-9133-14286AA42953}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA28EF6A-5D6F-4771-9133-14286AA42953}.Release|x64.ActiveCfg = Release|Any CPU
+		{AA28EF6A-5D6F-4771-9133-14286AA42953}.Release|x64.Build.0 = Release|Any CPU
 		{AA28EF6A-5D6F-4771-9133-14286AA42953}.Release|x86.ActiveCfg = Release|Any CPU
 		{AA28EF6A-5D6F-4771-9133-14286AA42953}.Release|x86.Build.0 = Release|Any CPU
-		{13F49B93-46C5-4562-BED6-8A60088809EE}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{13F49B93-46C5-4562-BED6-8A60088809EE}.Debug|x64.ActiveCfg = Debug|x86
 		{13F49B93-46C5-4562-BED6-8A60088809EE}.Debug|x86.ActiveCfg = Debug|x86
 		{13F49B93-46C5-4562-BED6-8A60088809EE}.Debug|x86.Build.0 = Debug|x86
-		{13F49B93-46C5-4562-BED6-8A60088809EE}.Release|Any CPU.ActiveCfg = Release|x86
+		{13F49B93-46C5-4562-BED6-8A60088809EE}.Release|x64.ActiveCfg = Release|x64
 		{13F49B93-46C5-4562-BED6-8A60088809EE}.Release|x86.ActiveCfg = Release|x86
 		{13F49B93-46C5-4562-BED6-8A60088809EE}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
