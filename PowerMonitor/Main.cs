@@ -1,34 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using Microsoft.Win32;
+using Squirrel;
+using System;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Runtime.InteropServices;
 using System.Media;
-using Microsoft.Win32;
-using System.Diagnostics;
+using System.Windows.Forms;
 
-namespace PowerMonitor {
-    public partial class Main : Form {
-        PowerStatus power = SystemInformation.PowerStatus;
+namespace PowerMonitor
+{
+    public partial class Main : Form
+    {
+        UpdateManager _updateManager;
+
+        readonly PowerStatus power = SystemInformation.PowerStatus;
         int percentNumber, timeLeft;
         int mov;
         int movX;
         int movY;
         private static int enterCounter = 0;
 
-        public Main() {
+        public Main()
+        {
             InitializeComponent();
             RegistryKey reg = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
             reg.SetValue("Power Monitor", Application.ExecutablePath.ToString());
             this.FormBorderStyle = FormBorderStyle.None;
+
         }
 
-        private void Main_Load(object sender, EventArgs e) {
+        private async void Main_Load(object sender, EventArgs e)
+        {
             RefreshStatus();
             RefreshTimer.Enabled = true;
             ForLow.Enabled = true;
@@ -40,86 +40,108 @@ namespace PowerMonitor {
             HighPowerAlertCheckBox.Checked = Properties.Settings.Default.CheckBoxValue;
             ForHigh.Enabled = Properties.Settings.Default.TimerValue;
 
-            //this.ShowInTaskbar = false;
-            //this.Hide();
+            //Squirrel
+            _updateManager = await UpdateManager.GitHubUpdateManager(@"https://github.com/paraJdox1/Paraject");
+            CheckForAppUpdates();
         }
-        private void Main_FormClosing(object sender, FormClosingEventArgs e) {
+
+        private void Main_FormClosing(object sender, FormClosingEventArgs e)
+        {
             e.Cancel = true;
             minimizeToSystemTray();
         }
 
-        private void Main_KeyUp(object sender, KeyEventArgs e) {
-            if (e.KeyCode == Keys.Enter) {
+        private void Main_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
                 enterCounter += 1;
             }
 
-            if (enterCounter >= 2) {
+            if (enterCounter >= 2)
+            {
                 minimizeToSystemTray();
                 enterCounter = 0;
             }
         }
-        private void Main_Resize(object sender, EventArgs e) {
-            if (this.WindowState == FormWindowState.Minimized) {
+        private void Main_Resize(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Minimized)
+            {
                 this.ShowInTaskbar = false;
                 this.Hide();
             }
         }
-        private void Main_MouseDoubleClick(object sender, MouseEventArgs e) {
+        private void Main_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
             this.CenterToScreen();
         }
 
-        private void Main_MouseDown(object sender, MouseEventArgs e) {
+        private void Main_MouseDown(object sender, MouseEventArgs e)
+        {
             mov = 1;
             movX = e.X;
             movY = e.Y;
         }
 
-        private void Main_MouseMove(object sender, MouseEventArgs e) {
-            if (mov == 1) {
+        private void Main_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (mov == 1)
+            {
                 this.SetDesktopLocation(MousePosition.X - movX, MousePosition.Y - movY);
             }
         }
 
-        private void Main_MouseUp(object sender, MouseEventArgs e) {
+        private void Main_MouseUp(object sender, MouseEventArgs e)
+        {
             mov = 0;
         }
 
-        protected override void OnPaint(PaintEventArgs e) {
+        protected override void OnPaint(PaintEventArgs e)
+        {
             ControlPaint.DrawBorder(e.Graphics, ClientRectangle, Color.NavajoWhite, ButtonBorderStyle.Solid);
         }
 
-        private void RefreshTimer_Tick(object sender, EventArgs e) {
+        private void RefreshTimer_Tick(object sender, EventArgs e)
+        {
             RefreshStatus();
         }
 
-        private void ForLow_Tick(object sender, EventArgs e) {
+        private void ForLow_Tick(object sender, EventArgs e)
+        {
             CheckPercentNumberLow();
         }
 
-        private void ForHigh_Tick(object sender, EventArgs e) {
+        private void ForHigh_Tick(object sender, EventArgs e)
+        {
             CheckPercentNumberHigh();
         }
 
-        private void ChargingTimer_Tick(object sender, EventArgs e) {
+        private void ChargingTimer_Tick(object sender, EventArgs e)
+        {
             BatteryState();
         }
 
 
-        private void NotifyIcon_MouseDoubleClick(object sender, MouseEventArgs e) {
+        private void NotifyIcon_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
             ShowMain();
             NotifyIcon.Visible = false;
         }
 
-        private void exitApplicationToolStripMenuItem_Click(object sender, EventArgs e) {
+        private void exitApplicationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
             Application.Exit();
             //Environment.Exit(0);
         }
 
-        private void MinimizeIcon_Click(object sender, EventArgs e) {
+        private void MinimizeIcon_Click(object sender, EventArgs e)
+        {
             minimizeToSystemTray();
         }
 
-        private void SetBtn_Click(object sender, EventArgs e) {
+        private void SetBtn_Click(object sender, EventArgs e)
+        {
             MessageBoxes mb = new MessageBoxes((int)LowBatteryStateSelector.Value, (int)HighBatteryStateSelector.Value, HighPowerAlertCheckBox.Checked);
             mb.Owner = this;
             mb.Show();
@@ -133,8 +155,10 @@ namespace PowerMonitor {
             HighPowerAlertCheckBox.Enabled = false;
         }
 
-        private void HighPowerAlertCheckBox_CheckedChanged(object sender, EventArgs e) {
-            if (HighPowerAlertCheckBox.Checked) {
+        private void HighPowerAlertCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (HighPowerAlertCheckBox.Checked)
+            {
                 HighPowerAlertCheckBox.Text = "✔";
                 ForHigh.Enabled = true;
                 PopUpLabel1.ForeColor = Color.NavajoWhite;
@@ -142,7 +166,8 @@ namespace PowerMonitor {
                 ForHigh.Start();
             }
 
-            else {
+            else
+            {
                 HighPowerAlertCheckBox.Text = "";
                 ForHigh.Enabled = false;
                 PopUpLabel1.ForeColor = Color.BurlyWood;
@@ -155,7 +180,8 @@ namespace PowerMonitor {
         //////////////////////////////////////////////////////////FUNCTIONS/////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        private void RefreshStatus() {
+        private void RefreshStatus()
+        {
             VisualBatteryHealth();
             HighMedLow();
             BatteryPercent();
@@ -163,23 +189,29 @@ namespace PowerMonitor {
         }
 
         //Progressbar Visuals
-        private void VisualBatteryHealth() {
+        private void VisualBatteryHealth()
+        {
             percentNumber = (int)(power.BatteryLifePercent * 100);
-            if (percentNumber <= 100) {
+            if (percentNumber <= 100)
+            {
                 BatteryIndicator.Value = percentNumber;
             }
 
-            else {
+            else
+            {
                 BatteryIndicator.Value = 0;
             }
         }
 
         //Change Color According to State
-        private void HighMedLow() {
-            try {
+        private void HighMedLow()
+        {
+            try
+            {
                 percentNumber = (int)(power.BatteryLifePercent * 100);
                 //Low Power State
-                if (percentNumber <= LowBatteryStateSelector.Value) {
+                if (percentNumber <= LowBatteryStateSelector.Value)
+                {
                     BatteryHealth.Text = "Low";
 
                     //Red
@@ -188,7 +220,8 @@ namespace PowerMonitor {
                 }
 
                 //High Power State
-                else if (percentNumber >= 80) {
+                else if (percentNumber >= 80)
+                {
                     BatteryHealth.Text = "High";
 
                     //Green
@@ -199,13 +232,15 @@ namespace PowerMonitor {
                     Warning.Visible = false;
                 }
 
-                else if (percentNumber <= LowBatteryStateSelector.Value && power.PowerLineStatus == PowerLineStatus.Online) {
+                else if (percentNumber <= LowBatteryStateSelector.Value && power.PowerLineStatus == PowerLineStatus.Online)
+                {
                     Warning.SendToBack();
                     Warning.Visible = false;
                 }
 
                 //Med State
-                else {
+                else
+                {
                     BatteryHealth.Text = "Med";
 
                     //Blue
@@ -217,38 +252,47 @@ namespace PowerMonitor {
                 }
             }
 
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 MessageBox.Show("Error Message: " + ex.Message);
                 Application.Exit();
             }
         }
 
-        private void BatteryPercent() {
+        private void BatteryPercent()
+        {
             percentNumber = (int)(power.BatteryLifePercent * 100);
-            if (percentNumber == 100) {
+            if (percentNumber == 100)
+            {
                 BatteryLife.Text = "Full Charged:   " + power.BatteryLifePercent.ToString("P0");
             }
 
-            else {
+            else
+            {
                 BatteryLife.Text = "Charge Remaining:   " + power.BatteryLifePercent.ToString("P0");
             }
         }
 
-        private void CurrentBatteryLife() {
+        private void CurrentBatteryLife()
+        {
             timeLeft = power.BatteryLifeRemaining;
-            if (timeLeft > 0) {
+            if (timeLeft > 0)
+            {
                 BatteryTime.Text = string.Format("{0} remaining", Time(timeLeft));
             }
 
-            else {
+            else
+            {
                 BatteryTime.Text = "Wait while still charging / calculating...";
             }
         }
 
-        private void BatteryState() {
+        private void BatteryState()
+        {
             percentNumber = (int)(power.BatteryLifePercent * 100);
 
-            if (power.PowerLineStatus == PowerLineStatus.Online) {
+            if (power.PowerLineStatus == PowerLineStatus.Online)
+            {
                 Warning.SendToBack();
                 Warning.Visible = false;
                 PowerStatus.Text = "CHARGING";
@@ -256,25 +300,31 @@ namespace PowerMonitor {
                 ChargingTimer.Stop();
             }
 
-            else if (power.PowerLineStatus == PowerLineStatus.Offline) {
+            else if (power.PowerLineStatus == PowerLineStatus.Offline)
+            {
                 PowerStatus.Text = "NOT CHARGING";
                 ChargingTimer.Start();
             }
 
-            else if (power.PowerLineStatus == PowerLineStatus.Offline && percentNumber > 0 && percentNumber <= 100) {
+            else if (power.PowerLineStatus == PowerLineStatus.Offline && percentNumber > 0 && percentNumber <= 100)
+            {
                 PowerStatus.Text = "NOT CHARGING";
                 ChargingTimer.Start();
             }
 
-            else {
+            else
+            {
                 PowerStatus.Text = "UNKNOWN";
             }
         }
 
-        private void CheckPercentNumberLow() {
-            try {
+        private void CheckPercentNumberLow()
+        {
+            try
+            {
                 percentNumber = (int)(power.BatteryLifePercent * 100);
-                if (percentNumber <= LowBatteryStateSelector.Value && power.PowerLineStatus == PowerLineStatus.Offline) {
+                if (percentNumber <= LowBatteryStateSelector.Value && power.PowerLineStatus == PowerLineStatus.Offline)
+                {
                     this.CenterToScreen();
 
                     ShowMain();
@@ -298,16 +348,20 @@ namespace PowerMonitor {
                 }
             }
 
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 MessageBox.Show("Error Message: " + ex.Message);
                 Application.Exit();
             }
         }
 
-        private void CheckPercentNumberHigh() {
-            try {
+        private void CheckPercentNumberHigh()
+        {
+            try
+            {
                 percentNumber = (int)(power.BatteryLifePercent * 100);
-                if (percentNumber >= HighBatteryStateSelector.Value && power.PowerLineStatus == PowerLineStatus.Online) {
+                if (percentNumber >= HighBatteryStateSelector.Value && power.PowerLineStatus == PowerLineStatus.Online)
+                {
                     this.CenterToScreen();
                     ShowMain();
                     Warning.SendToBack();
@@ -330,57 +384,68 @@ namespace PowerMonitor {
                 }
             }
 
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 MessageBox.Show("Error Message: " + ex.Message);
                 Application.Exit();
             }
         }
 
-        private void ShowMain() {
+        private void ShowMain()
+        {
             this.Show();
             this.BringToFront();
             this.CenterToScreen();
             this.WindowState = FormWindowState.Normal;
 
-            if (WindowState == FormWindowState.Normal) {
+            if (WindowState == FormWindowState.Normal)
+            {
                 ReallyCenterToScreen();
             }
         }
 
-        private string Time(int seconds) {
+        private string Time(int seconds)
+        {
             const int secondsPerMinute = 60;
             const int secondsPerHour = 3600;
 
-            if (seconds < 0) {
+            if (seconds < 0)
+            {
                 return "indeterminate";
             }
 
-            else {
+            else
+            {
                 int hours = seconds / secondsPerHour;
                 seconds -= hours * secondsPerHour;
                 int minutes = seconds / secondsPerMinute;
                 seconds -= minutes * secondsPerHour;
 
-                if (hours == 0) {
+                if (hours == 0)
+                {
                     return string.Format("{0} minutes", minutes);
                 }
-                else {
+                else
+                {
                     return string.Format("{0} hours {1} minutes", hours, minutes);
                 }
             }
         }
 
-        protected void ReallyCenterToScreen() {
+        protected void ReallyCenterToScreen()
+        {
             Screen screen = Screen.FromControl(this);
 
             Rectangle workingArea = screen.WorkingArea;
-            this.Location = new Point() {
+            this.Location = new Point()
+            {
                 X = Math.Max(workingArea.X, workingArea.X + (workingArea.Width - this.Width) / 2),
                 Y = Math.Max(workingArea.Y, workingArea.Y + (workingArea.Height - this.Height) / 2)
             };
         }
 
-        private void minimizeToSystemTray() {
+        private void minimizeToSystemTray()
+        {
             this.CenterToScreen();
             this.WindowState = FormWindowState.Minimized;
             NotifyIcon.Visible = true;
@@ -391,14 +456,36 @@ namespace PowerMonitor {
             this.ShowInTaskbar = false;
             this.Hide();
         }
+
+        private async void CheckForAppUpdates()
+        {
+            var updateInfo = await _updateManager.CheckForUpdate();
+
+            if (updateInfo.ReleasesToApply.Count > 0)
+            {
+                DialogResult dialogResult = MessageBox.Show("Do you want to update the app now?", "App Update Available", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    UpdateApp();
+                }
+            }
+        }
+
+        private async void UpdateApp()
+        {
+            await _updateManager.UpdateApp();
+            MessageBox.Show("App Updated Successfully! \nThe updates will be applied on the next restart.", "App Update");
+        }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         ////////////////////////INFO and SETTINGS///////////////////////
-        private void InfoIcon_Click(object sender, EventArgs e) {
+        private void InfoIcon_Click(object sender, EventArgs e)
+        {
             EnterTwice.Visible = false;
-            if (InfoPanel.Visible == true) {
+            if (InfoPanel.Visible == true)
+            {
                 InfoPanel.Visible = false;
                 InfoPanel.Location = new Point(12, 68);
                 InfoPanel.Size = new Size(30, 30);
@@ -407,7 +494,8 @@ namespace PowerMonitor {
                 PowerStatus.SendToBack();
             }
 
-            else {
+            else
+            {
                 InfoPanel.Visible = true;
                 InfoPanel.BringToFront();
                 InfoPanel.Location = new Point(8, 38);
@@ -422,13 +510,16 @@ namespace PowerMonitor {
             }
         }
 
-        private void SettingsLogo_Click(object sender, EventArgs e) {
+        private void SettingsLogo_Click(object sender, EventArgs e)
+        {
             _ = (EnterTwice.Visible == false) ? EnterTwice.Visible = true : EnterTwice.Visible = false;
         }
 
-        private void SettingsIcon_Click(object sender, EventArgs e) {
+        private void SettingsIcon_Click(object sender, EventArgs e)
+        {
             EnterTwice.Visible = false;
-            if (SettingsPanel.Visible == true) {
+            if (SettingsPanel.Visible == true)
+            {
                 SettingsPanel.Visible = false;
                 SettingsPanel.Location = new Point(410, 68);
                 SettingsPanel.Size = new Size(30, 30);
@@ -437,7 +528,8 @@ namespace PowerMonitor {
                 PowerStatus.SendToBack();
             }
 
-            else {
+            else
+            {
                 SettingsPanel.Visible = true;
                 SettingsPanel.BringToFront();
                 SettingsPanel.Location = new Point(8, 38);

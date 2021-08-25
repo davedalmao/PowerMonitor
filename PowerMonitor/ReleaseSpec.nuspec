@@ -2,16 +2,20 @@
 <package >
   <metadata>
     <id>PowerMonitor</id>
-    <version>0.0.0</version>
-    <title>$title$</title>
-    <authors>$author$</authors>
+    <version>0.0.0.0</version>
+    <title>PowerMonitor</title>
+    <authors>paraJdox1</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <license type="expression">MIT</license>
     <projectUrl>http://project_url_here_or_delete_this_line/</projectUrl>
     <iconUrl>http://icon_url_here_or_delete_this_line/</iconUrl>
-    <description>$description$</description>
+    <description>PowerMonitorPowerMonitorPowerMonitor</description>
     <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
     <copyright>$copyright$</copyright>
     <tags>Tag1 Tag2</tags>
   </metadata>
+
+  <files>
+    <file src="bin\Release\**" target="lib\net45"/>
+  </files>
 </package>
