@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WixLocalization Culture="en-us" xmlns="http://schemas.microsoft.com/wix/2006/localization">
+	<String Id="PublisherName">paraJdox1</String>
+
+	<String Id="ProductFolderName">PowerMonitor</String>
+
+	<String Id="ProductName_x86">Power Monitor (32bit)</String>
+	<String Id="ProductName_x64">Power Monitor (64bit)</String>
+
+	<String Id="Description">Monitors the battery percentage and status of your laptop/pc, and notifies if the battery is low.</String>
+	<String Id="Keywords">dotnet-framework,csharp,PowerStatus</String>
+	<String Id="Comments">Used for power monitoring.</String>
+	<String Id="Language">1033</String>
+
+	<String Id="DowngradeErrorMessage">A newer version of Power Monitor is already installed.</String>
+</WixLocalization>
