@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="PowerMonitor.exe" version="1.0.0.0" publicKeyToken="5e251b93e5dc5753" language="neutral" processorArchitecture="msil" type="win32" />
+  <description asmv2:iconFile="Battery-blue.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="PowerMonitor" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <commandLine file="PowerMonitor.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          UAC Manifest Options
+          If you want to change the Windows User Account Control level replace the
+          requestedExecutionLevel node with one of the following.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+         If you want to utilize File and Registry Virtualization for backward
+         compatibility then delete the requestedExecutionLevel node.
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PowerMonitor.exe" size="139704">
+      <assemblyIdentity name="PowerMonitor" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>wxVy1LzlnTZdBwiMN1vmEtBWSuoT8utiyFcLpmiz2z4=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="Battery-blue.ico" size="17547">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>bTTz3s4ULz6FC2CXHppqATg0dvW8RJswBuM35S70RRA=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="PowerMonitor.exe.config" size="1911">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>FQNiXB9mUwv7ZJRQfB2hRwnzClhxobn7W3EG1jn1zvE=</dsig:DigestValue>
+    </hash>
+  </file>
+<publisherIdentity name="CN=PARAJDOX1\John" issuerKeyHash="b5f536bfd2c21a4613b68ff6914aaa8f09167bf2" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>OpSLJnjTpg5LOV7Pm4HivWN/Hm59KUwB7XYRYbL2K0o=</DigestValue></Reference></SignedInfo><SignatureValue>p0DlXHvb6W42Nfib2URlUUULq+UDTGiD3tENnLBwSEspeTUWjuVyLjCz/Y5IedSFLbDi0PuGD0DQh6rrilN7VkpE7LZgBKMlbXbEcK/oNCbsgXjTXmP/9aBZlaavi4bVLEhX4itaPWOPXMLdmxAyEfpr0Wr9IRulFQbKfjE/PKs=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>zI1OznXGQEnpQRAKtZKyl6bX8VeUxvFupYsJYCj7+LySyQTVbGGvlzvG4GU7eBXJ8UqSmMbf6bGHelPGcBhwBC1oVKex8hLEvA/Ip11kvomwKLvz29T7jYLrQ/UMK37rAyMUtxrj09N+Jlr40lzJOQiJKcRtJ2XETWgDRXujSIU=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="4a2bf6b2611176ed014c297d6e1e7f63bde2819bcf5e394b0ea6d378268b943a" Description="" Url=""><as:assemblyIdentity name="PowerMonitor.exe" version="1.0.0.0" publicKeyToken="5e251b93e5dc5753" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=PARAJDOX1\John</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>vqAvCP41BjdGsqcihtF2d26CoeiAqxbMFVV7nkzS+qo=</DigestValue></Reference></SignedInfo><SignatureValue>q03tZSNE3xzuRNtsFAxm80tlnTR+L1fus77oOwac2wgidAaVS/+5oL9Q74t0hH1pd+9qS3MXezVK5VkNfnVcPlFWoWjKjBF5v0lnynPMEyLKUUsCfASYR7i1oVYKAtxfZgZVys4Wo3vH7YRR6jUg37l2WD/9f47IgmwieSe2kI4=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>zI1OznXGQEnpQRAKtZKyl6bX8VeUxvFupYsJYCj7+LySyQTVbGGvlzvG4GU7eBXJ8UqSmMbf6bGHelPGcBhwBC1oVKex8hLEvA/Ip11kvomwKLvz29T7jYLrQ/UMK37rAyMUtxrj09N+Jlr40lzJOQiJKcRtJ2XETWgDRXujSIU=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB0TCCATqgAwIBAgIQZduCyei1JKZOs1w7utT3ITANBgkqhkiG9w0BAQsFADAnMSUwIwYDVQQDHhwAUABBAFIAQQBKAEQATwBYADEAXABKAG8AaABuMB4XDTIxMDgyNTA1NDIxNloXDTIyMDgyNTExNDIxNlowJzElMCMGA1UEAx4cAFAAQQBSAEEASgBEAE8AWAAxAFwASgBvAGgAbjCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAzI1OznXGQEnpQRAKtZKyl6bX8VeUxvFupYsJYCj7+LySyQTVbGGvlzvG4GU7eBXJ8UqSmMbf6bGHelPGcBhwBC1oVKex8hLEvA/Ip11kvomwKLvz29T7jYLrQ/UMK37rAyMUtxrj09N+Jlr40lzJOQiJKcRtJ2XETWgDRXujSIUCAwEAATANBgkqhkiG9w0BAQsFAAOBgQBFyi8cYHCPIZfokas6D/bTEpfxkoZQAknxYUhWprvfM0AlUR5PiojGgzRTTrm4SIQdT5vN7X0TKX2F+xI8SkR8G7liW03Ugy2Mh/by2IPfajYCeACoJ06aoyy1F371acnFvGJWFys+EPUgOyuitya+hrL8uBypeIFQdaPgj721yg==</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>

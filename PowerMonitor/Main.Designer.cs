@@ -76,20 +76,20 @@ namespace PowerMonitor {
             // BatteryLife
             // 
             this.BatteryLife.AutoSize = true;
-            this.BatteryLife.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BatteryLife.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BatteryLife.Location = new System.Drawing.Point(46, 111);
             this.BatteryLife.Name = "BatteryLife";
-            this.BatteryLife.Size = new System.Drawing.Size(163, 17);
+            this.BatteryLife.Size = new System.Drawing.Size(154, 18);
             this.BatteryLife.TabIndex = 4;
             this.BatteryLife.Text = "Charge Remaining:   ?";
             // 
             // BatteryTime
             // 
             this.BatteryTime.AutoSize = true;
-            this.BatteryTime.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BatteryTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BatteryTime.Location = new System.Drawing.Point(46, 136);
             this.BatteryTime.Name = "BatteryTime";
-            this.BatteryTime.Size = new System.Drawing.Size(151, 17);
+            this.BatteryTime.Size = new System.Drawing.Size(143, 18);
             this.BatteryTime.TabIndex = 5;
             this.BatteryTime.Text = "Time Remaining:    ?";
             // 
@@ -102,10 +102,10 @@ namespace PowerMonitor {
             // PowerStatus
             // 
             this.PowerStatus.AutoSize = true;
-            this.PowerStatus.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PowerStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PowerStatus.Location = new System.Drawing.Point(46, 42);
             this.PowerStatus.Name = "PowerStatus";
-            this.PowerStatus.Size = new System.Drawing.Size(73, 17);
+            this.PowerStatus.Size = new System.Drawing.Size(75, 18);
             this.PowerStatus.TabIndex = 6;
             this.PowerStatus.Text = "DEFAULT";
             // 
@@ -136,10 +136,10 @@ namespace PowerMonitor {
             // BatteryHealth
             // 
             this.BatteryHealth.AutoSize = true;
-            this.BatteryHealth.Font = new System.Drawing.Font("Rockwell", 11.25F);
+            this.BatteryHealth.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.BatteryHealth.Location = new System.Drawing.Point(365, 136);
             this.BatteryHealth.Name = "BatteryHealth";
-            this.BatteryHealth.Size = new System.Drawing.Size(42, 17);
+            this.BatteryHealth.Size = new System.Drawing.Size(38, 18);
             this.BatteryHealth.TabIndex = 11;
             this.BatteryHealth.Text = "High";
             // 
@@ -168,62 +168,62 @@ namespace PowerMonitor {
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Rockwell", 11.25F);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.label3.Location = new System.Drawing.Point(86, 86);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(102, 17);
+            this.label3.Size = new System.Drawing.Size(96, 18);
             this.label3.TabIndex = 2;
             this.label3.Text = "08 / 15 / 2020";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Rockwell", 11.25F);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.label2.Location = new System.Drawing.Point(86, 56);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(225, 17);
+            this.label2.Size = new System.Drawing.Size(214, 18);
             this.label2.TabIndex = 1;
             this.label2.Text = "Developer:  John Dave Dalmao";
             // 
             // AppName
             // 
             this.AppName.AutoSize = true;
-            this.AppName.Font = new System.Drawing.Font("Cooper Black", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AppName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AppName.ForeColor = System.Drawing.Color.CadetBlue;
             this.AppName.Location = new System.Drawing.Point(85, 13);
             this.AppName.Name = "AppName";
-            this.AppName.Size = new System.Drawing.Size(261, 23);
+            this.AppName.Size = new System.Drawing.Size(246, 25);
             this.AppName.TabIndex = 0;
             this.AppName.Text = "P O W E R   M O N I T O R";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Cooper Black", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.CadetBlue;
             this.label5.Location = new System.Drawing.Point(20, 14);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(154, 23);
+            this.label5.Size = new System.Drawing.Size(148, 25);
             this.label5.TabIndex = 0;
             this.label5.Text = "S E T T I N G S";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Rockwell", 11.25F);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.label4.Location = new System.Drawing.Point(191, 14);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(164, 17);
+            this.label4.Size = new System.Drawing.Size(153, 18);
             this.label4.TabIndex = 1;
             this.label4.Text = "Low Battery Warning: ";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Rockwell", 11.25F);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.label1.Location = new System.Drawing.Point(191, 44);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(139, 17);
+            this.label1.Size = new System.Drawing.Size(125, 18);
             this.label1.TabIndex = 2;
             this.label1.Text = "High Battery Alert:";
             // 
@@ -232,7 +232,7 @@ namespace PowerMonitor {
             this.LowBatteryStateSelector.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(35)))), ((int)(((byte)(61)))));
             this.LowBatteryStateSelector.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.LowBatteryStateSelector.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.LowBatteryStateSelector.Font = new System.Drawing.Font("Rockwell", 11.25F);
+            this.LowBatteryStateSelector.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.LowBatteryStateSelector.ForeColor = System.Drawing.Color.NavajoWhite;
             this.LowBatteryStateSelector.Location = new System.Drawing.Point(361, 12);
             this.LowBatteryStateSelector.Minimum = new decimal(new int[] {
@@ -241,7 +241,7 @@ namespace PowerMonitor {
             0,
             0});
             this.LowBatteryStateSelector.Name = "LowBatteryStateSelector";
-            this.LowBatteryStateSelector.Size = new System.Drawing.Size(49, 25);
+            this.LowBatteryStateSelector.Size = new System.Drawing.Size(49, 24);
             this.LowBatteryStateSelector.TabIndex = 4;
             this.LowBatteryStateSelector.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.LowBatteryStateSelector.Value = new decimal(new int[] {
@@ -255,7 +255,7 @@ namespace PowerMonitor {
             this.HighBatteryStateSelector.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(35)))), ((int)(((byte)(61)))));
             this.HighBatteryStateSelector.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.HighBatteryStateSelector.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.HighBatteryStateSelector.Font = new System.Drawing.Font("Rockwell", 11.25F);
+            this.HighBatteryStateSelector.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.HighBatteryStateSelector.ForeColor = System.Drawing.Color.NavajoWhite;
             this.HighBatteryStateSelector.Location = new System.Drawing.Point(361, 42);
             this.HighBatteryStateSelector.Minimum = new decimal(new int[] {
@@ -264,7 +264,7 @@ namespace PowerMonitor {
             0,
             0});
             this.HighBatteryStateSelector.Name = "HighBatteryStateSelector";
-            this.HighBatteryStateSelector.Size = new System.Drawing.Size(49, 25);
+            this.HighBatteryStateSelector.Size = new System.Drawing.Size(49, 24);
             this.HighBatteryStateSelector.TabIndex = 5;
             this.HighBatteryStateSelector.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.HighBatteryStateSelector.Value = new decimal(new int[] {
@@ -278,7 +278,7 @@ namespace PowerMonitor {
             this.SetBtn.BackColor = System.Drawing.Color.Teal;
             this.SetBtn.FlatAppearance.BorderColor = System.Drawing.Color.NavajoWhite;
             this.SetBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SetBtn.Font = new System.Drawing.Font("Cooper Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SetBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SetBtn.ForeColor = System.Drawing.Color.NavajoWhite;
             this.SetBtn.Location = new System.Drawing.Point(339, 80);
             this.SetBtn.Name = "SetBtn";
@@ -309,7 +309,7 @@ namespace PowerMonitor {
             // PopUpLabel2
             // 
             this.PopUpLabel2.AutoSize = true;
-            this.PopUpLabel2.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PopUpLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PopUpLabel2.ForeColor = System.Drawing.Color.BurlyWood;
             this.PopUpLabel2.Location = new System.Drawing.Point(228, 96);
             this.PopUpLabel2.Name = "PopUpLabel2";
@@ -320,11 +320,11 @@ namespace PowerMonitor {
             // PopUpLabel1
             // 
             this.PopUpLabel1.AutoSize = true;
-            this.PopUpLabel1.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PopUpLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PopUpLabel1.ForeColor = System.Drawing.Color.BurlyWood;
             this.PopUpLabel1.Location = new System.Drawing.Point(228, 79);
             this.PopUpLabel1.Name = "PopUpLabel1";
-            this.PopUpLabel1.Size = new System.Drawing.Size(82, 16);
+            this.PopUpLabel1.Size = new System.Drawing.Size(85, 16);
             this.PopUpLabel1.TabIndex = 9;
             this.PopUpLabel1.Text = "Pop up when";
             // 
@@ -339,7 +339,7 @@ namespace PowerMonitor {
             this.HighPowerAlertCheckBox.FlatAppearance.BorderColor = System.Drawing.Color.NavajoWhite;
             this.HighPowerAlertCheckBox.FlatAppearance.CheckedBackColor = System.Drawing.Color.MediumSpringGreen;
             this.HighPowerAlertCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.HighPowerAlertCheckBox.Font = new System.Drawing.Font("Cooper Black", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HighPowerAlertCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.HighPowerAlertCheckBox.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.HighPowerAlertCheckBox.Location = new System.Drawing.Point(196, 81);
             this.HighPowerAlertCheckBox.Name = "HighPowerAlertCheckBox";
@@ -429,11 +429,11 @@ namespace PowerMonitor {
             // EnterTwice
             // 
             this.EnterTwice.AutoSize = true;
-            this.EnterTwice.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EnterTwice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EnterTwice.ForeColor = System.Drawing.Color.Chocolate;
             this.EnterTwice.Location = new System.Drawing.Point(28, 15);
             this.EnterTwice.Name = "EnterTwice";
-            this.EnterTwice.Size = new System.Drawing.Size(256, 19);
+            this.EnterTwice.Size = new System.Drawing.Size(254, 20);
             this.EnterTwice.TabIndex = 11;
             this.EnterTwice.Text = "Press  E N T E R  twice to minimize";
             this.EnterTwice.Visible = false;

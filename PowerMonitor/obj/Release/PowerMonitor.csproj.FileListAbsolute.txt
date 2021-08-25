@@ -8,4 +8,8 @@ D:\Visual Studio\PowerMonitor\PowerMonitor\obj\Release\PowerMonitor.csproj.Gener
 D:\Visual Studio\PowerMonitor\PowerMonitor\obj\Release\PowerMonitor.csproj.CoreCompileInputs.cache
 D:\Visual Studio\PowerMonitor\PowerMonitor\obj\Release\PowerMonitor.exe
 D:\Visual Studio\PowerMonitor\PowerMonitor\obj\Release\PowerMonitor.pdb
-D:\Visual Studio\PowerMonitor\PowerMonitor\obj\Release\PowerMonitor.csprojAssemblyReference.cache
+D:\Visual Studio\PowerMonitor\PowerMonitor\bin\Release\PowerMonitor.exe.manifest
+D:\Visual Studio\PowerMonitor\PowerMonitor\bin\Release\PowerMonitor.application
+D:\Visual Studio\PowerMonitor\PowerMonitor\obj\Release\PowerMonitor.csproj.AssemblyReference.cache
+D:\Visual Studio\PowerMonitor\PowerMonitor\obj\Release\PowerMonitor.exe.manifest
+D:\Visual Studio\PowerMonitor\PowerMonitor\obj\Release\PowerMonitor.application
