@@ -1,5 +1,4 @@
-﻿using Microsoft.Win32;
-using System;
+﻿using System;
 using System.Drawing;
 using System.Media;
 using System.Windows.Forms;
@@ -8,7 +7,7 @@ namespace PowerMonitor
 {
     public partial class Main : Form
     {
-        PowerStatus power = SystemInformation.PowerStatus;
+        readonly PowerStatus power = SystemInformation.PowerStatus;
         int percentNumber, timeLeft;
         int mov;
         int movX;
@@ -18,8 +17,6 @@ namespace PowerMonitor
         public Main()
         {
             InitializeComponent();
-            RegistryKey reg = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
-            reg.SetValue("Power Monitor", Application.ExecutablePath.ToString());
             this.FormBorderStyle = FormBorderStyle.None;
         }
 
@@ -35,9 +32,6 @@ namespace PowerMonitor
             HighBatteryStateSelector.Value = Properties.Settings.Default.HighBatteryValue;
             HighPowerAlertCheckBox.Checked = Properties.Settings.Default.CheckBoxValue;
             ForHigh.Enabled = Properties.Settings.Default.TimerValue;
-
-            //this.ShowInTaskbar = false;
-            //this.Hide();
         }
         private void Main_FormClosing(object sender, FormClosingEventArgs e)
         {
