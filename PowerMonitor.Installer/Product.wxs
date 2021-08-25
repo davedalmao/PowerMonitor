@@ -1,13 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-	<Product Id="*" Name="PowerMonitor.Installer" Language="1033" Version="1.0.0.0" Manufacturer="12" UpgradeCode="3e80ae15-6d1f-4e43-ad39-360cfcc9abb0">
-		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
 
-		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
-		<MediaTemplate />
+	<!-- Give the product a unique Id per platform -->
+	<?if $(var.Platform)=x64 ?>
+	<?define ProductCode = "{BBE70A86-609B-429F-9BC9-02C698F12703}" ?>
+	<?else?>
+	<?define ProductCode = "{10231856-E5B7-4EDB-AFFC-FF17538D6F34}" ?>
+	<?endif?>
 
+	<!-- UpgradeCode is the REAL product/upgrade ID (this never changes, unlike ProductCode)-->
+	<?define UpgradeCode = "{08955411-93A8-4FF7-A762-A3DCA2C181BC}" ?>
+
+	<!-- Main Product Details -->
+	<!-- The BuildVersion is in Paraject.Installer (unload the installer to see) -->
+	<Product Id="$(var.ProductCode)"
+		 Name="!(loc.ProductName_$(var.Platform))"
+		 Language="!(loc.Language)"
+		 Version="$(var.BuildVersion)"
+		 Manufacturer="!(loc.PublisherName)"
+		 UpgradeCode="$(var.UpgradeCode)">
+
+		<!-- Product's Package Details -->
+		<Package InstallerVersion="200"
+				 Compressed="yes"
+				 InstallScope="perMachine"
+				 Platform="$(var.Platform)"
+				 Manufacturer="!(loc.PublisherName)"
+				 Description="!(loc.Description)"
+				 Keywords="!(loc.Keywords)"
+				 Comments="!(loc.Comments)"
+				 Languages="!(loc.Language)"/>
+
+		<!-- Downgrade Error Message-->
+		<MajorUpgrade DowngradeErrorMessage="!(loc.DowngradeErrorMessage)" />
+
+		<!-- Embed the .cab file into the installer (.msi file) -->
+		<MediaTemplate EmbedCab="yes" />
+
+		<!-- Project's icon directory (this icon will be displayed in Add/Remove Programs, and will be used as part of the installer) -->
+		<Icon Id="AppIcon" SourceFile="$(var.PowerMonitor.ProjectDir)\Battery-blue.ico"/>
+
+		<!-- The value of ARPPRODUCTICON (a special Id) needs to be an Id of an Icon -->
+		<Property Id="ARPPRODUCTICON">AppIcon</Property>
+
+		<!-- Help/Support Website (Shows in the Add/Remove Programs) -->
+		<Property Id="ARPURLINFOABOUT">https://github.com/paraJdox1/PowerMonitor</Property>
+
+		<!-- Installer's UI (without EULA) -->
+		<UI>
+			<UIRef Id="WixUI_InstallDir" />
+			<Publish Dialog="WelcomeDlg"
+				  Control="Next"
+				  Event="NewDialog"
+				  Value="VerifyReadyDlg"
+				  Order="2">1</Publish>
+			<Publish Dialog="VerifyReadyDlg"
+				  Control="Back"
+				  Event="NewDialog"
+				  Value="WelcomeDlg"
+				  Order="2">1</Publish>
+		</UI>
+
+		<!-- The Feature tag contains: components, shortcuts, folders, and files (this defines what to install in the installer (.msi)) -->
+		<!-- These are the files that we want to install (these will be stored in the .cab file) -->
 		<Feature Id="ProductFeature" Title="PowerMonitor.Installer" Level="1">
+			<!-- This is a "reference" to the ProductComponents group (in Components.wxs) -->
 			<ComponentGroupRef Id="ProductComponents" />
+
+			<!-- This is a "reference" to the PublishedComponents group (in HeatGeneratedComponents.wxs)  -->
+			<!--<ComponentGroupRef Id="PublishedComponents" />-->
 		</Feature>
 	</Product>
 </Wix>
