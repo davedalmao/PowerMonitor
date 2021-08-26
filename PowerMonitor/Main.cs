@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Drawing;
 using System.Media;
 using System.Windows.Forms;
@@ -18,7 +19,9 @@ namespace PowerMonitor
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
+            SystemEvents.PowerModeChanged += new PowerModeChangedEventHandler(SystemEvents_PowerLineStatusChanged);
         }
+
 
         private void Main_Load(object sender, EventArgs e)
         {
@@ -33,10 +36,16 @@ namespace PowerMonitor
             HighPowerAlertCheckBox.Checked = Properties.Settings.Default.CheckBoxValue;
             ForHigh.Enabled = Properties.Settings.Default.TimerValue;
         }
+
         private void Main_FormClosing(object sender, FormClosingEventArgs e)
         {
             e.Cancel = true;
             minimizeToSystemTray();
+        }
+
+        private void SystemEvents_PowerLineStatusChanged(object sender, PowerModeChangedEventArgs e)
+        {
+            UpdateBatteryState();
         }
 
         private void exitApplicationToolStripMenuItem_Click(object sender, EventArgs e)
@@ -113,7 +122,7 @@ namespace PowerMonitor
 
         private void ChargingTimer_Tick(object sender, EventArgs e)
         {
-            BatteryState();
+            UpdateBatteryState();
         }
 
 
@@ -198,6 +207,7 @@ namespace PowerMonitor
             try
             {
                 percentNumber = (int)(power.BatteryLifePercent * 100);
+
                 //Low Power State
                 if (percentNumber <= LowBatteryStateSelector.Value)
                 {
@@ -276,7 +286,7 @@ namespace PowerMonitor
             }
         }
 
-        private void BatteryState()
+        private void UpdateBatteryState()
         {
             percentNumber = (int)(power.BatteryLifePercent * 100);
 
