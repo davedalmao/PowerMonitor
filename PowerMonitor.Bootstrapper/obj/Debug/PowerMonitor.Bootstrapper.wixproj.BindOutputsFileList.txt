@@ -1,0 +1,2 @@
+D:\Visual Studio\PowerMonitor\PowerMonitor.Bootstrapper\bin\Debug\PowerMonitor.Bootstrapper.exe
+D:\Visual Studio\PowerMonitor\PowerMonitor.Bootstrapper\bin\Debug\PowerMonitor.Bootstrapper.wixpdb

@@ -1,0 +1,9 @@
+D:\Visual Studio\PowerMonitor\PowerMonitor.Installer\bin\Debug\PowerMonitor-Debug-x86.msi
+D:\Visual Studio\PowerMonitor\PowerMonitor.Installer\bin\Debug\PowerMonitor-Debug-x86.wixpdb
+obj\Debug\Components.wixobj
+obj\Debug\Directories.wixobj
+obj\Debug\HeatGeneratedComponents.wixobj
+obj\Debug\Product.wixobj
+obj\Debug\PowerMonitor.Installer.wixproj.BindContentsFileListnull.txt
+obj\Debug\PowerMonitor.Installer.wixproj.BindOutputsFileListnull.txt
+obj\Debug\PowerMonitor.Installer.wixproj.BindBuiltOutputsFileListnull.txt

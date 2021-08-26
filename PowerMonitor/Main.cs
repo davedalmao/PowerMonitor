@@ -41,7 +41,6 @@ namespace PowerMonitor
 
         private void exitApplicationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("fdasfdasf");
             Environment.Exit(0);
             //Application.Exit();
         }

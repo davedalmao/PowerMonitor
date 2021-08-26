@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
 
 	<!-- Give the product a unique Id per platform -->
 	<?if $(var.Platform)=x64 ?>
@@ -70,5 +70,13 @@
 			<!-- This is a "reference" to the PublishedComponents group (in HeatGeneratedComponents.wxs)  -->
 			<ComponentGroupRef Id="PublishedComponents" />
 		</Feature>
+
+		<!-- Close the app first before an install/uninstall process -->
+		<?define AppExe = "PowerMonitor.exe" ?>
+		<CustomAction Id="KillApp" Directory="INSTALLFOLDER" Return="ignore" ExeCommand="&quot;[SystemFolder]taskkill.exe&quot; /F /IM &quot;$(var.AppExe)&quot;" />
+
+		<InstallExecuteSequence>
+			<Custom Action="KillApp" Before="InstallValidate" />
+		</InstallExecuteSequence>
 	</Product>
 </Wix>

@@ -1,9 +1,9 @@
 obj\Release\Directories.wixobj
 obj\Release\Product.wixobj
-D:\Visual Studio\PowerMonitor\PowerMonitor.Installer\bin\Release\PowerMonitor-Release-x64.msi
-D:\Visual Studio\PowerMonitor\PowerMonitor.Installer\bin\Release\PowerMonitor-Release-x64.wixpdb
 obj\Release\Components.wixobj
 obj\Release\PowerMonitor.Installer.wixproj.BindContentsFileListnull.txt
 obj\Release\PowerMonitor.Installer.wixproj.BindOutputsFileListnull.txt
 obj\Release\PowerMonitor.Installer.wixproj.BindBuiltOutputsFileListnull.txt
 obj\Release\HeatGeneratedComponents.wixobj
+D:\Visual Studio\PowerMonitor\PowerMonitor.Installer\bin\Release\PowerMonitor-Release-x86.msi
+D:\Visual Studio\PowerMonitor\PowerMonitor.Installer\bin\Release\PowerMonitor-Release-x86.wixpdb
