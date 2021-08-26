@@ -1,11 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-	<Bundle Name="PowerMonitor.Bootstrapper" Version="1.0.0.0" Manufacturer="" UpgradeCode="25ae8ea7-cb35-4a65-a847-c055d7b32b11">
-		<BootstrapperApplicationRef Id="WixStandardBootstrapperApplication.RtfLicense" />
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:bal="http://schemas.microsoft.com/wix/BalExtension">
+	<Bundle Name="Power Monitor"
+			Version="$(var.BuildVersion)"
+			Manufacturer="paraJdox1"
+			UpgradeCode="{C6C29473-AFEF-4257-A74F-3584066CF487}"
+			IconSourceFile="App.ico">
+
+		<!-- Bootstrapper Interface (this removes the EULA when starting the bootstrapper) -->
+		<BootstrapperApplicationRef Id="WixStandardBootstrapperApplication.HyperlinkLicense">
+			<bal:WixStandardBootstrapperApplication LicenseUrl=""
+													SuppressOptionsUI="yes"
+													LogoFile="AppLogo.png"/>
+		</BootstrapperApplicationRef>
 
 		<Chain>
-			<!-- TODO: Define the list of chained packages. -->
-			<!-- <MsiPackage SourceFile="path\to\your.msi" /> -->
+			<!-- Install .NET Framework 4.7.2 -->
+			<PackageGroupRef Id="NetFx472Redist"/>
+
+			<!-- Project (Power Monitor) Installer -->
+			<MsiPackage SourceFile="$(var.PowerMonitor.Installer.TargetDir)PowerMonitor-$(var.Configuration)-$(var.Platform).msi"
+						DisplayInternalUI="yes"
+						Vital="yes"/>
 		</Chain>
+
+		<!-- To have the option to run the application after its installation -->
+		<!-- Program Files Folder (based on platform) -->
+		<?if $(var.Platform)=x64?>
+		<!-- Program Files (64bit) Folder-->
+		<Variable Name="LaunchTarget" Value="[ProgramFiles64Folder]\PowerMonitor\PowerMonitor.exe"/>
+
+		<?else?>
+		<!-- Program Files (32bit) Folder-->
+		<Variable Name="LaunchTarget" Value="[ProgramFilesFolder]\PowerMonitor\PowerMonitor.exe"/>
+		<?endif?>
 	</Bundle>
 </Wix>
