@@ -39,6 +39,13 @@ namespace PowerMonitor
             minimizeToSystemTray();
         }
 
+        private void exitApplicationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("fdasfdasf");
+            Environment.Exit(0);
+            //Application.Exit();
+        }
+
         private void Main_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -115,12 +122,7 @@ namespace PowerMonitor
         {
             ShowMain();
             NotifyIcon.Visible = false;
-        }
-
-        private void exitApplicationToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-            //Environment.Exit(0);
+            //this.ShowInTaskbar = true;
         }
 
         private void MinimizeIcon_Click(object sender, EventArgs e)
@@ -434,8 +436,6 @@ namespace PowerMonitor
 
         private void minimizeToSystemTray()
         {
-            this.CenterToScreen();
-            this.WindowState = FormWindowState.Minimized;
             NotifyIcon.Visible = true;
             SettingsPanel.Visible = false;
             InfoPanel.Visible = false;
