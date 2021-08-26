@@ -1,2 +1,0 @@
-D:\Visual Studio\PowerMonitor\PowerMonitor.Installer\bin\Release\en-us\PowerMonitor.Installer.msi
-D:\Visual Studio\PowerMonitor\PowerMonitor.Installer\bin\Release\en-us\PowerMonitor.Installer.wixpdb

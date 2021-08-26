@@ -12,7 +12,7 @@
 	<?define UpgradeCode = "{08955411-93A8-4FF7-A762-A3DCA2C181BC}" ?>
 
 	<!-- Main Product Details -->
-	<!-- The BuildVersion is in Paraject.Installer (unload the installer to see) -->
+	<!-- The BuildVersion is in PowerMonitor.Installer (unload the installer to see) -->
 	<Product Id="$(var.ProductCode)"
 		 Name="!(loc.ProductName_$(var.Platform))"
 		 Language="!(loc.Language)"

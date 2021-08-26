@@ -5,16 +5,19 @@
 		<Directory Id="TARGETDIR" Name="SourceDir">
 			<!-- All App files -->
 
-			<!-- AppData\Local Folder-->
-			<!-- to install in AppData\Local folder: 
-				 1. Right click to this project (Paraject.Installer)
-				 2. Select Properties
-				 3. Select Tool Settings
-				 4. Check the Suppress ICE validation
-				 5. Build the installer -->
-			<Directory Id="LocalAppDataFolder">
+			<!-- Program Files Folder (based on platform) -->
+			<?if $(var.Platform)=x64?>
+			<!-- Program Files (64bit) Folder-->
+			<Directory Id="ProgramFiles64Folder">
 				<Directory Id="INSTALLFOLDER" Name="!(loc.ProductFolderName)" />
 			</Directory>
+
+			<?else?>
+			<!-- Program Files (32bit) Folder-->
+			<Directory Id="ProgramFilesFolder">
+				<Directory Id="INSTALLFOLDER" Name="!(loc.ProductFolderName)" />
+			</Directory>
+			<?endif?>
 
 			<!-- Start Menu Shortcut (exe only) -->
 			<Directory Id="ProgramMenuFolder"/>

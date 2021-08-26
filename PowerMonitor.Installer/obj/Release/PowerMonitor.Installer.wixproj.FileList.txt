@@ -1,7 +1,8 @@
 obj\Release\Directories.wixobj
 obj\Release\Product.wixobj
-D:\Visual Studio\PowerMonitor\PowerMonitor.Installer\bin\Release\en-us\PowerMonitor.Installer.msi
-D:\Visual Studio\PowerMonitor\PowerMonitor.Installer\bin\Release\en-us\PowerMonitor.Installer.wixpdb
-obj\Release\PowerMonitor.Installer.wixproj.BindContentsFileListen-us.txt
-obj\Release\PowerMonitor.Installer.wixproj.BindOutputsFileListen-us.txt
-obj\Release\PowerMonitor.Installer.wixproj.BindBuiltOutputsFileListen-us.txt
+D:\Visual Studio\PowerMonitor\PowerMonitor.Installer\bin\Release\PowerMonitor-Release-x64.msi
+D:\Visual Studio\PowerMonitor\PowerMonitor.Installer\bin\Release\PowerMonitor-Release-x64.wixpdb
+obj\Release\Components.wixobj
+obj\Release\PowerMonitor.Installer.wixproj.BindContentsFileListnull.txt
+obj\Release\PowerMonitor.Installer.wixproj.BindOutputsFileListnull.txt
+obj\Release\PowerMonitor.Installer.wixproj.BindBuiltOutputsFileListnull.txt
