@@ -17,6 +17,7 @@
 			<!-- Install .NET Framework 4.7.2 -->
 			<PackageGroupRef Id="NetFx472Redist"/>
 
+
 			<!-- Project (Power Monitor) Installer -->
 			<MsiPackage SourceFile="$(var.PowerMonitor.Installer.TargetDir)PowerMonitor-$(var.Configuration)-$(var.Platform).msi"
 						DisplayInternalUI="yes"
