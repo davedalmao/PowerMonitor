@@ -6,6 +6,11 @@ Monitors the battery percentage and status of your laptop/pc, and notifies if th
 
 <br/>
 
+# How To Download
+  <a href="https://github.com/paraJdox1/PowerMonitor/releases">Go to the project's "Releases" section, and select the (latest) .exe, .zip, or .7z file to download this app.</a>
+  
+<br/>
+
 ### 100% Charging and Not Charging
 ![100-Charging](https://user-images.githubusercontent.com/62003240/93049560-d73dd300-f693-11ea-8826-1e0c7cf5c8bf.jpg)   ![100-Not Charging](https://user-images.githubusercontent.com/62003240/93049616-f3da0b00-f693-11ea-96f2-9e3e12bb62d0.jpg)
 ___
