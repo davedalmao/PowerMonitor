@@ -1,1 +1,7 @@
 obj\Release\Bundle.wixobj
+D:\Visual Studio\PowerMonitor\PowerMonitor.Bootstrapper\bin\Release\PowerMonitor.Bootstrapper.exe
+D:\Visual Studio\PowerMonitor\PowerMonitor.Bootstrapper\bin\Release\PowerMonitor.Bootstrapper.wixpdb
+obj\Release\NetFramework472.wixobj
+obj\Release\PowerMonitor.Bootstrapper.wixproj.BindContentsFileList.txt
+obj\Release\PowerMonitor.Bootstrapper.wixproj.BindOutputsFileList.txt
+obj\Release\PowerMonitor.Bootstrapper.wixproj.BindBuiltOutputsFileList.txt
