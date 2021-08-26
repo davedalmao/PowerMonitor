@@ -1,0 +1,16 @@
+..\PowerMonitor\bin\Release\Splat.dll
+..\PowerMonitor\bin\Release\PowerMonitor.exe.config
+..\PowerMonitor\bin\Release\Mono.Cecil.Rocks.dll
+..\PowerMonitor\bin\Release\PowerMonitor.exe
+..\PowerMonitor\bin\Release\SharpCompress.dll
+..\PowerMonitor\bin\Release\Mono.Cecil.dll
+..\PowerMonitor\bin\Release\PowerMonitor.application
+..\PowerMonitor\bin\Release\Mono.Cecil.Mdb.dll
+..\PowerMonitor\bin\Release\PowerMonitor.pdb
+..\PowerMonitor\bin\Release\Splat.pdb
+..\PowerMonitor\bin\Release\DeltaCompressionDotNet.MsDelta.dll
+..\PowerMonitor\bin\Release\app.publish\PowerMonitor.exe
+..\PowerMonitor\bin\Release\Mono.Cecil.Pdb.dll
+..\PowerMonitor\bin\Release\PowerMonitor.exe.manifest
+..\PowerMonitor\bin\Release\DeltaCompressionDotNet.dll
+..\PowerMonitor\bin\Release\DeltaCompressionDotNet.PatchApi.dll

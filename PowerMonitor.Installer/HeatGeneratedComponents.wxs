@@ -2,53 +2,53 @@
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
     <Fragment>
         <DirectoryRef Id="INSTALLFOLDER">
-            <Component Id="cmpF4291D1794E2E67C6B096D5FD271DD69" Guid="{F2506429-CF49-4296-917B-FBF7914B40AD}">
+            <Component Id="cmpF4291D1794E2E67C6B096D5FD271DD69" Guid="{3690DF93-A5BD-4220-AC9C-883747B1CFB0}">
                 <File Id="filE8ACCC3757E7DCB18A2EF7973F7D67AC" KeyPath="yes" Source="$(var.BasePath)\DeltaCompressionDotNet.dll" />
             </Component>
-            <Component Id="cmp3AF8DAE5A5815FF7DF4A8312CEF412EF" Guid="{C98892C3-1742-438A-A333-FAFC9F3660C0}">
+            <Component Id="cmp3AF8DAE5A5815FF7DF4A8312CEF412EF" Guid="{20017A33-2DD9-4E4C-899E-E97606477805}">
                 <File Id="fil87F1ED90A6989050C8EC57CE22A3913A" KeyPath="yes" Source="$(var.BasePath)\DeltaCompressionDotNet.MsDelta.dll" />
             </Component>
-            <Component Id="cmp5D616E6366FC406C7A882A76B4352194" Guid="{88C1E93C-5DEE-48EB-AA0F-542E5D04D304}">
+            <Component Id="cmp5D616E6366FC406C7A882A76B4352194" Guid="{8D60187F-3895-4B6E-995F-09C004EFD61F}">
                 <File Id="filF26F8F4C18C9B96F7D07ADAB22C05068" KeyPath="yes" Source="$(var.BasePath)\DeltaCompressionDotNet.PatchApi.dll" />
             </Component>
-            <Component Id="cmp533354A25CA93FF3B8EB06268C7FDEDC" Guid="{D1030B63-4D69-40AB-B2F4-D456109AE1A4}">
+            <Component Id="cmp533354A25CA93FF3B8EB06268C7FDEDC" Guid="{FDE94A56-42FE-4DE4-8CF5-56C242059B46}">
                 <File Id="fil426730C05C34F31A8FFC29BD24DC16B1" KeyPath="yes" Source="$(var.BasePath)\Mono.Cecil.dll" />
             </Component>
-            <Component Id="cmp1CF9D9D3016E4D3190366F1DCD0F2F26" Guid="{47CC77CC-0A34-4E7C-912A-DA49A0ED2C02}">
+            <Component Id="cmp1CF9D9D3016E4D3190366F1DCD0F2F26" Guid="{9652D692-B40A-4927-B462-DA886D8CB4E0}">
                 <File Id="fil539AAF025A86DB6AAEED310DC7493ABE" KeyPath="yes" Source="$(var.BasePath)\Mono.Cecil.Mdb.dll" />
             </Component>
-            <Component Id="cmpB4B96E74FF236FD5613B9C81C7860BCA" Guid="{298EDA0E-12C1-4210-83F2-274631C2F655}">
+            <Component Id="cmpB4B96E74FF236FD5613B9C81C7860BCA" Guid="{B23BF8FF-5BF1-4AF8-8BCC-B44DB0B8A2FD}">
                 <File Id="filDB6A1D5D8BBBA53A93AE716DB99FCE7A" KeyPath="yes" Source="$(var.BasePath)\Mono.Cecil.Pdb.dll" />
             </Component>
-            <Component Id="cmp869D2C77E8A66E35CD65E4431CD62DF4" Guid="{0627A2F2-73CC-4672-B556-07DF8564E022}">
+            <Component Id="cmp869D2C77E8A66E35CD65E4431CD62DF4" Guid="{369E9187-BAC7-4A19-BED1-127CC5F28A26}">
                 <File Id="fil1A6ACD72E27664742EE1044492933A02" KeyPath="yes" Source="$(var.BasePath)\Mono.Cecil.Rocks.dll" />
             </Component>
-            <Component Id="cmpCFE05FAF1051584A918D3FE5E87575B5" Guid="{945DDD41-D867-4D20-B1CE-E947420419AB}">
+            <Component Id="cmpCFE05FAF1051584A918D3FE5E87575B5" Guid="{B17D736D-4B40-49C0-BF0E-2EC124DAD59F}">
                 <File Id="fil4E67296A64D347A89EE2A279AAB9254A" KeyPath="yes" Source="$(var.BasePath)\PowerMonitor.application" />
             </Component>
-            <Component Id="cmp16D930DE91815C8892766EF5889565B4" Guid="{703FE30C-7DD6-4E52-A91A-F67A069F9BDB}">
+            <Component Id="cmp16D930DE91815C8892766EF5889565B4" Guid="{DB904EBC-D818-4366-B12C-F6B946D39AC9}">
                 <File Id="fil33D72076D0942F151DC5560C712F529D" KeyPath="yes" Source="$(var.BasePath)\PowerMonitor.exe" />
             </Component>
-            <Component Id="cmpBB9283BEBAA416429CE4236229156F57" Guid="{8730CD6F-1E1C-4F97-8B62-76186A4EE4D2}">
+            <Component Id="cmpBB9283BEBAA416429CE4236229156F57" Guid="{5C1CBD3E-AEC6-43B4-B2C5-37810700CFF0}">
                 <File Id="fil0F5B9B4BD247FF11365D0B2786E06FFE" KeyPath="yes" Source="$(var.BasePath)\PowerMonitor.exe.config" />
             </Component>
-            <Component Id="cmp57CB7B20DF8BAB2F14133ECCE33FCFFA" Guid="{B5724BE5-32CB-43E8-B612-A8DC6DB5677D}">
+            <Component Id="cmp57CB7B20DF8BAB2F14133ECCE33FCFFA" Guid="{57631E37-820D-41BA-89C1-114A13B87580}">
                 <File Id="filE60A36CA92AABD7AE90D6891F8FE5504" KeyPath="yes" Source="$(var.BasePath)\PowerMonitor.exe.manifest" />
             </Component>
-            <Component Id="cmp83D44C8EEE4559991A46AC8E7FF7DD4D" Guid="{D26A7077-EBA0-455D-BC88-222A850C8535}">
+            <Component Id="cmp83D44C8EEE4559991A46AC8E7FF7DD4D" Guid="{82E960BD-35A3-4C37-A75D-AEA29CAD72BA}">
                 <File Id="fil63FC1B019BD921BF1D9B319E41461A69" KeyPath="yes" Source="$(var.BasePath)\PowerMonitor.pdb" />
             </Component>
-            <Component Id="cmp7EF438D2A4E1FF3FA6222046A8791D88" Guid="{ECE2DA1E-1E66-48B0-8B89-0873FBDB0A3F}">
+            <Component Id="cmp7EF438D2A4E1FF3FA6222046A8791D88" Guid="{51231DF7-C963-4408-9DCC-8A31D8426B9C}">
                 <File Id="fil384AFC995578699CA1F6C1519880B713" KeyPath="yes" Source="$(var.BasePath)\SharpCompress.dll" />
             </Component>
-            <Component Id="cmpECC0DB43D675D3354C308FED694EB2A4" Guid="{87752DCB-E333-4932-9BA7-ECA636A7A7AF}">
+            <Component Id="cmpECC0DB43D675D3354C308FED694EB2A4" Guid="{2E3FCBEC-A40A-46CE-9692-C074FAF53473}">
                 <File Id="fil096A18880498670BA154574207EB2E0F" KeyPath="yes" Source="$(var.BasePath)\Splat.dll" />
             </Component>
-            <Component Id="cmp0B94E9A7DCC14AAE14FF1B3F31F826BB" Guid="{62DD8E89-89EE-43EC-B806-7E407AA64B4A}">
+            <Component Id="cmp0B94E9A7DCC14AAE14FF1B3F31F826BB" Guid="{7D0C9F92-4EC6-4F80-AED6-62856E3A72D9}">
                 <File Id="fil75D94E27CD56C7DA7B95513DC48E0451" KeyPath="yes" Source="$(var.BasePath)\Splat.pdb" />
             </Component>
             <Directory Id="dir00122602D311392A9D483BE33FE17DEF" Name="app.publish">
-                <Component Id="cmp14DC1D1C1CD6726D13EAF3E2F992D4AB" Guid="{979F7B92-B495-4A96-BC47-0FFBA83DC09D}">
+                <Component Id="cmp14DC1D1C1CD6726D13EAF3E2F992D4AB" Guid="{BD55B939-7348-481E-9ACB-8E481ED8E23E}">
                     <File Id="filA16592FE4896C31DAD10B43606CA4D26" KeyPath="yes" Source="$(var.BasePath)\app.publish\PowerMonitor.exe" />
                 </Component>
             </Directory>
