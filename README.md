@@ -1,6 +1,8 @@
-# PowerMonitor
- Monitors the battery percentage and status of your laptop. If the battery is at low state the power monitor will pop up to notify the user that the battery is low and needs to be charged. It will also notify when the battery is almost full. You can also disable the app notifying when the battery is almost full at the settings.
+PowerMonitor &nbsp; <img src="https://img.shields.io/badge/Target%20framework-.NET%20Framework%204.7.2-blue" alt="" /> <img src="https://img.shields.io/badge/Platform-x86-orange" alt="Project Platform | x86" /> 
 
+Monitors the battery percentage and status of your laptop/pc, and notifies if the battery is low. It will also notify when the battery is almost full (optional/configurable).
+
+<hr/>
 
 ### 100% Charging and Not Charging
 ![100-Charging](https://user-images.githubusercontent.com/62003240/93049560-d73dd300-f693-11ea-8826-1e0c7cf5c8bf.jpg)   ![100-Not Charging](https://user-images.githubusercontent.com/62003240/93049616-f3da0b00-f693-11ea-96f2-9e3e12bb62d0.jpg)
