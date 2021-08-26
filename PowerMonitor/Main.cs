@@ -14,6 +14,7 @@ namespace PowerMonitor
         int movX;
         int movY;
         private static int enterCounter = 0;
+        int notChargedTimerTicks = 0;
 
         public Main()
         {
@@ -303,6 +304,10 @@ namespace PowerMonitor
                 PowerStatus.Text = "CHARGING";
                 minimizeToSystemTray();
                 ChargingTimer.Stop();
+
+                notChargedTimerTicks = 0;
+                NotCharged.Enabled = false;
+                NotCharged.Stop();
             }
 
             else if (power.PowerLineStatus == PowerLineStatus.Offline)
@@ -350,6 +355,9 @@ namespace PowerMonitor
                     //Sound Alert When Form Pops Up
                     SoundPlayer sp = new SoundPlayer(Properties.Resources.Alert);
                     sp.Play();
+
+                    NotCharged.Enabled = true;
+                    NotCharged.Start();
                 }
             }
 
@@ -449,6 +457,17 @@ namespace PowerMonitor
             };
         }
 
+        private void NotCharged_Tick(object sender, EventArgs e)
+        {
+            notChargedTimerTicks++;
+
+            if (notChargedTimerTicks == 60)
+            {
+                notChargedTimerTicks = 0;
+                CheckPercentNumberLow();
+            }
+        }
+
         private void minimizeToSystemTray()
         {
             NotifyIcon.Visible = true;
@@ -497,8 +516,6 @@ namespace PowerMonitor
         {
             _ = (EnterTwice.Visible == false) ? EnterTwice.Visible = true : EnterTwice.Visible = false;
         }
-
-
 
         private void SettingsIcon_Click(object sender, EventArgs e)
         {

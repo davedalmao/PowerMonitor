@@ -64,6 +64,7 @@
             this.ChargingTimer = new System.Windows.Forms.Timer(this.components);
             this.EnterTwice = new System.Windows.Forms.Label();
             this.BatteryIndicator = new PowerMonitor.CustomProgressBar();
+            this.NotCharged = new System.Windows.Forms.Timer(this.components);
             this.InfoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LowBatteryStateSelector)).BeginInit();
@@ -424,9 +425,6 @@
             this.exitApplicationToolStripMenuItem.Text = "Exit Power Monitor";
             this.exitApplicationToolStripMenuItem.Click += new System.EventHandler(this.exitApplicationToolStripMenuItem_Click);
             // 
-            // ToolTip
-            // 
-            // 
             // ChargingTimer
             // 
             this.ChargingTimer.Enabled = true;
@@ -451,6 +449,11 @@
             this.BatteryIndicator.Size = new System.Drawing.Size(355, 30);
             this.BatteryIndicator.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.BatteryIndicator.TabIndex = 13;
+            // 
+            // NotCharged
+            // 
+            this.NotCharged.Interval = 1000;
+            this.NotCharged.Tick += new System.EventHandler(this.NotCharged_Tick);
             // 
             // Main
             // 
@@ -537,6 +540,7 @@
         private System.Windows.Forms.ToolTip ToolTip;
         private System.Windows.Forms.Timer ChargingTimer;
         private System.Windows.Forms.Label EnterTwice;
+        private System.Windows.Forms.Timer NotCharged;
     }
 }
 
