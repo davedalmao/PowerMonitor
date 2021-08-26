@@ -48,6 +48,11 @@ namespace PowerMonitor
             UpdateBatteryState();
         }
 
+        private void NotifyIcon_BalloonTipShown(object sender, EventArgs e)
+        {
+            NotifyIcon.Text = $"Power Monitor ({power.BatteryLifePercent:P0})";
+        }
+
         private void exitApplicationToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Environment.Exit(0);
@@ -180,6 +185,7 @@ namespace PowerMonitor
 
         private void RefreshStatus()
         {
+            NotifyIcon_BalloonTipShown(this, null);
             VisualBatteryHealth();
             HighMedLow();
             BatteryPercent();
@@ -491,6 +497,8 @@ namespace PowerMonitor
         {
             _ = (EnterTwice.Visible == false) ? EnterTwice.Visible = true : EnterTwice.Visible = false;
         }
+
+
 
         private void SettingsIcon_Click(object sender, EventArgs e)
         {

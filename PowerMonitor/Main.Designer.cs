@@ -1,7 +1,7 @@
-﻿using System.Drawing;
-
-namespace PowerMonitor {
-    partial class Main {
+﻿namespace PowerMonitor
+{
+    partial class Main
+    {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -11,8 +11,10 @@ namespace PowerMonitor {
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing) {
-            if (disposing && (components != null)) {
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
                 components.Dispose();
             }
             base.Dispose(disposing);
@@ -24,7 +26,8 @@ namespace PowerMonitor {
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent() {
+        private void InitializeComponent()
+        {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.BatteryLife = new System.Windows.Forms.Label();
@@ -404,7 +407,7 @@ namespace PowerMonitor {
             // 
             this.NotifyIcon.ContextMenuStrip = this.ExitMenuStrip;
             this.NotifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("NotifyIcon.Icon")));
-            this.NotifyIcon.Text = "Power Monitor";
+            this.NotifyIcon.BalloonTipShown += new System.EventHandler(this.NotifyIcon_BalloonTipShown);
             this.NotifyIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.NotifyIcon_MouseDoubleClick);
             // 
             // ExitMenuStrip
@@ -420,6 +423,9 @@ namespace PowerMonitor {
             this.exitApplicationToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
             this.exitApplicationToolStripMenuItem.Text = "Exit Power Monitor";
             this.exitApplicationToolStripMenuItem.Click += new System.EventHandler(this.exitApplicationToolStripMenuItem_Click);
+            // 
+            // ToolTip
+            // 
             // 
             // ChargingTimer
             // 
