@@ -380,7 +380,7 @@ namespace PowerMonitor
             }
         }
 
-        private void ShowMain()
+        public void ShowMain()
         {
             this.Show();
             this.BringToFront();
