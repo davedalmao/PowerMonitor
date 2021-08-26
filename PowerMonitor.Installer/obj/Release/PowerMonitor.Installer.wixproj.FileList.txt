@@ -6,3 +6,4 @@ obj\Release\Components.wixobj
 obj\Release\PowerMonitor.Installer.wixproj.BindContentsFileListnull.txt
 obj\Release\PowerMonitor.Installer.wixproj.BindOutputsFileListnull.txt
 obj\Release\PowerMonitor.Installer.wixproj.BindBuiltOutputsFileListnull.txt
+obj\Release\HeatGeneratedComponents.wixobj

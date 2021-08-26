@@ -13,7 +13,6 @@ D:\Visual Studio\PowerMonitor\PowerMonitor\bin\Release\Mono.Cecil.Rocks.dll
 D:\Visual Studio\PowerMonitor\PowerMonitor\bin\Release\SharpCompress.dll
 D:\Visual Studio\PowerMonitor\PowerMonitor\bin\Release\Splat.dll
 D:\Visual Studio\PowerMonitor\PowerMonitor\bin\Release\Splat.pdb
-D:\Visual Studio\PowerMonitor\PowerMonitor\obj\Release\PowerMonitor.csproj.AssemblyReference.cache
 D:\Visual Studio\PowerMonitor\PowerMonitor\obj\Release\PowerMonitor.Main.resources
 D:\Visual Studio\PowerMonitor\PowerMonitor\obj\Release\PowerMonitor.MessageBoxes.resources
 D:\Visual Studio\PowerMonitor\PowerMonitor\obj\Release\PowerMonitor.Properties.Resources.resources
