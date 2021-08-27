@@ -11,6 +11,13 @@ Monitors the battery percentage and status of your laptop/pc, and notifies if th
   
 <br/>
 
+# How to Use
+Since you're the one that is familiar with your device (laptop), you can set what its **"LOW"** _battery state_ is (the default **"LOW"** state is 25%). [Found in the settings]
+
+(Every time your laptop's battery is in **"LOW"** state the app will notify you, to remind you that it need to be charnged)
+
+<br/>
+
 ### 100% Charging and Not Charging
 ![100-Charging](https://user-images.githubusercontent.com/62003240/93049560-d73dd300-f693-11ea-8826-1e0c7cf5c8bf.jpg)   ![100-Not Charging](https://user-images.githubusercontent.com/62003240/93049616-f3da0b00-f693-11ea-96f2-9e3e12bb62d0.jpg)
 ___
