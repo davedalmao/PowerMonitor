@@ -19,6 +19,7 @@ namespace PowerMonitor
         public Main()
         {
             InitializeComponent();
+            RunOnStartup();
             this.FormBorderStyle = FormBorderStyle.None;
             SystemEvents.PowerModeChanged += new PowerModeChangedEventHandler(SystemEvents_PowerLineStatusChanged);
         }
@@ -466,6 +467,13 @@ namespace PowerMonitor
                 notChargedTimerTicks = 0;
                 CheckPercentNumberLow();
             }
+        }
+
+        private void RunOnStartup()
+        {
+            //Full registry path: Computer\HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
+            RegistryKey reg = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+            reg.SetValue("Power Monitor", Application.ExecutablePath.ToString());
         }
 
         private void minimizeToSystemTray()
