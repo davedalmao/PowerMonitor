@@ -42,4 +42,4 @@ ___
 <br/>
 
 # Note
-- This app runs on startup once installed
+- Runs on startup once installed
