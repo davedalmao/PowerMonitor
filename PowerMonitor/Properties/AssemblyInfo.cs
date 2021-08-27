@@ -4,11 +4,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("PowerMonitor")]
+[assembly: AssemblyTitle("Power Monitor")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("John Dave Dalmao")]
-[assembly: AssemblyProduct("PowerMonitor")]
+[assembly: AssemblyCompany("paraJdox1")]
+[assembly: AssemblyProduct("Power Monitor")]
 [assembly: AssemblyCopyright("Copyright ©  2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
