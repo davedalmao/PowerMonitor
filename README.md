@@ -1,13 +1,13 @@
 <img src="https://user-images.githubusercontent.com/62003240/130961898-e8734309-8fb6-4479-9f8d-e4245d268815.png" width="280" alt="Project Logo" />  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="https://img.shields.io/badge/Target%20framework-.NET%20Framework%204.7.2-blue" alt="" /> <img src="https://img.shields.io/badge/Platform-x86-orange" alt="Project Platform | x86" /> 
 
-Monitors the battery percentage and status of your laptop/pc, and notifies if the battery is low. It will also notify when the battery is almost full (optional/configurable).
+Monitors the battery percentage and status of your laptop, and notifies if the battery is low. It will also notify when the battery is almost full (optional/configurable).
 
 <hr/>
 
 <br/>
 
 # Purpose
-To avoid unexpected shutdown/hibernate, due to having sudden battery depletion. (This usually occurs when the laptop is old)
+To avoid unexpected shutdown/sleep (without any warning), due to having sudden battery depletion. (This usually occurs when the laptop is old)
 
 <br/>
 
