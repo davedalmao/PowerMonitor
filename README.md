@@ -37,4 +37,9 @@ ___
 
 ### Settings
 ![Settings](https://user-images.githubusercontent.com/62003240/93049629-fa688280-f693-11ea-9544-9b71d9a94409.jpg)
+___
 
+<br/>
+
+# Note
+- This app runs on startup once installed
