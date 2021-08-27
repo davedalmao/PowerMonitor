@@ -6,6 +6,11 @@ Monitors the battery percentage and status of your laptop/pc, and notifies if th
 
 <br/>
 
+# Purpose
+To avoid unexpected shutdown/hibernate, due to having sudden battery depletion. (This usually occurs when the laptop is old)
+
+<br/>
+
 # How To Download
   <a href="https://github.com/paraJdox1/PowerMonitor/releases">Go to the project's "Releases" section, and select the (latest) .exe, .zip, or .7z file to download this app.</a>
   
@@ -48,5 +53,5 @@ ___
 
 <br/>
 
-# Note
-- Runs on startup once installed
+# Things to Note
+- This app runs on startup (when your device is turned on) once installed
