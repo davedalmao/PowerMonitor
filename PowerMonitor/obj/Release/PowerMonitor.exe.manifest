@@ -127,14 +127,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PowerMonitor.exe" size="139704">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PowerMonitor.exe" size="140216">
       <assemblyIdentity name="PowerMonitor" version="1.2.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>sM+8JnfSghoA85fZlvQpJr/rzd+u5Ly2WtDgynCzTVI=</dsig:DigestValue>
+        <dsig:DigestValue>KOwFxSii3tW9qch0RWj3pN7/owacI6c7D/QUacIwRTY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

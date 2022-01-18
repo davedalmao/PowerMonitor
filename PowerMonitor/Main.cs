@@ -334,7 +334,9 @@ namespace PowerMonitor
             try
             {
                 percentNumber = (int)(power.BatteryLifePercent * 100);
-                if (percentNumber <= LowBatteryStateSelector.Value && power.PowerLineStatus == PowerLineStatus.Offline)
+                if (power.BatteryChargeStatus == BatteryChargeStatus.Critical ||
+                    power.BatteryChargeStatus == BatteryChargeStatus.Low ||
+                    (percentNumber <= LowBatteryStateSelector.Value && power.PowerLineStatus == PowerLineStatus.Offline))
                 {
                     this.CenterToScreen();
 
